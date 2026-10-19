@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Api\Nident\AuthController;
 use App\Http\Controllers\Api\Nident\CanvasController;
+use App\Http\Controllers\Api\Nident\CollectionController;
 use App\Http\Controllers\Api\Nident\ContactController;
+use App\Http\Controllers\Api\Nident\DashboardController;
 use App\Http\Controllers\Api\Nident\MailController;
 use App\Http\Controllers\Api\Nident\ReservationController;
 use App\Http\Controllers\Api\Nident\SiteController;
@@ -33,6 +35,7 @@ Route::post('/auth/logout', [App\Http\Controllers\Api\AuthController::class, 'lo
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/admin/me', [AuthController::class, 'me']);
+    Route::get('/admin/dashboard', [DashboardController::class, 'show']);
     Route::middleware(NidentPermission::class.':reservations')->group(function () {
         Route::get('/admin/reservations', [ReservationController::class, 'index']);
         Route::put('/admin/reservations/{reservation}', [ReservationController::class, 'update'])->whereNumber('reservation');
@@ -52,6 +55,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/deliveries', [MailController::class, 'deliveries']);
     });
     Route::middleware(NidentPermission::class.':site')->prefix('admin/site')->group(function () {
+        Route::get('/collections/{collection}', [CollectionController::class, 'show']);
+        Route::put('/collections/{collection}', [CollectionController::class, 'save']);
+        Route::post('/collections/{collection}/publish', [CollectionController::class, 'publish']);
         Route::get('/modules', [CanvasController::class, 'index']);
         Route::put('/modules/{module}', [CanvasController::class, 'save']);
         Route::post('/modules/{module}/publish', [CanvasController::class, 'publish']);

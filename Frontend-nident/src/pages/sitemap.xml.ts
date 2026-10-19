@@ -4,6 +4,13 @@ export const GET: APIRoute = async ({ url }) => {
   try {
     const result = await api("/public/site");
     const base = import.meta.env.PUBLIC_SITE_URL || url.origin;
+    const plans = (result.result.collections?.plans?.items || []).map(
+      (plan: any) => ({ path: "/planes/" + plan.slug }),
+    );
+    result.result.pages = result.result.pages.filter(
+      (page: any) => !page.path.startsWith("/packs/"),
+    );
+    result.result.pages.push(...plans);
     const escape = (text: string) =>
       text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
     return new Response(

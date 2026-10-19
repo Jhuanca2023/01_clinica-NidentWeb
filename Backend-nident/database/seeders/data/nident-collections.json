@@ -1,0 +1,410 @@
+{
+  "reviews": {
+    "items": [
+      {
+        "id": "7c794c9c-7015-461e-af17-802c7cf81e47",
+        "visible": true,
+        "author": "Mariana",
+        "service": "Ortodoncia",
+        "quote": "“Me gustaría conocer cada etapa de mi tratamiento y sentirme acompañada durante los controles.”",
+        "rating": 5,
+        "image": "/assets/img/resenas/avatar-small-avatar1.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      },
+      {
+        "id": "19f365a9-5185-4359-a583-2eb2ea072ba6",
+        "visible": true,
+        "author": "Lucía",
+        "service": "Nident Kids",
+        "quote": "“Busco una primera visita tranquila para mi hija y espacio para preguntar sobre sus hábitos.”",
+        "rating": 5,
+        "image": "/assets/img/resenas/avatar-small-avatar2.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      },
+      {
+        "id": "72bbeb75-306e-44a7-a5ce-5b9d9c2faa6d",
+        "visible": true,
+        "author": "Elena",
+        "service": "Evaluación dental",
+        "quote": "“Quiero comprender mis alternativas de cuidado y elegir con información clara.”",
+        "rating": 5,
+        "image": "/assets/img/clinica/about-img8.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      },
+      {
+        "id": "1d795ba0-b258-4800-a6c1-cd959a450573",
+        "visible": true,
+        "author": "Andrea",
+        "service": "Limpieza y prevención",
+        "quote": "“Valoro aprender a cuidar mi sonrisa en casa y entender qué incluye mi visita.”",
+        "rating": 5,
+        "image": "/assets/img/resenas/about-img5.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      },
+      {
+        "id": "000a5826-9d59-40a3-a33b-0bb9d18e8059",
+        "visible": true,
+        "author": "Carolina",
+        "service": "Cuidado familiar",
+        "quote": "“Me gustaría organizar las revisiones de mi familia con horarios claros para cada persona.”",
+        "rating": 5,
+        "image": "/assets/img/tratamientos/hero-patient.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      },
+      {
+        "id": "64dbab38-2fbe-4372-ae88-3f1d36da896f",
+        "visible": true,
+        "author": "Patricia",
+        "service": "Primera visita",
+        "quote": "“Busco un equipo que me escuche y me explique el plan antes de comenzar.”",
+        "rating": 5,
+        "image": "/assets/img/sliders/hero-woman.webp",
+        "alt": "",
+        "note": "Historia y personaje de ejemplo"
+      }
+    ],
+    "bindings": {
+      "items.0.author": "{{nident:inicio-243}}",
+      "items.0.service": "{{nident:inicio-244}}",
+      "items.0.quote": "{{nident:inicio-245}}",
+      "items.0.image": "{{nident:inicio-241}}",
+      "items.0.note": "{{nident:inicio-246}}",
+      "items.1.author": "{{nident:inicio-249}}",
+      "items.1.service": "{{nident:inicio-250}}",
+      "items.1.quote": "{{nident:inicio-251}}",
+      "items.1.image": "{{nident:inicio-247}}",
+      "items.1.note": "{{nident:inicio-252}}",
+      "items.2.author": "{{nident:inicio-255}}",
+      "items.2.service": "{{nident:inicio-256}}",
+      "items.2.quote": "{{nident:inicio-257}}",
+      "items.2.image": "{{nident:inicio-253}}",
+      "items.2.note": "{{nident:inicio-258}}",
+      "items.3.author": "{{nident:inicio-261}}",
+      "items.3.service": "{{nident:inicio-262}}",
+      "items.3.quote": "{{nident:inicio-263}}",
+      "items.3.image": "{{nident:inicio-259}}",
+      "items.3.note": "{{nident:inicio-264}}",
+      "items.4.author": "{{nident:inicio-267}}",
+      "items.4.service": "{{nident:inicio-268}}",
+      "items.4.quote": "{{nident:inicio-269}}",
+      "items.4.image": "{{nident:inicio-265}}",
+      "items.4.note": "{{nident:inicio-270}}",
+      "items.5.author": "{{nident:inicio-273}}",
+      "items.5.service": "{{nident:inicio-274}}",
+      "items.5.quote": "{{nident:inicio-275}}",
+      "items.5.image": "{{nident:inicio-271}}",
+      "items.5.note": "{{nident:inicio-276}}"
+    }
+  },
+  "plans": {
+    "items": [
+      {
+        "id": "042ec74c-6e11-41a0-a96c-217c8ac3bbbd",
+        "visible": true,
+        "featured": true,
+        "title": "Limpieza esencial",
+        "slug": "limpieza",
+        "summary": "Evaluación, limpieza profesional y una conversación sobre tu rutina. Un pack pensado para empezar por lo esencial.",
+        "image": "/assets/img/contacto/pexels-8413334.webp",
+        "alt": "Limpieza esencial",
+        "price": "S/ 89",
+        "price_note": "Precio ilustrativo · Limpieza esencial",
+        "features": [
+          "Evaluación inicial de dientes y encías",
+          "Una sesión de profilaxis, si está indicada tras la revisión",
+          "Orientación personalizada de higiene",
+          "Resumen de los siguientes cuidados"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para personas adultas que quieren revisar su salud bucal y valorar una limpieza. La revisión determina si este pack es adecuado o si se necesita otro tipo de atención."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Conversamos sobre tus hábitos y el motivo de la visita.\n\nEl profesional revisa tu boca y explica si procede una limpieza.\n\nSe realiza la sesión indicada y se resuelven tus dudas de cuidado.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Es lo mismo que un blanqueamiento?\n\nNo. Este pack se centra en higiene y prevención. Si buscas cambiar el color de tus dientes, primero hay que evaluar qué opciones corresponden a tu caso.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      },
+      {
+        "id": "57c5caa4-9a28-49bd-a5bc-3185d2d037a1",
+        "visible": true,
+        "featured": true,
+        "title": "Primer paso con brackets",
+        "slug": "brackets",
+        "summary": "Una evaluación de ortodoncia para entender qué se quiere corregir, qué estudios faltan y cómo se construiría tu plan.",
+        "image": "/assets/img/infantil/nident-kids-ortodoncia.webp",
+        "alt": "Ilustración fotográfica de una adolescente con brackets durante un control de ortodoncia",
+        "price": "S/ 99",
+        "price_note": "Precio ilustrativo · Primer paso con brackets",
+        "features": [
+          "Evaluación inicial de ortodoncia",
+          "Conversación sobre objetivos de alineación",
+          "Explicación de alternativas que podrían valorarse",
+          "Orientación sobre estudios y presupuesto posterior"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para adolescentes y adultos que quieren conocer opciones de ortodoncia antes de iniciar un tratamiento. Para menores se requiere una persona adulta acompañante."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Nos cuentas qué te gustaría cambiar y tus tratamientos anteriores.\n\nSe realiza la valoración inicial y se explican las opciones.\n\nRecibes orientación sobre estudios y próximos pasos antes de decidir.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Este importe incluye colocar los brackets?\n\nNo. Es un pack de evaluación inicial. La colocación, el estudio y los controles deben presupuestarse por separado, con sus condiciones explicadas antes de empezar.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      },
+      {
+        "id": "57d18bb8-3940-47a1-aad8-7567ba82e575",
+        "visible": true,
+        "featured": true,
+        "title": "Pequeñas sonrisas",
+        "slug": "kids",
+        "summary": "Un encuentro para conocer el consultorio, revisar su sonrisa y acompañar a la familia con información sencilla.",
+        "image": "/assets/img/infantil/nident-kids-revision.webp",
+        "alt": "Ilustración fotográfica de una odontóloga revisando a una niña",
+        "price": "S/ 79",
+        "price_note": "Precio ilustrativo · Pequeñas sonrisas",
+        "features": [
+          "Evaluación odontopediátrica inicial",
+          "Conversación con el padre, madre o acompañante",
+          "Orientación de hábitos según la edad",
+          "Plan de siguientes pasos si fuera necesario"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para niños y niñas que comienzan sus visitas o necesitan una evaluación. El ritmo de atención se adapta a la edad y a lo observado por el profesional."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Conocemos al menor y conversamos con la persona acompañante.\n\nExplicamos la revisión con un lenguaje cercano y sin prisa.\n\nLa familia recibe orientación y una propuesta de seguimiento.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Se realiza un tratamiento en la primera visita?\n\nEste pack es de evaluación y orientación. Cualquier procedimiento adicional se explica y se presupuesta antes, con la participación de la persona responsable del menor.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      },
+      {
+        "id": "bdaf4205-6cc7-439c-a818-f982d3d3f01c",
+        "visible": true,
+        "featured": false,
+        "title": "Prevención Kids",
+        "slug": "prevencion-infantil",
+        "summary": "Un pack de evaluación y prevención infantil que reserva tiempo para revisar, explicar y practicar hábitos con la familia.",
+        "image": "/assets/img/infantil/nident-kids-revision.webp",
+        "alt": "Ilustración fotográfica de una odontóloga revisando a una niña",
+        "price": "S/ 129",
+        "price_note": "Precio ilustrativo · Prevención Kids",
+        "features": [
+          "Evaluación infantil",
+          "Profilaxis infantil si está indicada",
+          "Demostración de higiene al acompañante",
+          "Orientación de próximos controles"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para familias que buscan una visita preventiva. El odontopediatra confirma qué procedimientos son apropiados para la edad y las necesidades del menor."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Revisamos las dudas y hábitos de la familia.\n\nSe valora si procede la sesión preventiva del pack.\n\nRepasamos la técnica y los siguientes pasos con el acompañante.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Incluye flúor o sellantes?\n\nNo están incluidos en el importe de ejemplo. Su indicación y presupuesto se explican por separado después de la evaluación.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      },
+      {
+        "id": "dd72f396-2891-4e13-a068-942ba1a91e46",
+        "visible": true,
+        "featured": false,
+        "title": "Sonrisas en familia",
+        "slug": "familiar",
+        "summary": "Dos evaluaciones independientes para organizar el cuidado de dos integrantes de la familia, con tiempo propio para cada uno.",
+        "image": "/assets/img/infantil/nident-kids-cepillado.webp",
+        "alt": "Ilustración fotográfica de un niño aprendiendo el cepillado con un modelo dental",
+        "price": "S/ 149",
+        "price_note": "Precio ilustrativo · Sonrisas en familia",
+        "features": [
+          "Dos evaluaciones de odontología general",
+          "Orientación de higiene para cada paciente",
+          "Dos propuestas de siguientes pasos",
+          "Ayuda para organizar las visitas de la familia"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para dos integrantes de una familia que quieren empezar por una revisión. Cada paciente tiene una cita y una evaluación individual; los horarios se reservan por separado."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Preparas la primera evaluación desde la reserva.\n\nLa segunda persona elige su propia fecha y hora.\n\nCada integrante conversa sobre sus hallazgos y su plan.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Una reserva cubre a las dos personas?\n\nNo. Cada paciente necesita su propio horario. El sistema bloquea el tiempo del profesional para cada cita; la coordinación de ambas visitas se revisa por separado.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      },
+      {
+        "id": "bb38f5db-cf36-4bf7-a7ee-100e0a2e0e72",
+        "visible": true,
+        "featured": false,
+        "title": "Vuelve a tu ortodoncia",
+        "slug": "control-ortodoncia",
+        "summary": "Una evaluación para quienes ya llevan aparatos y quieren conversar sobre continuidad, seguimiento y próximos controles.",
+        "image": "/assets/img/tratamientos/dentist-attaching-metal-braces-patient-teeth.jpg",
+        "alt": "Vuelve a tu ortodoncia",
+        "price": "S/ 89",
+        "price_note": "Precio ilustrativo · Vuelve a tu ortodoncia",
+        "features": [
+          "Revisión inicial de la situación actual",
+          "Conversación sobre antecedentes de ortodoncia",
+          "Orientación sobre documentación y estudios previos",
+          "Propuesta de seguimiento a valorar"
+        ],
+        "conditions": "Plan ilustrativo. La clínica debe validar el contenido, precio y condiciones antes de ofrecerlo.",
+        "cta": "Solicitar información",
+        "sections": [
+          {
+            "title": "¿Este pack es para ti?",
+            "body": "Para quienes necesitan valorar el seguimiento de su ortodoncia. El profesional debe revisar la información previa antes de proponer continuidad o cambios."
+          },
+          {
+            "title": "Así sería tu visita.",
+            "body": "Nos cuentas cómo ha sido tu tratamiento.\n\nRevisamos la documentación que tengas disponible.\n\nSe explican las opciones de seguimiento y su presupuesto.\n\nLas sesiones, el diagnóstico y cualquier atención adicional se acuerdan después de la revisión. Puedes preguntar por alternativas antes de elegir."
+          },
+          {
+            "title": "Antes de elegir.",
+            "body": "¿Incluye un ajuste de brackets?\n\nNo. Este pack es una revisión de valoración. Cualquier ajuste o procedimiento se indica y se acuerda por separado tras conocer el caso.\n\n¿Puedo comprar o pagar este pack online?\n\nNo. Este sitio permite probar una reserva local de ejemplo, sin cobros ni contratación. El importe mostrado no es una oferta vigente.\n\n¿Dónde sería la atención?\n\nEn Nident, Trujillo Centro, La Libertad. La dirección exacta y los canales de atención reales están pendientes de completar."
+          }
+        ]
+      }
+    ],
+    "bindings": {
+      "items.0.title": "{{nident:promociones-9}}",
+      "items.0.summary": "{{nident:promociones-10}}",
+      "items.0.image": "{{nident:promociones-7}}",
+      "items.0.alt": "{{nident:promociones-8}}",
+      "items.0.price": "{{nident:packs-limpieza-11}}",
+      "items.0.price_note": "{{nident:packs-limpieza-12}}",
+      "items.0.features.0": "{{nident:packs-limpieza-28}}",
+      "items.0.features.1": "{{nident:packs-limpieza-29}}",
+      "items.0.features.2": "{{nident:packs-limpieza-30}}",
+      "items.0.features.3": "{{nident:packs-limpieza-31}}",
+      "items.0.sections.0.title": "{{nident:packs-limpieza-38}}",
+      "items.0.sections.0.body": "{{nident:packs-limpieza-39}}",
+      "items.0.sections.1.title": "{{nident:packs-limpieza-42}}",
+      "items.0.sections.1.body": "{{nident:packs-limpieza-43}}\n\n{{nident:packs-limpieza-44}}\n\n{{nident:packs-limpieza-45}}\n\n{{nident:packs-limpieza-46}}",
+      "items.0.sections.2.title": "{{nident:packs-limpieza-47}}",
+      "items.0.sections.2.body": "{{nident:packs-limpieza-48}}\n\n{{nident:packs-limpieza-49}}\n\n{{nident:packs-limpieza-50}}\n\n{{nident:packs-limpieza-51}}\n\n{{nident:packs-limpieza-52}}\n\n{{nident:packs-limpieza-53}}",
+      "items.1.title": "{{nident:promociones-18}}",
+      "items.1.summary": "{{nident:promociones-19}}",
+      "items.1.image": "{{nident:promociones-16}}",
+      "items.1.alt": "{{nident:promociones-17}}",
+      "items.1.price": "{{nident:packs-brackets-11}}",
+      "items.1.price_note": "{{nident:packs-brackets-12}}",
+      "items.1.features.0": "{{nident:packs-brackets-28}}",
+      "items.1.features.1": "{{nident:packs-brackets-29}}",
+      "items.1.features.2": "{{nident:packs-brackets-30}}",
+      "items.1.features.3": "{{nident:packs-brackets-31}}",
+      "items.1.sections.0.title": "{{nident:packs-brackets-38}}",
+      "items.1.sections.0.body": "{{nident:packs-brackets-39}}",
+      "items.1.sections.1.title": "{{nident:packs-brackets-42}}",
+      "items.1.sections.1.body": "{{nident:packs-brackets-43}}\n\n{{nident:packs-brackets-44}}\n\n{{nident:packs-brackets-45}}\n\n{{nident:packs-brackets-46}}",
+      "items.1.sections.2.title": "{{nident:packs-brackets-47}}",
+      "items.1.sections.2.body": "{{nident:packs-brackets-48}}\n\n{{nident:packs-brackets-49}}\n\n{{nident:packs-brackets-50}}\n\n{{nident:packs-brackets-51}}\n\n{{nident:packs-brackets-52}}\n\n{{nident:packs-brackets-53}}",
+      "items.2.title": "{{nident:promociones-27}}",
+      "items.2.summary": "{{nident:promociones-28}}",
+      "items.2.image": "{{nident:promociones-25}}",
+      "items.2.alt": "{{nident:promociones-26}}",
+      "items.2.price": "{{nident:packs-kids-11}}",
+      "items.2.price_note": "{{nident:packs-kids-12}}",
+      "items.2.features.0": "{{nident:packs-kids-28}}",
+      "items.2.features.1": "{{nident:packs-kids-29}}",
+      "items.2.features.2": "{{nident:packs-kids-30}}",
+      "items.2.features.3": "{{nident:packs-kids-31}}",
+      "items.2.sections.0.title": "{{nident:packs-kids-38}}",
+      "items.2.sections.0.body": "{{nident:packs-kids-39}}",
+      "items.2.sections.1.title": "{{nident:packs-kids-42}}",
+      "items.2.sections.1.body": "{{nident:packs-kids-43}}\n\n{{nident:packs-kids-44}}\n\n{{nident:packs-kids-45}}\n\n{{nident:packs-kids-46}}",
+      "items.2.sections.2.title": "{{nident:packs-kids-47}}",
+      "items.2.sections.2.body": "{{nident:packs-kids-48}}\n\n{{nident:packs-kids-49}}\n\n{{nident:packs-kids-50}}\n\n{{nident:packs-kids-51}}\n\n{{nident:packs-kids-52}}\n\n{{nident:packs-kids-53}}",
+      "items.3.title": "{{nident:promociones-36}}",
+      "items.3.summary": "{{nident:promociones-37}}",
+      "items.3.image": "{{nident:promociones-34}}",
+      "items.3.alt": "{{nident:promociones-35}}",
+      "items.3.price": "{{nident:packs-prevencion-infantil-11}}",
+      "items.3.price_note": "{{nident:packs-prevencion-infantil-12}}",
+      "items.3.features.0": "{{nident:packs-prevencion-infantil-28}}",
+      "items.3.features.1": "{{nident:packs-prevencion-infantil-29}}",
+      "items.3.features.2": "{{nident:packs-prevencion-infantil-30}}",
+      "items.3.features.3": "{{nident:packs-prevencion-infantil-31}}",
+      "items.3.sections.0.title": "{{nident:packs-prevencion-infantil-38}}",
+      "items.3.sections.0.body": "{{nident:packs-prevencion-infantil-39}}",
+      "items.3.sections.1.title": "{{nident:packs-prevencion-infantil-42}}",
+      "items.3.sections.1.body": "{{nident:packs-prevencion-infantil-43}}\n\n{{nident:packs-prevencion-infantil-44}}\n\n{{nident:packs-prevencion-infantil-45}}\n\n{{nident:packs-prevencion-infantil-46}}",
+      "items.3.sections.2.title": "{{nident:packs-prevencion-infantil-47}}",
+      "items.3.sections.2.body": "{{nident:packs-prevencion-infantil-48}}\n\n{{nident:packs-prevencion-infantil-49}}\n\n{{nident:packs-prevencion-infantil-50}}\n\n{{nident:packs-prevencion-infantil-51}}\n\n{{nident:packs-prevencion-infantil-52}}\n\n{{nident:packs-prevencion-infantil-53}}",
+      "items.4.title": "{{nident:promociones-45}}",
+      "items.4.summary": "{{nident:promociones-46}}",
+      "items.4.image": "{{nident:promociones-43}}",
+      "items.4.alt": "{{nident:promociones-44}}",
+      "items.4.price": "{{nident:packs-familiar-11}}",
+      "items.4.price_note": "{{nident:packs-familiar-12}}",
+      "items.4.features.0": "{{nident:packs-familiar-28}}",
+      "items.4.features.1": "{{nident:packs-familiar-29}}",
+      "items.4.features.2": "{{nident:packs-familiar-30}}",
+      "items.4.features.3": "{{nident:packs-familiar-31}}",
+      "items.4.sections.0.title": "{{nident:packs-familiar-38}}",
+      "items.4.sections.0.body": "{{nident:packs-familiar-39}}",
+      "items.4.sections.1.title": "{{nident:packs-familiar-42}}",
+      "items.4.sections.1.body": "{{nident:packs-familiar-43}}\n\n{{nident:packs-familiar-44}}\n\n{{nident:packs-familiar-45}}\n\n{{nident:packs-familiar-46}}",
+      "items.4.sections.2.title": "{{nident:packs-familiar-47}}",
+      "items.4.sections.2.body": "{{nident:packs-familiar-48}}\n\n{{nident:packs-familiar-49}}\n\n{{nident:packs-familiar-50}}\n\n{{nident:packs-familiar-51}}\n\n{{nident:packs-familiar-52}}\n\n{{nident:packs-familiar-53}}",
+      "items.5.title": "{{nident:promociones-54}}",
+      "items.5.summary": "{{nident:promociones-55}}",
+      "items.5.image": "{{nident:promociones-52}}",
+      "items.5.alt": "{{nident:promociones-53}}",
+      "items.5.price": "{{nident:packs-control-ortodoncia-11}}",
+      "items.5.price_note": "{{nident:packs-control-ortodoncia-12}}",
+      "items.5.features.0": "{{nident:packs-control-ortodoncia-28}}",
+      "items.5.features.1": "{{nident:packs-control-ortodoncia-29}}",
+      "items.5.features.2": "{{nident:packs-control-ortodoncia-30}}",
+      "items.5.features.3": "{{nident:packs-control-ortodoncia-31}}",
+      "items.5.sections.0.title": "{{nident:packs-control-ortodoncia-38}}",
+      "items.5.sections.0.body": "{{nident:packs-control-ortodoncia-39}}",
+      "items.5.sections.1.title": "{{nident:packs-control-ortodoncia-42}}",
+      "items.5.sections.1.body": "{{nident:packs-control-ortodoncia-43}}\n\n{{nident:packs-control-ortodoncia-44}}\n\n{{nident:packs-control-ortodoncia-45}}\n\n{{nident:packs-control-ortodoncia-46}}",
+      "items.5.sections.2.title": "{{nident:packs-control-ortodoncia-47}}",
+      "items.5.sections.2.body": "{{nident:packs-control-ortodoncia-48}}\n\n{{nident:packs-control-ortodoncia-49}}\n\n{{nident:packs-control-ortodoncia-50}}\n\n{{nident:packs-control-ortodoncia-51}}\n\n{{nident:packs-control-ortodoncia-52}}\n\n{{nident:packs-control-ortodoncia-53}}"
+    }
+  }
+}

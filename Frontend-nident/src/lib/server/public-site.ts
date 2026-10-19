@@ -1,5 +1,6 @@
-import {canvasPages as pages,renderCanvas} from '../canvas';
+import { canvasPages as pages, renderCanvas } from "../canvas";
 import { api } from "./api";
+import { applyCollections } from "./collections";
 
 function escape(value: string): string {
   return value.replace(
@@ -22,7 +23,8 @@ export async function publicSite(path: string) {
   const metadata = site?.pages.find((item: any) => item.path === path);
   const page = pages.find((item) => item.source === metadata?.source);
   const content = site?.content;
-  let body = renderCanvas(page?.body || "",site?.modules || {});
+  let body = renderCanvas(page?.body || "", site?.modules || {});
+  body = applyCollections(body, site?.collections);
   if (path === "/contacto") {
     body = body.replace(
       "Formulario de demostración: el mensaje se prepara en pantalla, no se envía ni se almacena. Usa datos de prueba.",
@@ -72,6 +74,7 @@ export async function publicSite(path: string) {
     page,
     metadata,
     content,
+    collections: site?.collections,
     error,
     hero,
     parts: hero ? body.split(hero) : [body],

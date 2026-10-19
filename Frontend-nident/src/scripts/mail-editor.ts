@@ -1,3 +1,8 @@
+import {
+  confirmAction,
+  guardUnsavedChanges,
+  draftStorage,
+} from "../lib/admin-interactions";
 type BlockType = "heading" | "text" | "image" | "button" | "divider";
 interface Block {
   type: BlockType;
@@ -43,6 +48,7 @@ if (app) {
   let selected = 0;
   let dirty = false;
   let busy = false;
+  guardUnsavedChanges(() => dirty);
   let settingsVersion = 1;
   let previewController: AbortController | undefined;
 
@@ -89,6 +95,7 @@ if (app) {
   }
   function changed() {
     dirty = true;
+    draftStorage("mail:" + current.id).write(current.version, doc);
     status();
     renderCanvas();
   }
@@ -107,13 +114,17 @@ if (app) {
         ? `Publicada · versión ${template.published_version}`
         : "Sin publicar";
       button.append(title, state);
-      button.addEventListener("click", () => {
+      button.addEventListener("click", async () => {
         if (busy) return;
         if (
           dirty &&
-          !window.confirm(
-            "Hay cambios sin guardar. ¿Quieres descartarlos para abrir otra plantilla?",
-          )
+          !(await confirmAction({
+            title: "Cambiar de plantilla",
+            message:
+              "Hay cambios sin guardar en esta plantilla. Puedes seguir editando para guardarlos o abrir otra plantilla.",
+            accept: "Cambiar de plantilla",
+            cancel: "Seguir editando",
+          }))
         )
           return;
         load(template);
@@ -126,6 +137,14 @@ if (app) {
     doc = structuredClone(template.draft);
     selected = 0;
     dirty = false;
+    const recovered = draftStorage("mail:" + template.id).read(
+      template.version,
+    );
+    if (recovered) {
+      doc = recovered;
+      dirty = true;
+      feedback("Recuperamos los cambios sin guardar de esta plantilla.");
+    }
     get("template-name").textContent = template.name;
     input("mail-subject").value = doc.subject;
     input("mail-preheader").value = doc.preheader;
@@ -325,6 +344,8 @@ if (app) {
       );
       current = updated;
       dirty = JSON.stringify(doc) !== JSON.stringify(snapshot);
+      if (dirty) draftStorage("mail:" + current.id).write(current.version, doc);
+      else draftStorage("mail:" + current.id).clear();
       renderLibrary();
       feedback("Borrador guardado. La versión publicada sigue vigente.");
     } catch (error) {
@@ -483,9 +504,6 @@ if (app) {
       }
     }),
   );
-  window.addEventListener("beforeunload", (event) => {
-    if (dirty) event.preventDefault();
-  });
   call("mail/templates")
     .then((result) => {
       templates = result;

@@ -1,7 +1,13 @@
+import {
+  confirmAction,
+  guardUnsavedChanges,
+  draftStorage,
+} from "../lib/admin-interactions";
 const data = document.getElementById("slider-data");
 if (data) {
   const settings = JSON.parse(data.textContent!);
   const slides = settings.content.hero;
+  const recovery = draftStorage("sliders");
   let index = 0,
     dirty = false;
   const csrf = document.querySelector<HTMLMetaElement>(
@@ -23,8 +29,17 @@ if (data) {
     n.textContent = message;
     n.className = `notice ${error ? "error" : "success"}`;
   };
+  const recovered = recovery.read(settings.version);
+  if (Array.isArray(recovered) && recovered.length) {
+    slides.splice(0, slides.length, ...recovered);
+    dirty = true;
+    save.disabled = false;
+    notice("Recuperamos los cambios que no habías guardado en esta pestaña.");
+  }
+  guardUnsavedChanges(() => dirty);
   function changed() {
     dirty = true;
+    recovery.write(settings.version, slides);
     save.disabled = false;
     document.getElementById("slider-state")!.textContent =
       "Cambios sin publicar";
@@ -101,6 +116,7 @@ if (data) {
         file.addEventListener("change", async () => {
           if (!file.files?.[0]) return;
           const image = file.files[0];
+          const target = slides[index];
           if (image.size > 5242880) {
             notice("La imagen supera 5 MB.", true);
             return;
@@ -117,7 +133,8 @@ if (data) {
             const json = await response.json();
             if (!response.ok)
               throw Error(json.message || "No se pudo subir la imagen.");
-            slides[index].image = json.result.url;
+            if (!slides.includes(target)) return;
+            target.image = json.result.url;
             input.value = json.result.url;
             changed();
             notice("Imagen cargada. Guarda y publica los cambios.");
@@ -150,19 +167,25 @@ if (data) {
     changed();
     render();
   });
-  document.getElementById("slide-remove")!.addEventListener("click", () => {
-    if (
-      slides.length <= 1 ||
-      !confirm(
-        "¿Eliminar este slider? El cambio se aplica al guardar y publicar.",
+  document
+    .getElementById("slide-remove")!
+    .addEventListener("click", async () => {
+      if (
+        slides.length <= 1 ||
+        !(await confirmAction({
+          title: "Eliminar slider",
+          message:
+            "Este slider se quitará de la colección. El sitio se actualizará cuando guardes y publiques.",
+          accept: "Eliminar slider",
+          danger: true,
+        }))
       )
-    )
-      return;
-    slides.splice(index, 1);
-    index = Math.min(index, slides.length - 1);
-    changed();
-    render();
-  });
+        return;
+      slides.splice(index, 1);
+      index = Math.min(index, slides.length - 1);
+      changed();
+      render();
+    });
   for (const [id, delta] of [
     ["slide-prev", -1],
     ["slide-next", 1],
@@ -186,11 +209,12 @@ if (data) {
     )
       return;
     save.disabled = true;
+    const snapshot = structuredClone(settings);
     try {
       const r = await fetch("/admin/actions/site/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json", "X-CSRF-Token": csrf },
-        body: JSON.stringify(settings),
+        body: JSON.stringify(snapshot),
       });
       const json = await r.json();
       if (!r.ok)
@@ -200,20 +224,17 @@ if (data) {
             : json.message,
         );
       settings.version = json.result.version;
-      dirty = false;
-      document.getElementById("slider-state")!.textContent =
-        `${slides.length} sliders publicados`;
+      dirty = JSON.stringify(slides) !== JSON.stringify(snapshot.content.hero);
+      if (dirty) recovery.write(settings.version, slides);
+      else recovery.clear();
+      document.getElementById("slider-state")!.textContent = dirty
+        ? "Hay cambios posteriores sin publicar"
+        : `${slides.length} sliders publicados`;
       notice("Sliders publicados en el inicio.");
     } catch (e) {
       notice((e as Error).message, true);
     } finally {
       save.disabled = !dirty;
-    }
-  });
-  window.addEventListener("beforeunload", (e) => {
-    if (dirty) {
-      e.preventDefault();
-      e.returnValue = "";
     }
   });
   render();

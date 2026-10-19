@@ -1,4 +1,5 @@
 import { renderCanvas, type CanvasField } from "../lib/canvas";
+import { guardUnsavedChanges, draftStorage } from "../lib/admin-interactions";
 const data = document.getElementById("canvas-data");
 if (data) {
   const payload = JSON.parse(data.textContent!);
@@ -8,6 +9,13 @@ if (data) {
   let current = docs.find((d: any) => d.key === module.key);
   let values = { ...current.draft };
   let dirty = false;
+  const recovery = draftStorage("canvas:" + module.key);
+  const recovered = recovery.read(current.version);
+  if (recovered) {
+    values = recovered;
+    dirty = true;
+  }
+  const navigation = guardUnsavedChanges(() => dirty);
   let selected = "";
   const frame = document.getElementById("site-frame") as HTMLIFrameElement;
   const save = document.getElementById("canvas-save") as HTMLButtonElement;
@@ -97,6 +105,7 @@ if (data) {
   }
   function changed() {
     dirty = true;
+    recovery.write(current.version, values);
     save.disabled = false;
     document.getElementById("canvas-state")!.textContent =
       "Cambios sin guardar";
@@ -208,10 +217,18 @@ if (data) {
     return j.result;
   }
   async function saveDraft() {
-    current = await request("", { version: current.version, content: values });
-    dirty = false;
-    save.disabled = true;
-    document.getElementById("canvas-state")!.textContent = "Borrador guardado";
+    const snapshot = structuredClone(values);
+    current = await request("", {
+      version: current.version,
+      content: snapshot,
+    });
+    dirty = JSON.stringify(values) !== JSON.stringify(snapshot);
+    if (dirty) recovery.write(current.version, values);
+    else recovery.clear();
+    save.disabled = !dirty;
+    document.getElementById("canvas-state")!.textContent = dirty
+      ? "Cambios posteriores sin guardar"
+      : "Borrador guardado";
   }
   save.addEventListener("click", async () => {
     save.disabled = true;
@@ -229,10 +246,13 @@ if (data) {
     try {
       if (dirty) await saveDraft();
       current = await request("/publish", { version: current.version }, "POST");
+      if (dirty) recovery.write(current.version, values);
       feedback(
         "Módulo publicado. Los cambios ya están disponibles en el sitio.",
       );
-      document.getElementById("canvas-state")!.textContent = "Publicado";
+      document.getElementById("canvas-state")!.textContent = dirty
+        ? "Cambios posteriores sin guardar"
+        : "Publicado";
     } catch (e) {
       feedback((e as Error).message, true);
     } finally {
@@ -240,14 +260,13 @@ if (data) {
       save.disabled = !dirty;
     }
   });
-  document.getElementById("module-switch")?.addEventListener("change", (e) => {
-    if (
-      !dirty ||
-      confirm("Hay cambios sin guardar. ¿Quieres cambiar de página?")
-    )
-      location.href = "/admin/sitio/" + (e.target as HTMLSelectElement).value;
-    else (e.target as HTMLSelectElement).value = module.key;
-  });
+  document
+    .getElementById("module-switch")
+    ?.addEventListener("change", async (e) => {
+      if (await navigation.allow())
+        location.href = "/admin/sitio/" + (e.target as HTMLSelectElement).value;
+      else (e.target as HTMLSelectElement).value = module.key;
+    });
   for (const size of ["desktop", "mobile"])
     document
       .getElementById(`preview-${size}`)!
@@ -260,11 +279,11 @@ if (data) {
           .getElementById("preview-mobile")!
           .setAttribute("aria-pressed", String(size === "mobile"));
       });
-  window.addEventListener("beforeunload", (e) => {
-    if (dirty) {
-      e.preventDefault();
-      e.returnValue = "";
-    }
-  });
+  if (recovered) {
+    save.disabled = false;
+    feedback("Recuperamos los cambios que no habías guardado en esta pestaña.");
+    document.getElementById("canvas-state")!.textContent =
+      "Cambios recuperados sin guardar";
+  }
   preview();
 }

@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+import { verifyModules } from "./verify-modules.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
@@ -30,6 +31,26 @@ const modules = Object.keys(schemas).map((key) => ({
   version: 1,
 }));
 let siteVersion = 1;
+const collectionSeed = JSON.parse(
+  fs.readFileSync(
+    path.join(
+      root,
+      "Backend-nident/database/seeders/data/nident-collections.json",
+    ),
+    "utf8",
+  ),
+);
+const collections = Object.fromEntries(
+  Object.entries(collectionSeed).map(([key, seed]) => [
+    key,
+    {
+      key,
+      version: 1,
+      draft: { items: structuredClone(seed.items) },
+      published: { items: structuredClone(seed.items) },
+    },
+  ]),
+);
 const block = (type, text) => ({ type, text, url: "", alt: "" });
 let template = {
   id: 1,
@@ -97,11 +118,72 @@ const fixture = http.createServer(async (request, response) => {
   if (pathname.endsWith("/admin/me"))
     result = {
       name: "Vista de prueba",
-      permissions: { mail: true, site: true },
+      permissions: {
+        mail: true,
+        site: true,
+        reservations: true,
+        attention: true,
+      },
     };
   else if (pathname.endsWith("/public/site"))
-    result = { content: seed.content, version: 1, pages: seed.pages };
-  else if (pathname.endsWith("/site/modules")) result = modules;
+    result = {
+      content: seed.content,
+      version: 1,
+      pages: seed.pages,
+      collections: Object.fromEntries(
+        Object.entries(collections).map(([key, row]) => [
+          key,
+          { items: row.published.items.filter((item) => item.visible) },
+        ]),
+      ),
+    };
+  else if (pathname.endsWith("/admin/dashboard")) {
+    const days = Number(
+      new URL(request.url, "http://localhost").searchParams.get("days") || 30,
+    );
+    const series = Array.from({ length: days }, (_, index) => {
+      const date = new Date();
+      date.setDate(date.getDate() - days + 1 + index);
+      return { date: date.toISOString().slice(0, 10), total: index % 4 };
+    });
+    const total = series.reduce((sum, p) => sum + p.total, 0);
+    result = {
+      days,
+      timezone: "America/Lima",
+      generated_at: new Date().toISOString(),
+      reservations: {
+        total,
+        pending: Math.floor(total / 3),
+        today: 3,
+        statuses: {
+          pending: Math.floor(total / 3),
+          confirmed: total - Math.floor(total / 3) - 4,
+          completed: 3,
+          cancelled: 1,
+        },
+        series,
+        branches: [{ branch: "Por coordinar", total }],
+        upcoming: [],
+      },
+      messages: { total: 8, unread: 3 },
+      mail: { sent: 4, simulated: 2, pending: 1 },
+      content: { pages: 28, drafts: 1, collections: { reviews: 6, plans: 6 } },
+    };
+  } else if (
+    /\/site\/collections\/(reviews|plans)(?:\/publish)?$/.test(pathname)
+  ) {
+    const key = pathname.split("/").at(pathname.endsWith("/publish") ? -2 : -1);
+    const row = collections[key];
+    if (request.method === "PUT") {
+      row.draft = structuredClone(body.document);
+      row.version++;
+    }
+    if (pathname.endsWith("/publish")) {
+      row.published = structuredClone(row.draft);
+      row.version++;
+    }
+    result = row;
+  } else if (pathname.endsWith("/site/modules")) result = modules;
   else if (/\/site\/modules\/[a-z0-9-]+(?:\/publish)?$/.test(pathname)) {
     const key = pathname.split("/").at(pathname.endsWith("/publish") ? -2 : -1);
     const m = modules.find((m) => m.key === key);
@@ -185,6 +267,11 @@ try {
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  const nativeDialogs = [];
+  page.on("dialog", async (dialog) => {
+    nativeDialogs.push(dialog.type());
+    await dialog.dismiss();
+  });
   await page.goto("http://127.0.0.1:14321/admin/login", {
     waitUntil: "networkidle",
   });
@@ -196,6 +283,20 @@ try {
     .fill("synthetic-account-no-database");
   await page.getByRole("button", { name: "Entrar al panel" }).click();
   await page.waitForURL("**/admin");
+  await verifyModules(page, output);
+  const visibleReviews = structuredClone(collections.reviews.published);
+  const visiblePlans = structuredClone(collections.plans.published);
+  collections.reviews.published.items = [];
+  collections.plans.published.items = [];
+  await page.goto("http://127.0.0.1:14321/", { waitUntil: "networkidle" });
+  if (await page.locator(".reviews-track,.plans-section").count())
+    throw Error("Las colecciones vacías deben ocultarse en inicio.");
+  await page.goto("http://127.0.0.1:14321/promociones");
+  await page
+    .getByText("Por ahora no hay planes publicados.", { exact: false })
+    .waitFor();
+  collections.reviews.published = visibleReviews;
+  collections.plans.published = visiblePlans;
   await page.goto("http://127.0.0.1:14321/admin/sitio/nosotros");
   await page.locator("#site-frame").waitFor();
   await page.frameLocator("#site-frame").locator("h1").first().waitFor();
@@ -375,6 +476,9 @@ try {
     editorOverflow,
     homeOverflow,
     pageErrors: errors,
+    nativeDialogs,
+    collectionCrudAndPlanDetails: true,
+    customExitAndDeleteConfirmations: true,
     savedAndPublishedInFixture: true,
     contactSubmittedInFixture: true,
     screenshots: fs.readdirSync(output),
@@ -386,6 +490,7 @@ try {
   console.log(JSON.stringify(result));
   if (
     errors.length ||
+    nativeDialogs.length ||
     editorOverflow ||
     homeOverflow ||
     homeResponse.status() !== 200 ||

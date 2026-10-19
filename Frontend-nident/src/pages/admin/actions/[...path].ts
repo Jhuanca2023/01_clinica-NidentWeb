@@ -6,6 +6,8 @@ const patterns: Record<string, RegExp[]> = {
     /^mail\/(templates|settings|deliveries)$/,
     /^site\/(settings|pages|modules)$/,
     /^reservations$/,
+    /^dashboard$/,
+    /^site\/collections\/(reviews|plans)$/,
   ],
   PUT: [
     /^mail\/templates\/\d+$/,
@@ -14,10 +16,12 @@ const patterns: Record<string, RegExp[]> = {
     /^site\/pages\/\d+$/,
     /^site\/modules\/[a-z0-9-]+$/,
     /^reservations\/\d+$/,
+    /^site\/collections\/(reviews|plans)$/,
   ],
   POST: [
     /^mail\/templates\/\d+\/(preview|publish|test)$/,
     /^site\/modules\/[a-z0-9-]+\/publish$/,
+    /^site\/collections\/(reviews|plans)\/publish$/,
   ],
 };
 

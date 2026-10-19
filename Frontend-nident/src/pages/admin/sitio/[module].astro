@@ -2,24 +2,31 @@
 import AdminLayout from '../../../layouts/AdminLayout.astro';
 import {api,ApiError} from '../../../lib/server/api';
 import {canvasModules,canvasPages} from '../../../lib/canvas';
+import {applyCollections} from '../../../lib/server/collections';
 const key=Astro.params.module || 'inicio';
+if(key==='packs'||key.startsWith('packs-'))return Astro.redirect('/admin/planes'+(key.startsWith('packs-')?'?plan='+encodeURIComponent(key.slice(6)):''));
 const module=canvasModules[key];
 if(!module)return Astro.redirect('/admin/sitio');
 let documents:any[]=[];let error='';
 try{documents=(await api('/admin/site/modules',{token:Astro.locals.token})).result;}
 catch(e){if(e instanceof ApiError && e.status===401)return Astro.redirect('/admin/login');error=e instanceof Error?e.message:'No se pudo abrir el módulo.';}
 const document=documents.find(d=>d.key===key);
-const page=canvasPages.find(p=>p.path===module.path)!;
+const source=canvasPages.find(p=>p.path===module.path)!;
+let collections:any;
+try{collections=(await api('/public/site')).result.collections;}catch{}
+const page={...source,body:applyCollections(source.body,collections)};
+const editableModule={...module,fields:module.fields.filter(field=>page.body.includes('{{nident:'+field.id+'}}'))};
 const siblings=Object.values(canvasModules).filter(m=>key.startsWith('tratamientos')?m.key.startsWith('tratamientos'):key.startsWith('packs')?m.key.startsWith('packs'):false);
-const payload={module,page,documents};
+const payload={module:editableModule,page,documents};
 ---
 <AdminLayout title={module.name} active={key}>
 <header class="page-heading"><div><h1>{module.name}</h1><p>Haz clic en un texto o una imagen del lienzo para editarlo.</p></div><a class="secondary button" href={module.path} target="_blank" rel="noopener">Ver página publicada</a></header>
 {error ? <p class="notice error">{error}</p> : document && <>
 <div class="studio-toolbar"><div>{siblings.length>0 && <label class="inline-label">Página<select id="module-switch">{siblings.map(m=><option value={m.key} selected={m.key===key}>{m.name}</option>)}</select></label>}<span id="canvas-state" role="status">Borrador guardado</span></div><div><button class="secondary" id="canvas-save" disabled>Guardar borrador</button><button class="primary" id="canvas-publish">Publicar módulo</button></div></div>
+{['inicio','tratamientos','promociones'].includes(key)&&<nav class="collection-module-links" aria-label="Colecciones de esta página"><a class="secondary button" href="/admin/resenas">Administrar reseñas</a><a class="secondary button" href="/admin/planes">Administrar planes y promociones</a></nav>}
 <p id="canvas-feedback" class="notice" role="status" hidden></p>
 <div class="site-studio"><section class="site-stage" aria-label="Lienzo de la página"><div class="stage-tools"><span>Vista previa · {module.name}</span><div><button id="preview-desktop" class="text-button" aria-pressed="true">Escritorio</button><button id="preview-mobile" class="text-button" aria-pressed="false">Móvil</button></div></div><div class="site-frame-scroll"><iframe id="site-frame" title={`Lienzo editable de ${module.name}`} sandbox="allow-same-origin"></iframe></div></section>
-<aside class="site-inspector"><h2>Editar contenido</h2><p class="small-note">Selecciona un bloque en el lienzo o busca un campo aquí.</p><label>Buscar contenido<input type="search" id="field-search" placeholder="Título, imagen, enlace…"/></label><select id="field-picker" aria-label="Campo para editar"><option value="">Selecciona un campo</option>{module.fields.map(f=><option value={f.id}>{f.type==='image'?'Imagen · ':f.type==='link'?'Enlace · ':''}{f.label}</option>)}</select><div id="field-controls"><div class="inspector-empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 3 6 16 3-6 6-3L4 3Z"/></svg><p>Tu página es el lienzo.<br/>Elige lo que quieres cambiar.</p></div></div><p class="small-note inspector-note">Guardar conserva el borrador. Publicar actualiza este módulo en el sitio. Los demás módulos mantienen sus cambios.</p></aside></div>
+<aside class="site-inspector"><h2>Editar contenido</h2><p class="small-note">Selecciona un bloque en el lienzo o busca un campo aquí.</p><label>Buscar contenido<input type="search" id="field-search" placeholder="Título, imagen, enlace…"/></label><select id="field-picker" aria-label="Campo para editar"><option value="">Selecciona un campo</option>{editableModule.fields.map(f=><option value={f.id}>{f.type==='image'?'Imagen · ':f.type==='link'?'Enlace · ':''}{f.label}</option>)}</select><div id="field-controls"><div class="inspector-empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 3 6 16 3-6 6-3L4 3Z"/></svg><p>Tu página es el lienzo.<br/>Elige lo que quieres cambiar.</p></div></div><p class="small-note inspector-note">Guardar conserva el borrador. Publicar actualiza este módulo en el sitio. Los demás módulos mantienen sus cambios.</p></aside></div>
 <script id="canvas-data" type="application/json" set:html={JSON.stringify(payload).replace(/</g,'\\u003c')}/>
 <script>import '../../../scripts/canvas-editor';</script>
 </>}

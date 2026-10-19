@@ -1,10 +1,10 @@
 ---
 import {publicSite} from '../lib/server/public-site';
 import ReservationForm from '../components/ReservationForm.astro';
-const {page,metadata,error,parts}=await publicSite('/reservar');
+const {page,metadata,error,parts,collections}=await publicSite('/reservar');
 if(error)Astro.response.status=503;
 else if(!page||!metadata)Astro.response.status=404;
 const header=parts[0].match(/<header\b[\s\S]*?<\/header>/)?.[0] || '';
 const footer=parts[0].match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || '';
 ---
-<!doctype html><html lang="es"><head><Fragment set:html={page?.head || '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{metadata?.title || 'Reservas · Nident'}</title></head><body class="nident"><Fragment set:html={header}/>{!error&&page&&metadata?<main><ReservationForm/></main>:<main class="wrap"><h1>El formulario no está disponible.</h1><p>Intenta nuevamente en unos minutos.</p></main>}<Fragment set:html={footer}/></body></html>
+<!doctype html><html lang="es"><head><Fragment set:html={page?.head || '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{metadata?.title || 'Reservas · Nident'}</title></head><body class="nident"><Fragment set:html={header}/>{!error&&page&&metadata?<main><ReservationForm planName={collections?.plans?.items.find((plan:any)=>plan.slug===Astro.url.searchParams.get('plan'))?.title || ''}/></main>:<main class="wrap"><h1>El formulario no está disponible.</h1><p>Intenta nuevamente en unos minutos.</p></main>}<Fragment set:html={footer}/></body></html>

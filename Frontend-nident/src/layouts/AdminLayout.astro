@@ -1,10 +1,12 @@
 ---
 import '../styles/admin.css';
+import '../styles/admin-modules.css';
 interface Props { title: string; active?: string; publicPage?: boolean; }
 const { title, active = '', publicPage = false } = Astro.props;
 const groups = [
  {name:'Atención',links:[['reservations','Reservas','/admin/reservas'],['attention','Mensajes','/admin/mensajes']]},
- {name:'Sitio web',links:[['encabezado','Encabezado y navegación','/admin/sitio/encabezado'],['sliders','Sliders de inicio','/admin/sliders'],['inicio','Contenido de inicio','/admin/sitio/inicio'],['tratamientos','Tratamientos','/admin/sitio/tratamientos'],['nosotros','Nosotros y sedes','/admin/sitio/nosotros'],['packs','Packs y promociones','/admin/sitio/packs'],['tienda','Contenido de tienda','/admin/sitio/tienda'],['contacto','Contacto','/admin/sitio/contacto'],['footer','Footer y cierre','/admin/sitio/footer']]},
+ {name:'Sitio web',links:[['encabezado','Encabezado y navegación','/admin/sitio/encabezado'],['sliders','Sliders de inicio','/admin/sliders'],['inicio','Contenido de inicio','/admin/sitio/inicio'],['tratamientos','Tratamientos','/admin/sitio/tratamientos'],['nosotros','Nosotros y sedes','/admin/sitio/nosotros'],['promociones','Página de promociones','/admin/sitio/promociones'],['tienda','Contenido de tienda','/admin/sitio/tienda'],['contacto','Contacto','/admin/sitio/contacto'],['footer','Footer y cierre','/admin/sitio/footer']]},
+ {name:'Colecciones',links:[['reviews','Reseñas','/admin/resenas'],['plans','Planes y promociones','/admin/planes']]},
  {name:'Configuración',links:[['mail','Correos y plantillas','/admin/correos'],['site','Páginas y SEO','/admin/sitio']]}
 ];
 ---
@@ -12,8 +14,12 @@ const groups = [
 <body class:list={['admin-body', { 'auth-body': publicPage }]}>
 {!publicPage && <><aside class="admin-sidebar" id="admin-navigation"><a class="admin-brand" href="/admin"><img src="/assets/img/marca/logo1-trim.webp" alt="Nident"/><span>Administración</span></a><label class="nav-search"><span class="sr-only">Buscar módulo</span><input id="module-search" type="search" placeholder="Buscar módulo…"/></label><nav aria-label="Administración"><a aria-current={active === 'home' ? 'page' : undefined} href="/admin">Vista general</a>{groups.map(group=><details open><summary>{group.name}</summary>{group.links.map(([id,label,href])=><a data-module-link aria-current={active === id || (id==='tratamientos' && active.startsWith('tratamientos-')) || (id==='packs' && active.startsWith('packs-')) ? 'page' : undefined} href={href}>{label}</a>)}</details>)}</nav><div class="sidebar-bottom"><form method="post" action="/admin/salir"><input type="hidden" name="_csrf" value={Astro.locals.csrf}/><button type="submit" class="text-button">Cerrar sesión</button></form></div></aside><header class="admin-topbar"><button id="toggle-navigation" type="button" aria-controls="admin-navigation" aria-expanded="false" aria-label="Mostrar navegación"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a href="/" target="_blank" rel="noopener">Ir al sitio web</a><span>Espacio de trabajo Nident</span></header><nav class="workspace-tabs" aria-label="Ubicación actual"><a href="/admin">Vista general</a>{active!=='home' && <span aria-current="page">{title}</span>}</nav></>}
 <main class={publicPage ? 'auth-main' : 'admin-main'}><slot/></main>
+{!publicPage&&<button type="button" class="navigation-backdrop" id="close-navigation-backdrop" aria-label="Cerrar navegación"></button>}
 <script>
 document.getElementById('toggle-navigation')?.addEventListener('click',event=>{const button=event.currentTarget as HTMLButtonElement;const open=document.body.classList.toggle('navigation-open');button.setAttribute('aria-expanded',String(open));});
 document.getElementById('module-search')?.addEventListener('input',event=>{const term=(event.target as HTMLInputElement).value.toLocaleLowerCase();document.querySelectorAll<HTMLAnchorElement>('[data-module-link]').forEach(link=>{link.hidden=!link.textContent?.toLocaleLowerCase().includes(term);});});
+const closeNavigation=()=>{document.body.classList.remove('navigation-open');document.getElementById('toggle-navigation')?.setAttribute('aria-expanded','false');document.getElementById('toggle-navigation')?.focus();};
+document.getElementById('close-navigation-backdrop')?.addEventListener('click',closeNavigation);
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.body.classList.contains('navigation-open'))closeNavigation();});
 </script>
 </body></html>

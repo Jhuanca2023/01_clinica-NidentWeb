@@ -1,9 +1,12 @@
 # Implementación Nident
 
-19 de octubre de 2026. Fundación, primer CMS, contacto y correos implementados localmente. La migración funcional completa del sitio continúa pendiente en los módulos descritos al final.
+19 de octubre de 2026. Fundación, CMS, colecciones editoriales, dashboard, reservas manuales, contacto y correos implementados localmente. La migración funcional completa del sitio continúa pendiente en los módulos descritos al final.
 
 ## Disponible
 
+- Dashboard con agregaciones reales, series de 7/30/90 días y datos filtrados por permisos. Los estados vacíos no se sustituyen por estadísticas ficticias.
+- Colecciones de reseñas y planes: alta, edición, duplicación, orden, visibilidad, eliminación y deshacer. Planes con inclusiones y secciones propias; páginas dinámicas, sitemap, redirecciones y reserva enlazada.
+- Confirmaciones accesibles dentro del panel, protección de navegación interna y copia temporal de borradores en la pestaña. Sin diálogos nativos al eliminar o salir.
 - Astro SSR: las 28 páginas de la plantilla, redirecciones HTML, recursos Nident, siete banners dinámicos, navegación compartida, sitemap y robots.
 - `/admin/login`: cuentas existentes autorizadas, 2FA y sesión de servidor; JWT fuera del navegador y acciones protegidas contra CSRF.
 - `/admin/sitio`: índice de páginas, SEO y publicación. Los lienzos por módulo permiten editar textos, enlaces e imágenes, con borrador y publicación; encabezado y footer son compartidos. `/admin/sliders` gestiona cada banner, altas, eliminación y orden. Ver el README raíz.
@@ -102,11 +105,11 @@ El script es una protección local previa a cambios. Antes de producción faltan
 
 ## Verificación
 
-- 17 tests PHPUnit y 95 assertions: permisos, cuenta activa, versiones, XSS/URLs peligrosas, cifrado, outbox, simulación, contacto, canvas, carga/lectura de imágenes y reservas idempotentes.
+- 23 tests PHPUnit y 149 assertions: permisos, cuenta activa, versiones, XSS/URLs peligrosas, cifrado, outbox, simulación, contacto, canvas, imágenes, reservas idempotentes, colecciones y agregaciones del dashboard.
 - Pruebas funcionales en `nident_testing`, sin copiar usuarios ni pedidos.
-- Instalación en base vacía y repetición: 28 páginas, seis plantillas, cero usuarios.
+- Instalación en base vacía y repetición: 28 páginas, seis plantillas, dos colecciones, seis reseñas, seis planes y cero usuarios.
 - `astro check` y compilación SSR; revisión visual de inicio/editor en escritorio y móvil sin overflow ni errores JS.
-- Las 28 rutas devuelven HTTP 200; los HTML antiguos redirigen con 301 y conservan parámetros. La API administrativa anónima devuelve 401 incluso sin solicitar JSON.
+- Las páginas públicas responden correctamente; los seis enlaces antiguos de packs redirigen a sus páginas de plan y los HTML antiguos conservan sus redirecciones. La API administrativa anónima devuelve 401 incluso sin solicitar JSON.
 - Guardar/publicar desde el navegador usa una API sintética en memoria. La persistencia real se comprueba con PHPUnit; no equivale a iniciar sesión con la cuenta del usuario.
 - El navegador integrado no arrancó por el aislamiento Windows; se utilizó Playwright con Edge.
 - Fuentes existentes conservadas por identidad, aunque el detector las señale como frecuentes.

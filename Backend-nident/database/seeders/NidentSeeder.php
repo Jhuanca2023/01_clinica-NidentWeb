@@ -21,6 +21,7 @@ class NidentSeeder extends Seeder
         foreach (json_decode(file_get_contents(__DIR__.'/data/nident-canvas.json'), true) as $key => $module) {
             DB::table('cms_modules')->insertOrIgnore(['key' => $key, 'draft' => '{}', 'published' => '{}', 'version' => 1, 'created_at' => now(), 'updated_at' => now()]);
         }
+        $this->call(NidentCollectionsSeeder::class);
         MailSetting::firstOrCreate(['id' => 1], ['enabled' => false, 'transport' => 'array', 'from_name' => 'Nident']);
         $templates = [
             'appointment_confirmed' => ['Confirmación de cita', 'Tu cita en Nident · {{codigo}}', 'Tu cita está confirmada', "Hola {{nombre}},\nTe esperamos el {{fecha}} a las {{hora}} para {{tratamiento}} en {{sede}}.", ['nombre', 'codigo', 'fecha', 'hora', 'tratamiento', 'sede']],

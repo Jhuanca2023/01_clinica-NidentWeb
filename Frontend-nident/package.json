@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "import:template": "node scripts/import-template.mjs && node scripts/build-canvas.mjs",
+    "import:template": "node scripts/import-template.mjs && node scripts/build-canvas.mjs && node scripts/build-collections.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

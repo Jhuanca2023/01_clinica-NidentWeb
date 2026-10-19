@@ -1,0 +1,8 @@
+---
+import {api} from '../../lib/server/api';
+let unavailable=false;let found=false;
+try{const site=(await api('/public/site')).result;found=site.collections?.plans?.items.some((plan:any)=>plan.slug===Astro.params.slug);}catch{unavailable=true;}
+if(found)return Astro.redirect('/planes/'+encodeURIComponent(Astro.params.slug || '')+Astro.url.search,301);
+Astro.response.status=unavailable?503:404;
+---
+<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Plan no disponible · Nident</title></head><body><main style="max-width:660px;margin:12vh auto;padding:24px;font-family:system-ui"><a href="/">Nident</a><h1>{unavailable?'El servicio no está disponible.':'Este plan no está disponible.'}</h1><a href="/promociones">Ver planes publicados</a></main></body></html>

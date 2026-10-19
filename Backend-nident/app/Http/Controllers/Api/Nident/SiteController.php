@@ -16,6 +16,7 @@ class SiteController extends Controller
         return response()->json(['success' => true, 'result' => [
             'content' => json_decode($settings->content, true), 'version' => $settings->version,
             'modules' => DB::table('cms_modules')->get(['key', 'published'])->mapWithKeys(fn ($module) => [$module->key => json_decode($module->published, true)]),
+            'collections' => DB::table('cms_collections')->get(['key', 'published'])->mapWithKeys(fn ($collection) => [$collection->key => ['items' => array_values(array_filter(json_decode($collection->published, true)['items'], fn ($item) => $item['visible']))]]),
             'pages' => DB::table('cms_pages')->where('published', true)->get(['path', 'source', 'title', 'description']),
         ]])->header('Cache-Control', 'no-cache');
     }
