@@ -1,0 +1,1150 @@
+{
+  "note": "Solo rutas y marcas, sin valores de configuración ni datos personales. No realizar reemplazos masivos.",
+  "files": [
+    {
+      "file": "Backend-nident/app/Console/Commands/AuthSetupSyncCommand.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Console/Commands/ImportRossetyCatalog.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Helpers/Helper.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/AuthController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/PagoPasarelaController.php",
+      "brands": [
+        "lucdesoft"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/SwaggerController.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/UserController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebFooterController.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebHeaderController.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebHeroRossetyController.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebPaginaContactoController.php",
+      "brands": [
+        "rossety",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebPaginaNosotrosController.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebReclamosController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebTestimoniosController.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Api/WebWhatsappConfigController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Auth/AuthController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Auth/ForgotPasswordController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Auth/LoginController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/CheckoutController.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/ContactoController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/GaleriaController.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/HomeController.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/LiamVercceliController.php",
+      "brands": [
+        "liam",
+        "vercceli"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/LibroReclamosController.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/PedidosController.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/RossetyController.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/ShopDetailController.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/SuscriptoresController.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Controllers/Web/WebPaginasController.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Middleware/CheckAllowedDomains.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Http/Middleware/ForceCorsForApi.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Mail/NotificationVentasMail.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Mail/OrderConfirmationMail.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Models/WebCarritoConfig.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Services/Auth/AuthOAuthService.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Services/Auth/AuthTwoFactorService.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Services/Branding/AppFaviconService.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Services/PaymentGatewayManager.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Services/Web/SiteSearchService.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/ContactoValento.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/LiamPageData.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/ProductoLiveSearch.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/RossetyCatalog.php",
+      "brands": [
+        "rossety",
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/RossetyContacto.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/RossetyNosotros.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/RossetyTestimonios.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/SocialSharePreviewData.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/app/Support/WebHomeColeccionSync.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/cors.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/filesystems.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/l5-swagger.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/mail.php",
+      "brands": [
+        "rossety",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/notificacion.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/config/session.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/routes/api.php",
+      "brands": [
+        "rossety",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/routes/web.php",
+      "brands": [
+        "liam",
+        "vercceli",
+        "rossety",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/js/web_checkout.js",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/js/web_customizer.js",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/js/web_shopDetail.js",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/lang/es.json",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/auth/login.blade.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/auth/register.blade.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/actualizacion_estado_reclamo.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/confirmacion_reclamo.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/emailVerificationEmail.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/forgetPassword.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/formContacto.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/nuevo_reclamo.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/order_confirmation.blade.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/email/partials/styles.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/unsubscribe/confirmation.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/vendor/cookie-consent/cookies.blade.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/base.blade.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/base_landing.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/base_shop.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/contacto.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/galeria/partials/filtros.blade.php",
+      "brands": [
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/about_rodantes.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/contacto_rodantes.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/footer_jh.blade.php",
+      "brands": [
+        "valento",
+        "lucdesoft"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/footer_landing.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/footer_rodantes.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/header_rodantes.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/hero_slider.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/hero_slider_rodantes.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/index/partials/testimonios_landing.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/about.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/contact.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/guia_tallas.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/index.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/legal.blade.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/categories_home.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/footer_banner.blade.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/hero_slider.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/logo_carousel.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/lookbook.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/products_home.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/promo_sections.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/partials/shop_products.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/shop.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/liam/thankyou.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/maquinarias.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/nosotros/partials/nosotros_catalogo_jh.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/nosotros/partials/nosotros_intro_jh.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/nosotros.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/ope_pedidos.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/partials/contacto_pagina_jh.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/partials/landing_shell.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/productos.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/publicaciones.blade.php",
+      "brands": [
+        "rodantes"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/videos.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_about.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_checkout.blade.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_checkout_izipay_form.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_contact.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_doc_delivery_informacion.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_doc_devolucion.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_doc_garantia.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_doc_servicio_cliente.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_gallery.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_libro_reclamos.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_libro_reclamos_estado.blade.php",
+      "brands": [
+        "rossety",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_myAccount.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_shopDetail.blade.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_shopDetail_lista.blade.php",
+      "brands": [
+        "liam",
+        "valento",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_ubicacion.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/pages/web_wishlist.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/favicon.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/footer.blade.php",
+      "brands": [
+        "valento",
+        "lucdesoft"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/footer_js_landing.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/header/menu.blade.php",
+      "brands": [
+        "lucdesoft",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/head_landing.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/auth_styles.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/footer.blade.php",
+      "brands": [
+        "valento",
+        "liam",
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/header.blade.php",
+      "brands": [
+        "liam",
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/popup_promo.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/product_card.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/scripts.blade.php",
+      "brands": [
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/liam/whatsapp.blade.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/partials/og_meta.blade.php",
+      "brands": [
+        "valento",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/carrito.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/checkout.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/contacto.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/gracias.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/inicio.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/nosotros.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/partials/catalog.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/partials/footer.blade.php",
+      "brands": [
+        "rossety",
+        "liam"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/partials/header.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/partials/page_close.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/partials/page_open.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/producto.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/resources/views/web/rossety/tienda.blade.php",
+      "brands": [
+        "rossety"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/database/seeders/data/etiquetas_recomendadas.json",
+      "brands": [
+        "lucdesoft"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    },
+    {
+      "file": "Backend-nident/database/seeders/QaRoleAndUserSeeder.php",
+      "brands": [
+        "valento"
+      ],
+      "classification": "REVISAR_VISIBLE_CONFIGURACION_O_INTERNO"
+    }
+  ]
+}

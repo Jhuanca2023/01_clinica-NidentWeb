@@ -1,0 +1,80 @@
+name: nident
+services:
+  edge:
+    image: nginx:stable-alpine
+    ports: ["127.0.0.1:8080:80"]
+    volumes: ["./infra/nginx.conf:/etc/nginx/conf.d/default.conf:ro"]
+    depends_on: [frontend, backend]
+    restart: unless-stopped
+    networks: [app]
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/frontend.Dockerfile
+      args:
+        PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost:8080}
+    environment:
+      API_INTERNAL_URL: http://edge:8081/api/v1
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost:8080}
+      REDIS_URL: redis://redis:6379
+      NIDENT_ALLOW_FILE_SESSIONS: "false"
+    depends_on: [redis]
+    restart: unless-stopped
+    networks: [app]
+  backend: &backend
+    build:
+      context: .
+      dockerfile: infra/backend.Dockerfile
+    env_file: ["./Backend-nident/.env"]
+    environment:
+      APP_ENV: staging
+      APP_DEBUG: "false"
+      APP_PUBLIC_PATH: /var/www/public
+      NIDENT_MODE: "true"
+      DB_HOST: mysql
+      DB_DATABASE: nident
+      NIDENT_DATABASE: nident
+      DB_USERNAME: nident
+      DB_PASSWORD: ${NIDENT_DB_PASSWORD:?Define NIDENT_DB_PASSWORD for the isolated container database}
+      QUEUE_CONNECTION: database
+    volumes: ["laravel_storage:/var/www/storage"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    networks: [app, data]
+  worker:
+    <<: *backend
+    command: ["php", "artisan", "queue:work", "database", "--sleep=3", "--tries=3", "--timeout=45", "--max-time=3600"]
+  scheduler:
+    <<: *backend
+    command: ["php", "artisan", "schedule:work"]
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: nident
+      MYSQL_USER: nident
+      MYSQL_PASSWORD: ${NIDENT_DB_PASSWORD:?Define NIDENT_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${NIDENT_DB_ROOT_PASSWORD:?Define NIDENT_DB_ROOT_PASSWORD}
+    volumes: ["mysql_data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+    networks: [data]
+  redis:
+    image: redis:8-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["redis_data:/data"]
+    restart: unless-stopped
+    networks: [app]
+networks:
+  app:
+  data:
+    internal: true
+volumes:
+  mysql_data:
+  redis_data:
+  laravel_storage:

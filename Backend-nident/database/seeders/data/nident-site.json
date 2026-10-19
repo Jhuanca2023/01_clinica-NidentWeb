@@ -1,0 +1,298 @@
+{
+  "content": {
+    "brand": "Nident",
+    "tagline": "Sonríe a tu manera. Te acompañamos.",
+    "email": "",
+    "phone": "",
+    "logo": "/assets/img/marca/logo1-trim.webp",
+    "nav": [
+      {
+        "label": "Inicio",
+        "url": "/"
+      },
+      {
+        "label": "Tratamientos",
+        "url": "/tratamientos"
+      },
+      {
+        "label": "Nosotros",
+        "url": "/nosotros"
+      },
+      {
+        "label": "Tienda",
+        "url": "/tienda"
+      },
+      {
+        "label": "Sedes",
+        "url": "/nosotros#sedes"
+      },
+      {
+        "label": "Contacto",
+        "url": "/contacto"
+      }
+    ],
+    "hero": [
+      {
+        "title": "Pequeñas sonrisas.",
+        "line": "Grandes aventuras.",
+        "description": "Un espacio amable para niños y niñas, desde su primera visita.",
+        "image": "/assets/img/sliders/banner-kids-nident.webp",
+        "alt": "Ilustración fotográfica de un niño sonriente acompañado por una odontóloga",
+        "url": "/tratamientos/odontopediatria",
+        "cta": "Conoce Nident Kids"
+      },
+      {
+        "title": "Una sonrisa sana.",
+        "line": "Muy tuya.",
+        "description": "Odontología con delicadeza, tiempo para escucharte y un cuidado pensado para ti.",
+        "image": "/assets/img/sliders/hero-woman.webp",
+        "alt": "Mujer sonriendo durante una consulta dental",
+        "url": "/reservar",
+        "cta": "Reserva tu cita"
+      },
+      {
+        "title": "Tu mejor versión.",
+        "line": "Sonríe sin prisa.",
+        "description": "Brackets y ortodoncia con un plan que se adapta a tu sonrisa.",
+        "image": "/assets/img/sliders/banner-ortodoncia-nident.webp",
+        "alt": "Ilustración fotográfica de una mujer sonriente con brackets metálicos",
+        "url": "/tratamientos/ortodoncia",
+        "cta": "Ver ortodoncia"
+      },
+      {
+        "title": "Cuidamos su sonrisa.",
+        "line": "Desde pequeños.",
+        "description": "Un espacio amable para niños y niñas, desde su primera visita.",
+        "image": "/assets/img/sliders/child-smile.webp",
+        "alt": "Niño sonriendo durante una revisión dental de referencia",
+        "url": "/tratamientos/odontopediatria",
+        "cta": "Conoce Nident Kids"
+      },
+      {
+        "title": "Conoce el espacio.",
+        "line": "Imagina tu visita.",
+        "description": "Explora el consultorio y conoce cómo preparamos tu visita.",
+        "image": "/assets/img/sliders/clinic-room.jpg",
+        "alt": "Interior luminoso de un consultorio dental de referencia",
+        "url": "nosotros.html#espacios",
+        "cta": "Conoce la clínica"
+      },
+      {
+        "title": "Sonrisas que cuentan",
+        "line": "una vida.",
+        "description": "Cuidado dental y rehabilitación para seguir disfrutando de cada momento.",
+        "image": "/assets/img/sliders/banner-mayores-nident.webp",
+        "alt": "Ilustración fotográfica de una paciente mayor conversando con una odontóloga",
+        "url": "/tratamientos/implantes",
+        "cta": "Cuidado para mayores"
+      },
+      {
+        "title": "Un lugar bonito.",
+        "line": "Para sentirte bien.",
+        "description": "Encuentra tu sede y elige un horario que encaje contigo.",
+        "image": "/assets/img/sliders/banner-clinica-nident.webp",
+        "alt": "Ilustración fotográfica de una odontóloga dando la bienvenida junto al sillón dental",
+        "url": "/reservar",
+        "cta": "Encuentra tu sede"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "path": "/contacto",
+      "source": "contactanos.html",
+      "title": "Contáctanos · Nident Trujillo",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/reservar",
+      "source": "contacto.html",
+      "title": "Reserva tu cita · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/cookies",
+      "source": "cookies.html",
+      "title": "Política de cookies · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/cuidados",
+      "source": "cuidados.html",
+      "title": "Guía de cuidado dental · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/diseno-sonrisa",
+      "source": "diseno-sonrisa.html",
+      "title": "Diseño de sonrisa · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/endodoncia",
+      "source": "endodoncia.html",
+      "title": "Endodoncia · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/estado-reclamo",
+      "source": "estado-reclamo.html",
+      "title": "Consultar estado de reclamo · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/implantes",
+      "source": "implantes.html",
+      "title": "Implantes y rehabilitación · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/",
+      "source": "index.html",
+      "title": "Inicio · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/libro-reclamaciones",
+      "source": "libro-reclamaciones.html",
+      "title": "Libro de Reclamaciones · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/limpieza-blanqueamiento",
+      "source": "limpieza-blanqueamiento.html",
+      "title": "Limpieza y blanqueamiento · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/mapa-del-sitio",
+      "source": "navegacion.html",
+      "title": "Mapa del sitio · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/nosotros",
+      "source": "nosotros.html",
+      "title": "Nosotros · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/odontologia-general",
+      "source": "odontologia-general.html",
+      "title": "Odontología general · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/odontopediatria",
+      "source": "odontopediatria.html",
+      "title": "Nident Kids · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/ortodoncia",
+      "source": "ortodoncia.html",
+      "title": "Ortodoncia y brackets · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/brackets",
+      "source": "pack-brackets.html",
+      "title": "Primer paso con brackets · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/control-ortodoncia",
+      "source": "pack-control-ortodoncia.html",
+      "title": "Vuelve a tu ortodoncia · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/familiar",
+      "source": "pack-familiar.html",
+      "title": "Sonrisas en familia · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/kids",
+      "source": "pack-kids.html",
+      "title": "Pequeñas sonrisas · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/limpieza",
+      "source": "pack-limpieza.html",
+      "title": "Limpieza esencial · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/packs/prevencion-infantil",
+      "source": "pack-prevencion-infantil.html",
+      "title": "Prevención Kids · Packs Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos/periodoncia",
+      "source": "periodoncia.html",
+      "title": "Cuidado de las encías · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/privacidad",
+      "source": "privacidad.html",
+      "title": "Política de privacidad · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/promociones",
+      "source": "promociones.html",
+      "title": "Planes y promociones · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tratamientos",
+      "source": "servicios.html",
+      "title": "Tratamientos · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/terminos",
+      "source": "terminos.html",
+      "title": "Términos y condiciones · Nident",
+      "description": "",
+      "published": true
+    },
+    {
+      "path": "/tienda",
+      "source": "tienda.html",
+      "title": "Tienda dental · Nident",
+      "description": "",
+      "published": true
+    }
+  ]
+}

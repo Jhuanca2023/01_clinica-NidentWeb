@@ -1,0 +1,5 @@
+Herramienta: image_gen integrada. Fecha: 17 octubre 2026.
+Destino: cuidado-nident-3d.webp. Fondo transparente con canal alfa.
+
+Prompt exacto:
+Create a premium 3D product illustration for a polished dental website called Nident. One anatomically simple glossy white molar with smooth ivory enamel, viewed three-quarter, with a beautiful small pastel pink toothbrush with lavender bristles resting diagonally against the side of the tooth, clear dental prevention subject. Refined soft studio illumination and nuanced ceramic material, rounded gentle edges, subtle lavender ambient reflections. Entire tooth and toothbrush fit completely inside the image, ample transparent margin on all sides. No text, no letters, no logo, no watermark, no face, no characters, no decorative sparkles, no background plane, no pedestal, no extra props. Transparent background with true alpha. Crisp high-resolution cutout, suitable for a sophisticated lavender and blush medical website.

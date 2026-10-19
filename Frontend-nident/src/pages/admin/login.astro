@@ -1,0 +1,31 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { api, ApiError } from '../../lib/server/api';
+let error = '';
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  try {
+    const result = await api('/auth/login', { method: 'POST', body: { email: String(form.get('email') || ''), password: String(form.get('password') || '') } });
+    if (result.requires_2fa || result.requires_2fa_setup) {
+      const challenge = { type: result.requires_2fa_setup ? 'setup' as const : 'verify' as const, token: result.setup_token || result.challenge_token, qr: undefined as string | undefined, secret: undefined as string | undefined };
+      if (challenge.type === 'setup') {
+        const setup = await api('/auth/2fa/init', { method: 'POST', body: { setup_token: challenge.token } });
+        challenge.qr = setup.result.qr_code; challenge.secret = setup.result.secret;
+      }
+      await Astro.session!.regenerate();
+      Astro.session!.set('challenge', challenge, { ttl: 900 });
+      return Astro.redirect('/admin/verificar');
+    }
+    if (!result.token) throw new Error('Respuesta de acceso incompleta.');
+    await Astro.session!.regenerate();
+    Astro.session!.set('token', result.token);
+    Astro.session!.set('refreshToken', result.refreshToken);
+    return Astro.redirect('/admin');
+  } catch (exception) { error = exception instanceof ApiError ? exception.message : 'No se pudo iniciar sesión. Intenta de nuevo.'; }
+}
+---
+<AdminLayout title="Iniciar sesión" publicPage>
+<a href="/" class="auth-logo"><img src="/assets/img/marca/logo1-trim.webp" alt="Nident"/></a>
+<section class="auth-panel"><h1>Bienvenido a Nident.</h1><p>Un espacio para cuidar cada detalle de tu clínica.</p>{error && <p class="notice error" role="alert">{error}</p>}
+<form method="post" class="stack"><input type="hidden" name="_csrf" value={Astro.locals.csrf}/><label>Correo electrónico<input name="email" type="email" autocomplete="username" required autofocus/></label><label>Contraseña<input name="password" type="password" autocomplete="current-password" required/></label><button class="primary" type="submit">Entrar al panel</button></form><p class="small-note">Utiliza una cuenta autorizada en la base Nident.</p></section>
+</AdminLayout>

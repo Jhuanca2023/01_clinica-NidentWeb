@@ -1,0 +1,19 @@
+---
+import routes from '../data/route-map.json';
+import NidentHero from '../components/NidentHero.astro';
+import { publicSite } from '../lib/server/public-site';
+import '../styles/contact.css';
+const path = '/' + (Astro.params.path || '');
+const legacyFile = path.split('/').pop() || '';
+if (legacyFile in routes) return Astro.redirect(routes[legacyFile as keyof typeof routes] + Astro.url.search, 301);
+const { page, metadata, content, error, hero, parts } = await publicSite(path);
+if (error) Astro.response.status = 503;
+if (!error && (!metadata || !page)) Astro.response.status = 404;
+const title = error ? 'Servicio temporalmente no disponible · Nident' : metadata?.title || 'Página no encontrada · Nident';
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+---
+<!doctype html><html lang="es"><head><Fragment set:html={page?.head || '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{title}</title><meta name="description" content={metadata?.description || ''}/><link rel="canonical" href={new URL(path, siteUrl).href}/><link rel="icon" href="/assets/img/marca/logo1-trim.webp"/></head>
+<body class={page?.bodyClass || 'nident'}>
+{error || !page ? <main style="max-width:660px;margin:12vh auto;padding:24px;font-family:system-ui"><a href="/">Nident</a><h1>{error ? 'Estamos preparando tu próxima visita.' : 'Esta página no está disponible.'}</h1><p>{error ? 'El servicio no está disponible en este momento. Intenta nuevamente en unos minutos.' : 'Puedes volver al inicio para encontrar lo que necesitas.'}</p><a href="/">Volver al inicio</a></main> : <><Fragment set:html={parts[0]}/>{hero && <><NidentHero slides={content.hero}/><Fragment set:html={parts[1]}/></>}</>}
+<script>import '../scripts/contact';</script>
+</body></html>

@@ -1,0 +1,12 @@
+---
+interface Slide { title: string; line: string; description: string; image: string; alt: string; cta: string; url: string; }
+const { slides } = Astro.props as { slides: Slide[] };
+---
+<section class="n-hero" aria-roledescription="carrusel" aria-label="Descubre Nident" tabindex="0">
+{slides.map((slide, index) => <div class:list={['hero-slide', { active: index === 0 }]} data-slide={index} aria-hidden={index > 0 ? 'true' : 'false'} inert={index > 0}>
+<img src={slide.image} alt={slide.alt} fetchpriority={index === 0 ? 'high' : 'auto'} decoding="async"/>
+<div class="slide-shade"></div><div class="slide-copy"><h1><span class="hero-line"><span class="hero-line-content">{slide.title}</span></span><span class="hero-line"><span class="hero-line-content"><em>{slide.line}</em></span></span></h1><p>{slide.description}</p><div class="row"><a class="btn hero-primary" href={slide.url}>{slide.cta}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a class="btn hero-secondary" href="/tratamientos">Ver tratamientos</a></div></div></div>)}
+<a class="n-hero-team" href="/nosotros"><div class="avatar-stack"><img src="/assets/img/resenas/avatar-small-avatar1.webp" alt=""/><img src="/assets/img/resenas/avatar-small-avatar2.webp" alt=""/><img src="/assets/img/resenas/avatar-small-avatar3.webp" alt=""/></div><span>Un equipo cercano.<br/><b>Un cuidado muy humano.</b></span></a>
+<div class="hero-promise">Nos importa cómo<br/><b>te sientes.</b></div>
+<div class="hero-controls"><button type="button" class="carousel-pause" aria-label="Pausar banners">Pausar</button><div class="carousel-dots">{slides.map((_, index) => <button type="button" data-go-slide={index} aria-label={`Mostrar banner ${index + 1}`} aria-pressed={index === 0 ? 'true' : 'false'}><span></span></button>)}</div><span class="slide-counter" aria-live="off">01 / {String(slides.length).padStart(2, '0')}</span><div class="hero-timing" aria-hidden="true"><i></i></div></div>
+</section>

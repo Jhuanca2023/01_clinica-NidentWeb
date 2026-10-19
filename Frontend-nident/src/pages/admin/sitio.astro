@@ -1,0 +1,16 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import {api,ApiError} from '../../lib/server/api';
+import {canvasModules} from '../../lib/canvas';
+let pages:any[]=[];let error='';
+try{pages=(await api('/admin/site/pages',{token:Astro.locals.token})).result;}
+catch(e){if(e instanceof ApiError && e.status===401)return Astro.redirect('/admin/login');error=e instanceof Error?e.message:'No se pudieron cargar las páginas.';}
+---
+<AdminLayout title="Páginas y SEO" active="site"><header class="page-heading"><div><h1>Cada página, su propio espacio.</h1><p>Edita el contenido en su lienzo. Aquí administras su publicación y sus datos para buscadores.</p></div><a class="secondary button" href="/admin/sliders">Editar sliders</a></header><p id="site-feedback" class="notice" role="status" hidden></p>
+{error && <p class="notice error">{error}</p>}
+<div class="page-settings-list">{pages.map(page=><details><summary><span>{page.title}</span><span class="small-note">{page.path} · {page.published?'Publicada':'Oculta'}</span></summary><a class="secondary button" href={'/admin/sitio/'+Object.values(canvasModules).find(m=>m.path===page.path && !['encabezado','footer'].includes(m.key))?.key}>Abrir lienzo visual</a><form data-page-id={page.id}><label>Título para buscadores<input name="title" value={page.title} required maxlength="180"/></label><label>Descripción<textarea name="description" maxlength="300" rows="3">{page.description}</textarea></label><label class="checkbox-field"><input name="published" type="checkbox" checked={page.published}/>Página publicada</label><button class="primary" type="submit">Guardar configuración</button></form></details>)}</div>
+<script>
+const csrf=document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')!.content;
+document.querySelectorAll<HTMLFormElement>('[data-page-id]').forEach(form=>form.addEventListener('submit',async e=>{e.preventDefault();const button=form.querySelector('button')!;button.disabled=true;const data=new FormData(form);const feedback=document.getElementById('site-feedback')!;try{const response=await fetch('/admin/actions/site/pages/'+form.dataset.pageId,{method:'PUT',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({title:data.get('title'),description:data.get('description'),published:data.has('published')})});const json=await response.json();if(!response.ok)throw Error(json.message);feedback.textContent='Página actualizada.';feedback.className='notice success';}catch(error){feedback.textContent=(error as Error).message;feedback.className='notice error';}finally{feedback.hidden=false;button.disabled=false;}}));
+</script>
+</AdminLayout>

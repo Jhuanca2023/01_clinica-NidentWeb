@@ -1,0 +1,27 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { api, ApiError } from '../../lib/server/api';
+const challenge = await Astro.session!.get('challenge');
+if (!challenge) return Astro.redirect('/admin/login');
+let error = ''; let recovery: string[] = [];
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  try {
+    const setup = challenge.type === 'setup';
+    const result = await api(setup ? '/auth/2fa/confirm' : '/auth/2fa/verify', { method: 'POST', body: { [setup ? 'setup_token' : 'challenge_token']: challenge.token, code: String(form.get('code') || ''), trust_device: false } });
+    if (!result.token) throw new Error();
+    await Astro.session!.regenerate();
+    Astro.session!.set('token', result.token); Astro.session!.set('refreshToken', result.refreshToken);
+    Astro.session!.delete('challenge'); recovery = result.recovery_codes || [];
+    if (!recovery.length) return Astro.redirect('/admin');
+  } catch (exception) { error = exception instanceof ApiError ? exception.message : 'No se pudo verificar el código. Intenta de nuevo.'; }
+}
+---
+<AdminLayout title="Verificación de seguridad" publicPage><section class="auth-panel"><h1>{recovery.length ? 'Guarda tus códigos.' : 'Verifica tu acceso.'}</h1>
+{recovery.length ? <><p>Guárdalos en un lugar seguro. No se volverán a mostrar.</p><pre class="recovery-codes">{recovery.join('\n')}</pre><a class="primary button" href="/admin">Continuar al panel</a></> : <>
+<p>{challenge.type === 'setup' ? 'Escanea el QR en tu aplicación autenticadora y escribe el código.' : 'Escribe el código de tu aplicación autenticadora o uno de recuperación.'}</p>
+{challenge.qr && <img class="qr-image" src={challenge.qr} alt="Código QR para configurar la autenticación en dos pasos"/>}
+{challenge.secret && <details><summary>Configurar manualmente</summary><code>{challenge.secret}</code></details>}
+{error && <p class="notice error" role="alert">{error}</p>}
+<form method="post" class="stack"><input type="hidden" name="_csrf" value={Astro.locals.csrf}/><label>Código de verificación<input name="code" autocomplete="one-time-code" minlength="6" maxlength="20" required autofocus/></label><button class="primary" type="submit">Verificar y entrar</button></form><a class="back-link" href="/admin/login">Volver al acceso</a></>}
+</section></AdminLayout>

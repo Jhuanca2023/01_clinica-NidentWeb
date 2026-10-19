@@ -1,0 +1,19 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { api, ApiError } from '../../lib/server/api';
+let messages: any; let error = '';
+const pageNumber = Math.max(1, Math.min(10000, Number.parseInt(Astro.url.searchParams.get('page') || '1', 10) || 1));
+try {
+  if (Astro.request.method === 'POST') {
+    const form = await Astro.request.formData();
+    const id = Number(form.get('id'));
+    if (Number.isSafeInteger(id) && id > 0) await api(`/admin/messages/${id}/read`, { method: 'POST', token: Astro.locals.token, body: {} });
+    return Astro.redirect(`/admin/mensajes?page=${pageNumber}`);
+  }
+  messages = (await api(`/admin/messages?page=${pageNumber}`, { token: Astro.locals.token })).result;
+} catch (exception) { if (exception instanceof ApiError && exception.status === 401) return Astro.redirect('/admin/login'); error = exception instanceof ApiError ? exception.message : 'No pudimos abrir los mensajes.'; }
+---
+<AdminLayout title="Mensajes" active="attention"><header class="page-heading"><div><h1>Cada consulta merece atención.</h1><p>Mensajes recibidos desde el formulario de Nident.</p></div></header>
+{error ? <p class="notice error">{error}</p> : messages?.data.length ? <div class="page-settings-list">{messages.data.map((message: any) => <details><summary>{message.nombre} · {message.asunto} <span class="small-note">{message.nident_read_at ? 'Leído' : 'Por revisar'}</span></summary><div class="message-content"><p><a href={`mailto:${message.email}`}>{message.email}</a>{message.telefono && ` · ${message.telefono}`}</p><p>Sede o interés: {message.producto_interes}</p><p class="message-text">{message.mensaje}</p>{!message.nident_read_at && <form method="post"><input type="hidden" name="_csrf" value={Astro.locals.csrf}/><input type="hidden" name="id" value={message.id}/><button class="secondary" type="submit">Marcar como leído</button></form>}</div></details>)}</div> : <p class="empty-state">Todavía no hay consultas recibidas desde el nuevo formulario. Los mensajes aparecerán aquí cuando se registren.</p>}
+{messages && messages.last_page > 1 && <nav class="message-pagination" aria-label="Páginas de mensajes">{pageNumber > 1 && <a class="secondary button" href={`/admin/mensajes?page=${pageNumber - 1}`}>Anteriores</a>}<span>Página {messages.current_page} de {messages.last_page}</span>{pageNumber < messages.last_page && <a class="secondary button" href={`/admin/mensajes?page=${pageNumber + 1}`}>Siguientes</a>}</nav>}
+</AdminLayout>

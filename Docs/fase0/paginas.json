@@ -1,0 +1,1408 @@
+{
+  "date": "2026-10-19",
+  "pages": [
+    {
+      "file": "site/contactanos.html",
+      "title": "Contáctanos · Nident Trujillo",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "contact-hero"
+        },
+        {
+          "tag": "section",
+          "classes": "contact-layout"
+        },
+        {
+          "tag": "form",
+          "id": "inquiry-form"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/contacto.html",
+      "title": "Reserva tu cita · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro booking-intro"
+        },
+        {
+          "tag": "form",
+          "id": "booking-form"
+        },
+        {
+          "tag": "aside",
+          "classes": "booking-summary"
+        },
+        {
+          "tag": "section",
+          "classes": "sec booking-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "booking-contact-link"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/cookies.html",
+      "title": "Política de cookies · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "legal-intro"
+        },
+        {
+          "tag": "section",
+          "id": "legal-0"
+        },
+        {
+          "tag": "section",
+          "id": "legal-1"
+        },
+        {
+          "tag": "section",
+          "id": "legal-2"
+        },
+        {
+          "tag": "section",
+          "id": "legal-3"
+        },
+        {
+          "tag": "section",
+          "id": "legal-4"
+        },
+        {
+          "tag": "section",
+          "id": "legal-5"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/cuidados.html",
+      "title": "Guía de cuidado dental · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "care-editorial"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/diseno-sonrisa.html",
+      "title": "Diseño de sonrisa · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/endodoncia.html",
+      "title": "Endodoncia · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/estado-reclamo.html",
+      "title": "Consultar estado de reclamo · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "legal-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "status-layout"
+        },
+        {
+          "tag": "form",
+          "id": "claim-search",
+          "classes": "claim-workspace"
+        },
+        {
+          "tag": "aside"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/implantes.html",
+      "title": "Implantes y rehabilitación · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/index.html",
+      "title": "Inicio · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-hero"
+        },
+        {
+          "tag": "section",
+          "id": "planes",
+          "classes": "sec plans-section"
+        },
+        {
+          "tag": "section",
+          "id": "tratamientos",
+          "classes": "sec care-studio"
+        },
+        {
+          "tag": "section",
+          "classes": "sec clinic-section tm"
+        },
+        {
+          "tag": "section",
+          "classes": "sec family-section"
+        },
+        {
+          "tag": "section",
+          "classes": "kids-feature tm"
+        },
+        {
+          "tag": "section",
+          "classes": "sec comparison-section"
+        },
+        {
+          "tag": "section",
+          "id": "por-que-nident",
+          "classes": "sec tm why-section"
+        },
+        {
+          "tag": "section",
+          "classes": "sec specialist-section tm"
+        },
+        {
+          "tag": "section",
+          "classes": "sec shop-preview"
+        },
+        {
+          "tag": "section",
+          "id": "aprende",
+          "classes": "sec learning-section"
+        },
+        {
+          "tag": "section",
+          "classes": "sec care-gallery"
+        },
+        {
+          "tag": "section",
+          "id": "testimonios",
+          "classes": "sec reviews-section"
+        },
+        {
+          "tag": "section",
+          "id": "comunidad",
+          "classes": "sec social-community"
+        },
+        {
+          "tag": "section",
+          "classes": "sec care-journey"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta rv"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/hero-motion.js?v=3",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/libro-reclamaciones.html",
+      "title": "Libro de Reclamaciones · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "legal-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "claim-workspace"
+        },
+        {
+          "tag": "form",
+          "id": "claim-form"
+        },
+        {
+          "tag": "section",
+          "id": "claim-receipt",
+          "classes": "claim-receipt"
+        },
+        {
+          "tag": "aside",
+          "classes": "claim-aside"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/limpieza-blanqueamiento.html",
+      "title": "Limpieza y blanqueamiento · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/navegacion.html",
+      "title": "Mapa del sitio · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "sec"
+        },
+        {
+          "tag": "section",
+          "classes": "sec"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/nosotros.html",
+      "title": "Nosotros · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "sec tm about-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "sec values-strip"
+        },
+        {
+          "tag": "section",
+          "classes": "sec"
+        },
+        {
+          "tag": "section",
+          "id": "experiencia",
+          "classes": "sec visit-story"
+        },
+        {
+          "tag": "section",
+          "classes": "care-poster"
+        },
+        {
+          "tag": "section",
+          "id": "espacios",
+          "classes": "sec clinic-spaces"
+        },
+        {
+          "tag": "section",
+          "classes": "sec clinic-principles"
+        },
+        {
+          "tag": "section",
+          "classes": "kids-feature tm"
+        },
+        {
+          "tag": "section",
+          "id": "sedes",
+          "classes": "sec branch-directory"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/odontologia-general.html",
+      "title": "Odontología general · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/odontopediatria.html",
+      "title": "Nident Kids · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/ortodoncia.html",
+      "title": "Ortodoncia y brackets · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-brackets.html",
+      "title": "Primer paso con brackets · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-control-ortodoncia.html",
+      "title": "Vuelve a tu ortodoncia · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-familiar.html",
+      "title": "Sonrisas en familia · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-kids.html",
+      "title": "Pequeñas sonrisas · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-limpieza.html",
+      "title": "Limpieza esencial · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/pack-prevencion-infantil.html",
+      "title": "Prevención Kids · Packs Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "pack-hero"
+        },
+        {
+          "tag": "section",
+          "id": "incluye",
+          "classes": "sec pack-inclusions"
+        },
+        {
+          "tag": "section",
+          "id": "para-ti",
+          "classes": "pack-audience"
+        },
+        {
+          "tag": "section",
+          "id": "visita",
+          "classes": "sec pack-visit"
+        },
+        {
+          "tag": "section",
+          "id": "dudas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-end"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/periodoncia.html",
+      "title": "Cuidado de las encías · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "treatment-hero"
+        },
+        {
+          "tag": "section",
+          "id": "que-es",
+          "classes": "sec treatment-explainer"
+        },
+        {
+          "tag": "section",
+          "id": "opciones",
+          "classes": "sec treatment-options"
+        },
+        {
+          "tag": "section",
+          "id": "proceso",
+          "classes": "sec treatment-process"
+        },
+        {
+          "tag": "section",
+          "id": "cuidados",
+          "classes": "sec treatment-care"
+        },
+        {
+          "tag": "section",
+          "classes": "sec topic-notes"
+        },
+        {
+          "tag": "section",
+          "id": "preguntas",
+          "classes": "sec treatment-faq"
+        },
+        {
+          "tag": "section",
+          "classes": "sec treatment-article"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "section",
+          "classes": "related-reading"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/privacidad.html",
+      "title": "Política de privacidad · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "legal-intro"
+        },
+        {
+          "tag": "section",
+          "id": "legal-0"
+        },
+        {
+          "tag": "section",
+          "id": "legal-1"
+        },
+        {
+          "tag": "section",
+          "id": "legal-2"
+        },
+        {
+          "tag": "section",
+          "id": "legal-3"
+        },
+        {
+          "tag": "section",
+          "id": "legal-4"
+        },
+        {
+          "tag": "section",
+          "id": "legal-5"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/promociones.html",
+      "title": "Planes y promociones · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro"
+        },
+        {
+          "tag": "section",
+          "classes": "pack-catalog"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/servicios.html",
+      "title": "Tratamientos · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro"
+        },
+        {
+          "tag": "section",
+          "id": "planes",
+          "classes": "sec plans-section"
+        },
+        {
+          "tag": "section",
+          "classes": "band final-cta"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/terminos.html",
+      "title": "Términos y condiciones · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "legal-intro"
+        },
+        {
+          "tag": "section",
+          "id": "legal-0"
+        },
+        {
+          "tag": "section",
+          "id": "legal-1"
+        },
+        {
+          "tag": "section",
+          "id": "legal-2"
+        },
+        {
+          "tag": "section",
+          "id": "legal-3"
+        },
+        {
+          "tag": "section",
+          "id": "legal-4"
+        },
+        {
+          "tag": "section",
+          "id": "legal-5"
+        },
+        {
+          "tag": "section",
+          "id": "legal-6"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    },
+    {
+      "file": "site/tienda.html",
+      "title": "Tienda dental · Nident",
+      "sections": [
+        {
+          "tag": "section",
+          "classes": "n-page-intro store-intro"
+        },
+        {
+          "tag": "section"
+        },
+        {
+          "tag": "aside",
+          "classes": "cart-panel"
+        }
+      ],
+      "scripts": [
+        "js/main.js?v=5",
+        "js/nident.js?v=11",
+        "js/content.js?v=6",
+        "js/experience.js?v=1",
+        "js/packs.js?v=2",
+        "js/booking.js?v=4",
+        "js/vendor/gsap.min.js",
+        "js/vendor/ScrollTrigger.min.js",
+        "js/alive.js?v=7"
+      ]
+    }
+  ]
+}

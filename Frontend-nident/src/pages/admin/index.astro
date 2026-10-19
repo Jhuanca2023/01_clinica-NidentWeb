@@ -1,0 +1,11 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { api, ApiError } from '../../lib/server/api';
+let user: any; let error = '';
+try { user = (await api('/admin/me', { token: Astro.locals.token })).result; }
+catch (exception) { if (exception instanceof ApiError && [401, 403].includes(exception.status)) { Astro.session!.destroy(); return Astro.redirect('/admin/login'); } error = 'El servicio no está disponible. Intenta de nuevo.'; }
+---
+<AdminLayout title="Administración" active="home"><header class="page-heading"><div><h1>Todo empieza con un buen cuidado.</h1><p>{user ? `Hola, ${user.name}. Administra la presencia de Nident desde aquí.` : error}</p></div><a class="secondary button" href="/" target="_blank">Ver sitio ↗</a></header>
+<div class="section-list">{user?.permissions.reservations && <a class="section-row" href="/admin/reservas"><div><h2>Reservas</h2><p>Revisa solicitudes, coordina fechas y confirma cada visita.</p></div><span aria-hidden="true">↗</span></a>}{user?.permissions.site && <><a class="section-row" href="/admin/sliders"><div><h2>Sliders de inicio</h2><p>Cambia imágenes, mensajes y botones en el lienzo.</p></div><span aria-hidden="true">↗</span></a><a class="section-row" href="/admin/sitio/tratamientos"><div><h2>Tratamientos</h2><p>Edita las imágenes y el contenido de cada especialidad.</p></div><span aria-hidden="true">↗</span></a><a class="section-row" href="/admin/sitio"><div><h2>Páginas y módulos</h2><p>Encabezado, nosotros, sedes, packs, contacto y footer. Cada uno tiene su propio editor.</p></div><span aria-hidden="true">↗</span></a></>}{user?.permissions.mail && <a class="section-row" href="/admin/correos"><div><h2>Correos y plantillas</h2><p>Edita por bloques, previsualiza y publica tus comunicaciones.</p></div><span aria-hidden="true">↗</span></a>}</div>
+<section class="operational-note"><h2>Edita, revisa y publica.</h2><p>Abre un módulo desde el menú, selecciona un texto o una imagen y guarda el borrador. Publica cuando esté listo. El contenido ilustrativo de la plantilla debe sustituirse por los datos oficiales de la clínica.</p></section>
+</AdminLayout>

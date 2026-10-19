@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" colors="true" cacheDirectory=".phpunit.cache">
+  <testsuites><testsuite name="Nident"><directory>tests/Nident</directory></testsuite></testsuites>
+  <php>
+    <env name="APP_ENV" value="testing" force="true"/>
+    <env name="APP_DEBUG" value="false" force="true"/>
+    <env name="DB_DATABASE" value="nident_testing" force="true"/>
+    <env name="NIDENT_DATABASE" value="nident_testing" force="true"/>
+    <env name="NIDENT_MODE" value="true" force="true"/>
+    <env name="MAIL_MAILER" value="array" force="true"/>
+    <env name="CACHE_DRIVER" value="array" force="true"/>
+    <env name="SESSION_DRIVER" value="array" force="true"/>
+    <env name="QUEUE_CONNECTION" value="database" force="true"/>
+  </php>
+</phpunit>

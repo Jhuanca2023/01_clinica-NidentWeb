@@ -1,0 +1,55 @@
+name: Nident checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Frontend-nident
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.3'
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      - run: bun run build
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: nident
+          MYSQL_ROOT_PASSWORD: ci-synthetic-only
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s --health-timeout=5s --health-retries=10
+    defaults:
+      run:
+        working-directory: Backend-nident
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo_mysql, mbstring, gd, zip, intl, bcmath
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist --no-scripts
+      - name: Configure isolated CI environment
+        run: |
+          cp .env.example .env
+          php -r '$p=".env"; $s=file_get_contents($p); $s=preg_replace("/^DB_PASSWORD=.*$/m", "DB_PASSWORD=ci-synthetic-only", $s); file_put_contents($p,$s);'
+          php artisan key:generate --force
+          php artisan jwt:secret --force >/dev/null
+          php artisan nident:install
+      - run: php scripts/nident-test-database.php
+      - run: php vendor/bin/phpunit -c phpunit.nident.xml

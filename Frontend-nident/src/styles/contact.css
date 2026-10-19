@@ -1,0 +1,26 @@
+#inquiry-form .contact-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+#inquiry-form .contact-consent input[type="checkbox"] {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  margin: 3px 0 0;
+  accent-color: #7258b6;
+}
+.message-content {
+  padding-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+.message-text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  max-width: 75ch;
+}

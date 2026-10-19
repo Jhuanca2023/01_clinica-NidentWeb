@@ -1,0 +1,4656 @@
+{
+  "note": "Clasificación preliminar por nombre y análisis estático; no es autorización de eliminación. La presencia de una migración no garantiza que la tabla exista.",
+  "files": [
+    {
+      "file": "2014_10_12_000000_create_users_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "users"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "users"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2014_10_12_100000_create_password_resets_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "password_resets"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "password_resets"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2014_10_12_100000_create_password_reset_tokens_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "password_reset_tokens"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "password_reset_tokens"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2019_08_19_000000_create_failed_jobs_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "failed_jobs"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "failed_jobs"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2019_12_14_000001_create_personal_access_tokens_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "personal_access_tokens"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "personal_access_tokens"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2023_10_06_183711_create_product_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "product"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "product"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_06_06_094622_create_envio_departments_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "envio_departments"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "envio_departments"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_06_06_094622_create_envio_districts_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "envio_districts"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "envio_districts"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_06_06_094623_create_envio_shipping_agencies_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "envio_shipping_agencies"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "envio_shipping_agencies"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_06_06_094624_create_envio_shipping_costs_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "envio_shipping_costs"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "envio_shipping_costs"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_06_06_094656_create_envio_shipping_settings_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "envio_shipping_settings"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "envio_shipping_settings"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2025_12_16_000044_create_metadatos_paginas_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "metadatos_paginas"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "metadatos_paginas"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_02_14_000001_add_menu_parent_and_orden.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_02_15_000001_add_icon_to_sistema_menu.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_02_16_000001_add_url_to_sistema_modulo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "sistema_modulo"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_modulo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_02_17_000001_add_es_principal_to_ficha_tecnica.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto_ficha_tecnica"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_ficha_tecnica"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_02_18_000001_create_seguridad_roles_modulo_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_roles_modulo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_roles_modulo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_03_03_192109_add_rating_fields_to_productos_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_03_03_192204_create_product_user_ratings_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "product_user_ratings"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "product_user_ratings"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_03_17_192304_create_adm_backups_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "administracion_backups"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "adm_backups"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_03_31_000001_add_evidencia_url_to_ope_pedidos_estado_historial.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "ope_pedidos_estado_historial"
+        },
+        {
+          "operation": "table",
+          "table": "ope_pedidos_estado_historial"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_03_31_100001_add_id_usuario_to_ope_pedidos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "ope_pedidos"
+        },
+        {
+          "operation": "table",
+          "table": "ope_pedidos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_04_14_100000_add_logo_menu_logo_footer_to_web_footer.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_04_15_000001_add_oferta_volumen_to_administracion_producto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_04_15_120000_add_customizer_styles_to_web_footer.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_07_000000_add_slug_to_administracion_producto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_14_000001_create_del_configuracion_delivery_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "del_configuracion_delivery"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "del_configuracion_delivery"
+        }
+      ],
+      "dataTables": [
+        "del_configuracion_delivery"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_14_000002_add_monto_pagado_cliente_to_ope_pedidos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "ope_pedidos"
+        },
+        {
+          "operation": "table",
+          "table": "ope_pedidos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_14_000003_add_costo_baja_compra_to_del_configuracion_delivery.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        },
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        }
+      ],
+      "dataTables": [
+        "del_configuracion_delivery"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_19_000001_add_hero_fields_to_web_slider_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_slider"
+        },
+        {
+          "operation": "table",
+          "table": "web_slider"
+        }
+      ],
+      "dataTables": [
+        "web_slider"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_19_000002_add_landing_footer_fields_to_web_footer_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_19_000003_add_red_social_tiktok_to_web_footer_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000001_add_activo_to_metadatos_paginas_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "metadatos_paginas"
+        },
+        {
+          "operation": "table",
+          "table": "metadatos_paginas"
+        }
+      ],
+      "dataTables": [
+        "metadatos_paginas"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000001_update_web_footer_whatsapp_url.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000003_create_web_planes_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_planes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_planes"
+        }
+      ],
+      "dataTables": [
+        "web_planes"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000004_create_web_porque_elejirnos_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_porque_elejirnos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_porque_elejirnos"
+        }
+      ],
+      "dataTables": [
+        "web_porque_elejirnos"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000005_create_web_metodologia_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_metodologia"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_metodologia"
+        }
+      ],
+      "dataTables": [
+        "web_metodologia"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000005_create_web_nuestro_equipo_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_nuestro_equipo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_nuestro_equipo"
+        }
+      ],
+      "dataTables": [
+        "web_nuestro_equipo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000006_create_web_header_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_header"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000006_create_web_servicios_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_servicios"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_servicios"
+        }
+      ],
+      "dataTables": [
+        "web_servicios"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000007_create_web_preguntas_frecuentes_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_preguntas_frecuentes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_preguntas_frecuentes"
+        }
+      ],
+      "dataTables": [
+        "web_preguntas_frecuentes"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000008_create_web_testimonios_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_testimonios"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_testimonios"
+        }
+      ],
+      "dataTables": [
+        "web_testimonios"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000009_add_imagenes_to_web_porque_elejirnos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_porque_elejirnos"
+        },
+        {
+          "operation": "table",
+          "table": "web_porque_elejirnos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000009_add_tipo_captura_to_web_testimonios_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_testimonios"
+        },
+        {
+          "operation": "table",
+          "table": "web_testimonios"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000010_add_orden_sidebar_to_menu_and_modulo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_modulo"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_modulo"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_menu"
+        },
+        {
+          "operation": "table",
+          "table": "sistema_modulo"
+        }
+      ],
+      "dataTables": [
+        "sistema_menu",
+        "sistema_modulo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000010_add_url_foto_to_web_servicios.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_servicios"
+        },
+        {
+          "operation": "table",
+          "table": "web_servicios"
+        }
+      ],
+      "dataTables": [
+        "web_servicios"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000011_create_seguridad_roles_sidebar_orden_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_roles_sidebar_orden"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_roles_sidebar_orden"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000012_add_etiquetas_sidebar_to_seguridad_roles_sidebar_orden.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "seguridad_roles_sidebar_orden"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_roles_sidebar_orden"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_000012_add_sistema_menu_orden_mi_menu.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "sistema_modulo",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_100000_create_seguridad_auth_tables.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_auth_proveedor"
+        },
+        {
+          "operation": "create",
+          "table": "seguridad_auth_proveedor_config"
+        },
+        {
+          "operation": "create",
+          "table": "seguridad_usuario_oauth"
+        },
+        {
+          "operation": "create",
+          "table": "seguridad_auth_oauth_sesion"
+        },
+        {
+          "operation": "create",
+          "table": "seguridad_auth_login_log"
+        },
+        {
+          "operation": "create",
+          "table": "seguridad_usuario_2fa"
+        },
+        {
+          "operation": "table",
+          "table": "users"
+        },
+        {
+          "operation": "table",
+          "table": "users"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_usuario_2fa"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_auth_login_log"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_auth_oauth_sesion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_usuario_oauth"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_auth_proveedor_config"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_auth_proveedor"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_120000_sync_web_metodologia_default_images.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_metodologia"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_140000_create_seguridad_auth_2fa_challenge_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_auth_2fa_challenge"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_auth_2fa_challenge"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_150000_add_requiere_2fa_to_seguridad_roles_and_challenge_tipo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "seguridad_roles"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_auth_2fa_challenge"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_roles"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_auth_2fa_challenge"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_20_160000_create_seguridad_usuario_2fa_dispositivo_confiable_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_usuario_2fa_dispositivo_confiable"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_usuario_2fa_dispositivo_confiable"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_000001_create_web_carrusel_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_carrusel"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_carrusel"
+        }
+      ],
+      "dataTables": [
+        "web_carrusel"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_100000_add_es_administrador_principal_to_users.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "users"
+        },
+        {
+          "operation": "table",
+          "table": "users"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_110000_create_seguridad_usuario_auth_config_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_usuario_auth_config"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_usuario_auth_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_120000_reparent_backup_google_under_paginas.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_130000_drop_datatreeview_and_treeview_sp.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "drop",
+          "table": "datatreeview"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_200001_rodantes_landing_cms_tables.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_eventos"
+        },
+        {
+          "operation": "create",
+          "table": "web_publicaciones"
+        },
+        {
+          "operation": "create",
+          "table": "web_contadores"
+        },
+        {
+          "operation": "create",
+          "table": "web_about_contador"
+        },
+        {
+          "operation": "table",
+          "table": "web_slider"
+        },
+        {
+          "operation": "table",
+          "table": "web_about"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_about_contador"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_publicaciones"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_eventos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_contadores"
+        },
+        {
+          "operation": "table",
+          "table": "web_slider"
+        },
+        {
+          "operation": "table",
+          "table": "web_about"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [
+        "web_header",
+        "web_slider",
+        "web_about",
+        "web_about_contador",
+        "web_contadores",
+        "web_eventos",
+        "web_servicios",
+        "web_publicaciones"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_200002_rodantes_sistema_menu_cms.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_300000_rodantes_paginas_internas.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "create",
+          "table": "web_pagina_marca"
+        },
+        {
+          "operation": "create",
+          "table": "web_pagina_galeria"
+        },
+        {
+          "operation": "create",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "table",
+          "table": "web_publicaciones"
+        },
+        {
+          "operation": "table",
+          "table": "web_contadores"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_galeria"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_marca"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "table",
+          "table": "web_publicaciones"
+        },
+        {
+          "operation": "table",
+          "table": "web_contadores"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_nosotros",
+        "web_pagina_contacto",
+        "web_publicaciones",
+        "web_contadores"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_21_300001_rodantes_paginas_internas_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header",
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_100000_web_paginas_banner_background.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "create",
+          "table": "web_pagina_publicaciones_banner"
+        },
+        {
+          "operation": "table",
+          "table": "web_publicaciones"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_publicaciones_banner"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_nosotros",
+        "web_pagina_contacto",
+        "web_pagina_publicaciones_banner"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200000_imprenta_jh_landing_cms.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "table",
+          "table": "web_porque_elejirnos"
+        },
+        {
+          "operation": "table",
+          "table": "web_contadores"
+        },
+        {
+          "operation": "table",
+          "table": "web_servicios"
+        },
+        {
+          "operation": "create",
+          "table": "web_about_caracteristica"
+        },
+        {
+          "operation": "create",
+          "table": "web_confianza_item"
+        },
+        {
+          "operation": "create",
+          "table": "web_contadores_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_producto_destacado_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_producto_destacado"
+        },
+        {
+          "operation": "create",
+          "table": "web_producto_catalogo_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_producto_catalogo"
+        },
+        {
+          "operation": "create",
+          "table": "web_linea_producto_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_linea_producto"
+        },
+        {
+          "operation": "create",
+          "table": "web_video_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_video"
+        },
+        {
+          "operation": "create",
+          "table": "web_cliente_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_cliente_estadistica"
+        },
+        {
+          "operation": "create",
+          "table": "web_cliente_logo"
+        },
+        {
+          "operation": "create",
+          "table": "web_contacto_landing"
+        },
+        {
+          "operation": "create",
+          "table": "web_contacto_mensaje"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_contacto_mensaje"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_contacto_landing"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_cliente_logo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_cliente_estadistica"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_cliente_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_video"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_video_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_linea_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_linea_producto_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_producto_catalogo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_producto_catalogo_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_producto_destacado"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_producto_destacado_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_contadores_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_confianza_item"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_about_caracteristica"
+        }
+      ],
+      "dataTables": [
+        "web_header",
+        "web_slider",
+        "web_about",
+        "web_about_caracteristica",
+        "web_porque_elejirnos",
+        "web_confianza_item",
+        "web_contadores_seccion",
+        "web_contadores",
+        "web_producto_destacado_seccion",
+        "web_producto_destacado",
+        "web_producto_catalogo_seccion",
+        "web_producto_catalogo",
+        "web_linea_producto_seccion",
+        "web_video_seccion",
+        "web_video",
+        "web_contacto_landing"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200001_imprenta_jh_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu",
+        "web_cliente_seccion",
+        "web_cliente_estadistica",
+        "web_cliente_logo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200002_imprenta_header_nav_paginas.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_contacto_landing",
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200003_imprenta_paginas_contacto_seed.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_pagina_contacto",
+        "web_pagina_nosotros",
+        "web_contacto_landing"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200004_imprenta_menu_maquinarias.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header",
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200005_imprenta_nosotros_secciones.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "create",
+          "table": "web_nosotros_quienes"
+        },
+        {
+          "operation": "create",
+          "table": "web_nosotros_quienes_beneficio"
+        },
+        {
+          "operation": "table",
+          "table": "web_about_contador"
+        },
+        {
+          "operation": "create",
+          "table": "web_nosotros_producto_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_nosotros_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_nosotros_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_nosotros_producto_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_nosotros_quienes_beneficio"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_nosotros_quienes"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_nosotros",
+        "web_nosotros_quienes",
+        "web_nosotros_quienes_beneficio",
+        "web_about",
+        "web_about_contador",
+        "web_nosotros_producto_seccion",
+        "web_nosotros_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200006_imprenta_pagina_productos.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_productos"
+        },
+        {
+          "operation": "create",
+          "table": "web_productos_pagina_galeria_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_productos_pagina_galeria"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_productos_pagina_galeria"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_productos_pagina_galeria_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_productos"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_productos",
+        "web_productos_pagina_galeria_seccion",
+        "web_productos_pagina_galeria",
+        "sistema_menu",
+        "sistema_modulo",
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200007_imprenta_pagina_maquinarias.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_maquinarias"
+        },
+        {
+          "operation": "create",
+          "table": "web_maquinarias_item"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_maquinarias_item"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_maquinarias"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_maquinarias",
+        "web_maquinarias_item",
+        "web_header",
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200008_imprenta_contacto_pagina_extend.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "table",
+          "table": "web_contacto_mensaje"
+        },
+        {
+          "operation": "create",
+          "table": "web_contacto_columna"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_contacto_columna"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_contacto",
+        "web_contacto_columna"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200009_imprenta_footer_extend.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200010_imprenta_videos_galeria.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_videos"
+        },
+        {
+          "operation": "create",
+          "table": "web_videos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_videos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_videos"
+        }
+      ],
+      "dataTables": [
+        "web_video_seccion",
+        "web_pagina_videos",
+        "web_videos",
+        "web_video",
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200011_fix_nosotros_banner_imagen.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_pagina_nosotros"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200012_seed_web_cliente_logos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_cliente_logo",
+        "web_cliente_seccion"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200012_web_footer_whatsapp_mensaje.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_200013_web_slider_autoplay_config.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_slider_config"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_slider_config"
+        }
+      ],
+      "dataTables": [
+        "web_slider_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_210000_add_frase_texto_to_paginas_web.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_210000_lucdesoft_landing_tables.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_slider"
+        },
+        {
+          "operation": "create",
+          "table": "web_ejemplares_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_ejemplares"
+        },
+        {
+          "operation": "create",
+          "table": "web_portafolio_seccion"
+        },
+        {
+          "operation": "create",
+          "table": "web_portafolio"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_portafolio"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_portafolio_seccion"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_ejemplares"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_ejemplares_seccion"
+        },
+        {
+          "operation": "table",
+          "table": "web_slider"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_220000_lucdesoft_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_230000_create_seguridad_usuario_menu_favorito.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_usuario_menu_favorito"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_usuario_menu_favorito"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_231000_add_id_roles_to_menu_favorito.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "seguridad_usuario_menu_favorito"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_usuario_menu_favorito"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_usuario_menu_favorito"
+        },
+        {
+          "operation": "table",
+          "table": "seguridad_usuario_menu_favorito"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_22_240000_sync_ejemplares_url_demo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_ejemplares_seccion",
+        "web_ejemplares"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_23_000001_administracion_etiquetas.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "administracion_etiquetas"
+        },
+        {
+          "operation": "create",
+          "table": "administracion_entidad_etiqueta"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "administracion_entidad_etiqueta"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "administracion_etiquetas"
+        }
+      ],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles_menu",
+        "administracion_etiquetas",
+        "seguridad_roles",
+        "administracion_entidad_etiqueta",
+        "sistema_modulo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_23_000002_seguridad_roles_modulo_inactivo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "seguridad_roles_modulo_inactivo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "seguridad_roles_modulo_inactivo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_24_000001_cotizacion_modulo.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "create",
+          "table": "cotizacion_tipo_proyecto"
+        },
+        {
+          "operation": "create",
+          "table": "cotizacion_modulo"
+        },
+        {
+          "operation": "create",
+          "table": "cotizacion_presupuesto"
+        },
+        {
+          "operation": "create",
+          "table": "cotizacion_presupuesto_detalle"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_presupuesto_detalle"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_presupuesto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_modulo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_tipo_proyecto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [
+        "sistema_menu",
+        "sistema_modulo",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_24_030000_sync_sidebar_labels_with_global_menu_names.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_modulo",
+        "seguridad_roles_sidebar_orden",
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_24_121000_sync_metadatos_paginas_miweb.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "metadatos_paginas"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_25_000002_cotizacion_config_info_bloques.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [
+        "cotizacion_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_25_100000_update_lucdesoft_documentos_legales.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_terminos"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_25_184529_add_categoria_to_cotizacion_modulo.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_modulo"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_modulo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_26_000001_cotizacion_config_update_info_bloques_contenido.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "cotizacion_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_26_000001_cotizacion_tipo_marketing_fields.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_tipo_proyecto"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_tipo_proyecto"
+        }
+      ],
+      "dataTables": [
+        "cotizacion_tipo_proyecto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_27_000001_cotizacion_qr_access.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_presupuesto"
+        },
+        {
+          "operation": "create",
+          "table": "cotizacion_presupuesto_qr_log"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cotizacion_presupuesto_qr_log"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_presupuesto"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [
+        "cotizacion_config",
+        "cotizacion_presupuesto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_27_000001_cotizacion_tipo_funcionalidades.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_tipo_proyecto"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_tipo_proyecto"
+        }
+      ],
+      "dataTables": [
+        "cotizacion_tipo_proyecto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_27_000002_cotizacion_config_hosting_detalles.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_27_000003_cotizacion_config_bloques_pdf.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000001_cotizacion_config_plan_pagos.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000001_create_campus_proyectos_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_proyectos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000002_cotizacion_config_plan_pagos_footer.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000002_create_campus_cliente_proyecto_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_cliente_proyecto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_cliente_proyecto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000003_create_campus_archivos_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_archivos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_archivos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000004_create_campus_enlaces_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_enlaces"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_enlaces"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000005_create_campus_actividad_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_actividad"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_actividad"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000006_create_campus_agenda_fases_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_agenda_fases"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_agenda_fases"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000007_create_campus_agenda_tareas_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_agenda_tareas"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_agenda_tareas"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000008_create_campus_agenda_dependencias_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_agenda_dependencias"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_agenda_dependencias"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000009_create_campus_agenda_historial_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_agenda_historial"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_agenda_historial"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_000010_create_campus_agenda_canvas_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_agenda_canvas"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_agenda_canvas"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_28_060000_expand_avatar_column_on_users_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_000001_create_campus_clientes_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_clientes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_clientes"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_000002_alter_campus_cliente_proyecto_add_id_cliente.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "campus_cliente_proyecto"
+        },
+        {
+          "operation": "table",
+          "table": "campus_cliente_proyecto"
+        },
+        {
+          "operation": "table",
+          "table": "campus_cliente_proyecto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_100001_create_campus_onboarding_links_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_onboarding_links"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_onboarding_links"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_120001_create_campus_proyecto_paquetes_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_proyecto_paquetes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_proyecto_paquetes"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_200001_add_proyecto_fields_to_campus_onboarding_links.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "campus_onboarding_links"
+        },
+        {
+          "operation": "table",
+          "table": "campus_onboarding_links"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_210001_add_cuotas_to_campus_onboarding_links.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "campus_onboarding_links"
+        },
+        {
+          "operation": "table",
+          "table": "campus_onboarding_links"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_05_31_220001_create_campus_cliente_notas_and_codigo_tables.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "campus_cliente_notas"
+        },
+        {
+          "operation": "create",
+          "table": "campus_cliente_codigo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_cliente_codigo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "campus_cliente_notas"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_000003_cotizacion_config_doc_cards.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_120001_fix_campus_onboarding_links_id_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_130001_fix_cotizacion_tables_pk_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_140001_retry_fix_autoincrement_pk_order.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_150001_fix_cotizacion_presupuesto_qr_log_id.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_160001_fix_campus_crm_tables_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_02_214118_add_topbar_fields_to_web_header.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_03_000001_ensure_cotizacion_config_pdf_columns.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "cotizacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_03_100001_add_fecha_inicio_to_campus_proyectos.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_03_200001_create_notificacion_system_tables.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "notificacion_config"
+        },
+        {
+          "operation": "create",
+          "table": "notificacion_estado"
+        },
+        {
+          "operation": "create",
+          "table": "notificacion_semaforo"
+        },
+        {
+          "operation": "create",
+          "table": "notificacion_alerta"
+        },
+        {
+          "operation": "table",
+          "table": "campus_clientes"
+        },
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "table",
+          "table": "campus_clientes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "notificacion_alerta"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "notificacion_semaforo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "notificacion_estado"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "notificacion_config"
+        }
+      ],
+      "dataTables": [
+        "notificacion_config",
+        "notificacion_estado",
+        "notificacion_semaforo",
+        "campus_clientes",
+        "campus_proyectos"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_03_210001_add_campus_notificaciones_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles_menu",
+        "sistema_modulo",
+        "seguridad_roles"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_03_220001_create_notificacion_push_subscriptions_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "notificacion_push_subscription"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "notificacion_push_subscription"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_04_100000_royal_masajes_sparlex_cms.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_promo_banner"
+        },
+        {
+          "operation": "create",
+          "table": "web_experiencias"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_galeria"
+        },
+        {
+          "operation": "create",
+          "table": "web_pagina_galeria_seccion"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_experiencias"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_promo_banner"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_galeria_seccion"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_galeria"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [
+        "web_promo_banner",
+        "web_experiencias",
+        "web_pagina_galeria",
+        "web_pagina_galeria_seccion"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_04_100001_add_orden_prioridad_and_notification_tiers.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "table",
+          "table": "notificacion_config"
+        },
+        {
+          "operation": "table",
+          "table": "campus_proyectos"
+        },
+        {
+          "operation": "table",
+          "table": "notificacion_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_04_100001_royal_masajes_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_04_120001_fix_campus_cliente_proyecto_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_04_130001_fix_campus_agenda_historial_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_05_000001_create_seguridad_perfil_stored_procedures.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_05_000002_create_seguridad_roles_stored_procedures.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_05_100001_add_descartada_at_to_notificacion_alerta.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "notificacion_alerta"
+        },
+        {
+          "operation": "table",
+          "table": "notificacion_alerta"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_05_100001_create_excalidraw_scenes_table.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "excalidraw_scenes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "excalidraw_scenes"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_05_100002_fix_excalidraw_scenes_autoincrement.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_06_000001_add_royal_topbar_fields_to_web_header.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_06_013624_add_btn_texto_to_web_pagina_contacto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_06_105427_add_url_video_to_web_about.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_about"
+        },
+        {
+          "operation": "table",
+          "table": "web_about"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_06_112751_add_url_imagen_central_to_web_footer.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_06_120000_add_imagen2_video_fields_to_web_about.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_about"
+        },
+        {
+          "operation": "table",
+          "table": "web_about"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_09_000001_fix_administracion_entidad_etiqueta_autoincrement.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_09_023732_create_web_masaje_faq_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_masaje_faq"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_masaje_faq"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_09_042131_create_web_pagina_experiencias_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_experiencias"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_experiencias"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_09_050710_create_web_pagina_masajes_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_pagina_masajes"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_pagina_masajes"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_09_120000_liam_verceli_cms.php",
+      "group": "marca_liam",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_lookbook"
+        },
+        {
+          "operation": "create",
+          "table": "web_footer_banner"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_footer_banner"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_lookbook"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [
+        "web_lookbook",
+        "web_footer_banner",
+        "web_header",
+        "sistema_menu",
+        "sistema_modulo",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_120000_liam_verceli_about_contact_extend.php",
+      "group": "marca_liam",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        }
+      ],
+      "dataTables": [
+        "web_pagina_nosotros",
+        "web_nosotros_quienes_beneficio",
+        "web_contadores",
+        "web_pagina_contacto",
+        "sistema_menu",
+        "sistema_modulo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_120000_remove_cotizacion_campus_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_130000_liam_verceli_deactivate_skip_modules.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_140000_remove_lucdesoft_sparlex_sistema_menu.php",
+      "group": "otros_modulos_o_clientes",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_160000_liam_topbar_brand_colors.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_170000_liam_nav_brand_colors.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_180000_liam_nav_dark_red_background.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_11_180000_liam_nuestros_clientes_menu.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "web_carrusel",
+        "sistema_modulo",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_12_000001_add_url_imagen_to_producto_categoria.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_12_000002_seed_liam_categorias_con_imagenes.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "administracion_producto_categoria"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_14_140000_fix_administracion_cliente_direcciones_autoincrement.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_14_201500_fix_administracion_producto_fotos_autoincrement.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_15_100000_add_ecommerce_catalog_fields_to_administracion_producto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_15_120000_add_id_producto_to_web_promo_item.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        },
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_100000_create_web_whatsapp_config_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_whatsapp_config"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_whatsapp_config"
+        }
+      ],
+      "dataTables": [
+        "web_whatsapp_config",
+        "sistema_menu",
+        "sistema_modulo",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_110000_add_etiqueta_badge_to_administracion_producto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_120000_enable_pedidos_tienda_virtual_menu.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_120000_fix_administracion_producto_ficha_tecnica_autoincrement.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_130000_pedidos_permisos_listar_todos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles_menu",
+        "sistema_objetos",
+        "sistema_menu_objetos",
+        "seguridad_menu_objetos_roles"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_130000_sync_web_home_coleccion_from_catalog.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_06_22_140000_fix_administracion_cliente_autoincrement.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_100000_create_web_popup_promo_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [
+        "web_popup_promo"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_150000_liam_nuestros_clientes_public.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_cliente_seccion",
+        "web_cliente_logo",
+        "web_carrusel",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_154500_liam_nuestros_clientes_menu_inicio.php",
+      "group": "marca_liam",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_200000_add_cookie_unidad_to_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_210000_add_opciones_to_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_02_300000_add_whatsapp_to_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_20_100000_create_web_promo_bloque_producto_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_promo_bloque_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_promo_bloque_producto"
+        }
+      ],
+      "dataTables": [
+        "web_promo_item",
+        "web_promo_bloque_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_20_110000_add_slug_to_web_promo_bloque.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_promo_bloque"
+        },
+        {
+          "operation": "table",
+          "table": "web_promo_bloque"
+        }
+      ],
+      "dataTables": [
+        "web_promo_bloque"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_20_130000_fix_producto_slugs_seo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_20_190000_add_lookbook_imagen_lateral_meta.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_lookbook"
+        },
+        {
+          "operation": "table",
+          "table": "web_lookbook"
+        }
+      ],
+      "dataTables": [
+        "web_lookbook"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_170000_producto_categoria_nullable_default.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_190000_create_web_promo_item_producto_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_promo_item_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_promo_item_producto"
+        }
+      ],
+      "dataTables": [
+        "web_promo_item",
+        "web_promo_item_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_210000_add_mostrar_panel_principal_to_producto_categoria.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto_categoria"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_220000_add_slug_to_producto_categoria.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria_sub"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_categoria_sub"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto_categoria",
+        "administracion_producto_categoria_sub"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_230000_add_tallas_variantes_to_producto.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_24_240000_add_tipo_to_producto_ficha_tecnica.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto_ficha_tecnica"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto_ficha_tecnica"
+        }
+      ],
+      "dataTables": [
+        "administracion_producto_ficha_tecnica"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_07_28_100000_create_web_promo_multiplicador_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_promo_multiplicador"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_promo_multiplicador"
+        }
+      ],
+      "dataTables": [
+        "web_promo_multiplicador",
+        "web_promo_item"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_02_000001_add_descuento_porcentaje_ofertas.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        },
+        {
+          "operation": "table",
+          "table": "administracion_producto"
+        },
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_02_100000_add_portada_producto_to_web_promo_item.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        },
+        {
+          "operation": "table",
+          "table": "web_promo_item"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_02_140000_add_ticker_speed_to_web_header.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_02_160000_add_modo_to_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_03_000100_expand_subtitulo_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_05_000001_create_web_carrito_config_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_carrito_config"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_carrito_config"
+        }
+      ],
+      "dataTables": [
+        "web_carrito_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_06_000001_add_modo_to_pago_pasarela.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "pago_pasarela"
+        },
+        {
+          "operation": "table",
+          "table": "pago_pasarela_config"
+        },
+        {
+          "operation": "table",
+          "table": "pago_pasarela"
+        },
+        {
+          "operation": "table",
+          "table": "pago_pasarela_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_09_010000_create_repositorio_producto_tables.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "repositorio_producto"
+        },
+        {
+          "operation": "create",
+          "table": "repositorio_producto_fotos"
+        },
+        {
+          "operation": "create",
+          "table": "repositorio_producto_ficha_tecnica"
+        },
+        {
+          "operation": "table",
+          "table": "ope_pedidos_producto"
+        },
+        {
+          "operation": "table",
+          "table": "ope_pedidos_producto"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "repositorio_producto_ficha_tecnica"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "repositorio_producto_fotos"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "repositorio_producto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_09_120000_add_fechas_descuento_web_popup_promo.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        },
+        {
+          "operation": "table",
+          "table": "web_popup_promo"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_09_130000_create_web_popup_promo_historial.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_popup_promo_historial"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_popup_promo_historial"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_09_180000_create_menu_historial_sessiones.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "menu_historial_sessiones"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "menu_historial_sessiones"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_14_110000_ensure_pago_pasarela_modo_valor_test.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "pago_pasarela"
+        },
+        {
+          "operation": "table",
+          "table": "pago_pasarela_config"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_15_110000_update_usp_web_ope_envio_distrito.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_16_040000_fix_usp_web_ope_envio_distrito_latin1.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_08_16_060000_fix_usp_web_ope_envio_calcular_definer.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": true,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_04_220000_create_media_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "media"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "media"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_05_211000_create_cms_media_holders_table.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "cms_media_holders"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "cms_media_holders"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_24_000001_rebrand_liam_to_valento.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_pagina_contacto",
+        "web_popup_promo",
+        "web_promo_bloque",
+        "web_slider",
+        "metadatos_paginas"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_24_180000_valento_canonical_contact_and_skip_menus.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_popup_promo",
+        "web_pagina_nosotros",
+        "web_lookbook",
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_24_180100_seed_valento_hero_slider.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_slider"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_24_180200_seed_valento_legales_privacidad.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_24_180300_valento_cms_menu.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "sistema_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000001_seed_valento_promo_bloque.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_promo_bloque",
+        "web_promo_item"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000002_valento_titulo_lineas.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_home_coleccion_seccion"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000003_valento_lookbook_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_lookbook"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000004_valento_footer_banner_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_footer_banner"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000005_seed_valento_catalogo.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "administracion_producto_categoria",
+        "administracion_producto",
+        "web_home_coleccion"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000006_valento_tienda_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "administracion_producto_categoria",
+        "administracion_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000007_valento_codigos_producto.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "administracion_producto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000008_valento_detalle_polo_atlas.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "administracion_producto",
+        "administracion_producto_fotos"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000009_valento_carrito_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_carrito_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_000010_valento_slider_imagenes_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_slider"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_100000_seed_valento_nosotros.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_pagina_nosotros",
+        "web_contadores",
+        "web_nosotros_quienes_beneficio"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_110000_seed_valento_contacto.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_pagina_contacto"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_25_120000_seed_valento_header_topbar.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_27_120000_point_valento_logos_to_original.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header",
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_27_130000_valento_imagenes_plantilla_a_storage.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_27_140000_add_whatsapp_pago_pasarela.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "pago_pasarela",
+        "pago_pasarela_config"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_27_150000_modulo_delivery_config.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        },
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        }
+      ],
+      "dataTables": [
+        "del_configuracion_delivery",
+        "sistema_menu",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_27_160000_add_google_maps_key_to_delivery.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        },
+        {
+          "operation": "table",
+          "table": "del_configuracion_delivery"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_28_000001_fix_valento_legales_email_liam.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_28_000001_valento_logo_svg.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_header",
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_28_000002_valento_popup_promo_brand.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_28_000003_valento_slider_plantilla.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_slider"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_29_000001_valento_legales_contenido.php",
+      "group": "marca_valento",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_09_30_000001_add_card_producto_to_web_whatsapp_config.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000001_rossety_footer_content.php",
+      "group": "marca_rossety",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000002_rossety_footer_config.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_footer"
+        },
+        {
+          "operation": "table",
+          "table": "web_footer"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000003_rossety_contacto_config.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_contacto"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000004_footer_payment_logos.php",
+      "group": "transversal_o_revision",
+      "schemaOperations": [],
+      "dataTables": [
+        "web_footer"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "CONSERVAR_Y_CONTRASTAR_ESQUEMA",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000004_rossety_nosotros_config.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        },
+        {
+          "operation": "table",
+          "table": "web_pagina_nosotros"
+        }
+      ],
+      "dataTables": [],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_000005_rossety_testimonios.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_testimonios"
+        },
+        {
+          "operation": "table",
+          "table": "web_testimonios"
+        }
+      ],
+      "dataTables": [
+        "web_testimonios"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_120000_rossety_cms_y_menu.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "create",
+          "table": "web_paso_pedido"
+        },
+        {
+          "operation": "create",
+          "table": "web_cuenta_pago"
+        },
+        {
+          "operation": "create",
+          "table": "web_hero_slide"
+        },
+        {
+          "operation": "create",
+          "table": "web_hero_card"
+        },
+        {
+          "operation": "create",
+          "table": "web_motivo_rossety"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_motivo_rossety"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_hero_card"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_hero_slide"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_cuenta_pago"
+        },
+        {
+          "operation": "dropIfExists",
+          "table": "web_paso_pedido"
+        }
+      ],
+      "dataTables": [
+        "web_paso_pedido",
+        "web_cuenta_pago",
+        "web_hero_slide",
+        "web_hero_card",
+        "web_motivo_rossety",
+        "web_testimonios",
+        "sistema_modulo",
+        "sistema_menu",
+        "seguridad_roles",
+        "seguridad_roles_menu"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    },
+    {
+      "file": "2026_10_09_130000_rossety_header_campos_web.php",
+      "group": "marca_rossety",
+      "schemaOperations": [
+        {
+          "operation": "table",
+          "table": "web_header"
+        },
+        {
+          "operation": "table",
+          "table": "web_header"
+        }
+      ],
+      "dataTables": [
+        "web_header"
+      ],
+      "containsRawSQL": false,
+      "proposedAction": "REVISAR_DEPENDENCIAS_ANTES_DE_CONSOLIDAR",
+      "deletionApproved": false
+    }
+  ]
+}
