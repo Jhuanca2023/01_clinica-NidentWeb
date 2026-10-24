@@ -440,6 +440,44 @@ if (app) {
       button.disabled = false;
     }
   });
+  async function loadHealth() {
+    const health = await call("mail/health");
+    const banner = get("mail-health");
+    banner.replaceChildren();
+    const content = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = !health.enabled
+      ? "Servicio desactivado"
+      : health.sandbox
+        ? "Mailtrap Sandbox conectado"
+        : health.transport === "array"
+          ? "Simulación sin envío"
+          : "Servicio SMTP configurado";
+    const note = document.createElement("p");
+    note.textContent =
+      (health.sandbox
+        ? "Los mensajes se capturan en Mailtrap; no llegan a buzones reales. "
+        : "") +
+      health.flows.filter((f: any) => f.published).length +
+      " de " +
+      health.flows.length +
+      " flujos publicados · " +
+      health.queued +
+      " en cola · " +
+      health.failed +
+      " con fallo.";
+    content.append(title, note);
+    const refresh = document.createElement("button");
+    refresh.className = "secondary";
+    refresh.textContent = "Actualizar estado";
+    refresh.onclick = () =>
+      loadHealth().catch((e) => feedback(e.message, true));
+    banner.append(content, refresh);
+  }
+  loadHealth().catch(() => {
+    get("mail-health").textContent =
+      "No se pudo comprobar el servicio. Revisa la configuración.";
+  });
   async function loadDeliveries() {
     const deliveries = await call("mail/deliveries");
     const container = get("delivery-list");
@@ -469,7 +507,11 @@ if (app) {
           ?.name || "Plantilla";
       const status = document.createElement("span");
       status.className = "delivery-status";
-      status.textContent = statuses[delivery.status] || delivery.status;
+      status.textContent =
+        (delivery.is_sandbox && delivery.status === "sent"
+          ? "Capturado en Mailtrap"
+          : statuses[delivery.status] || delivery.status) +
+        (delivery.error_code ? " · " + delivery.error_code : "");
       const attempts = document.createElement("span");
       attempts.textContent = `Versión ${delivery.template_version} · ${delivery.attempts} intento(s)`;
       const date = document.createElement("time");

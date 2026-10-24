@@ -47,7 +47,7 @@ export async function publicSite(path: string) {
   if (path === "/privacidad") {
     body = body.replace(
       "La maqueta no tiene un servidor de atención, correo de recepción ni archivo de reclamaciones. Las pruebas deben hacerse con datos ficticios. Para operar el servicio deberán configurarse el responsable, las finalidades, la conservación, la seguridad y los canales de atención correspondientes.",
-      "Los formularios de contacto y reservas registran tus datos de contacto y tu solicitud en el servidor Nident para atenderla. El acceso está restringido al personal autorizado. Las solicitudes de cita requieren confirmación de la clínica. El correo depende de que el servicio esté configurado y su plantilla publicada. El Libro de Reclamaciones sigue siendo una demostración local. Antes de abrir el servicio al público deben completarse la identificación del responsable, los canales de atención y los plazos de conservación.",
+      "Los formularios de contacto y reservas registran tus datos de contacto y tu solicitud en el servidor Nident para atenderla. El acceso está restringido al personal autorizado. Las solicitudes de cita requieren confirmación de la clínica. El correo depende de que el servicio esté configurado y su plantilla publicada. El Libro de Reclamaciones registra el reclamo, sus adjuntos privados y la respuesta del personal autorizado. Antes de abrir el servicio al público deben completarse la identificación del responsable, los canales de atención y los plazos de conservación.",
     );
   }
   if (content) {
@@ -75,6 +75,7 @@ export async function publicSite(path: string) {
     metadata,
     content,
     collections: site?.collections,
+    business: site?.business,
     error,
     hero,
     parts: hero ? body.split(hero) : [body],

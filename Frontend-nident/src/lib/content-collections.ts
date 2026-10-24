@@ -25,7 +25,24 @@ export interface Plan {
   cta: string;
   sections: { title: string; body: string }[];
 }
-export type CollectionItem = Review | Plan;
+export interface Product {
+  id: string;
+  visible: boolean;
+  title: string;
+  slug: string;
+  summary: string;
+  image: string;
+  alt: string;
+  price: string;
+  category: string;
+  sku: string;
+  stock: number | null;
+  details: string;
+}
+export type CollectionItem = Review | Plan | Product;
+export function productMarkup(item: Product): string {
+  return `<article class="product-card" data-collection-id="${html(item.id)}" data-category="${html(item.category)}" data-search="${html(item.title + " " + item.summary + " " + item.category)}"><div class="product-image">${item.image ? `<img src="${html(item.image)}" alt="${html(item.alt)}" loading="lazy">` : ""}</div><h2>${html(item.title)}</h2><p>${html(item.summary)}</p><div class="product-buy"><b>S/ ${Number(item.price || 0).toFixed(2)}</b><button type="button" class="btn ghost" data-add-product="${html(item.id)}"${item.stock === 0 ? " disabled" : ""}>${item.stock === 0 ? "Sin disponibilidad" : "Agregar a mi selección"}</button></div><a class="text-link" href="/productos/${html(item.slug)}">Ver producto</a></article>`;
+}
 export const html = (text: string | number) =>
   String(text).replace(
     /[&<>"']/g,

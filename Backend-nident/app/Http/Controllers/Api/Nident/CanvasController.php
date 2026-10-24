@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Nident;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\NidentPermission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -60,6 +61,7 @@ class CanvasController extends Controller
 
     public function upload(Request $request)
     {
+        abort_unless(NidentPermission::allows($request->user('api'), 'site') || NidentPermission::allows($request->user('api'), 'catalog'), 403);
         $request->validate(['image' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120|dimensions:max_width=8000,max_height=8000']);
         $file = $request->file('image');
         $extension = match ($file->getMimeType()) {
@@ -77,6 +79,6 @@ class CanvasController extends Controller
         $path = Storage::disk('local')->path('nident-media/'.$name);
         abort_unless(is_file($path), 404);
 
-        return response()->file($path,['X-Content-Type-Options' => 'nosniff', 'Cache-Control' => 'public, max-age=31536000, immutable']);
+        return response()->file($path, ['X-Content-Type-Options' => 'nosniff', 'Cache-Control' => 'public, max-age=31536000, immutable']);
     }
 }

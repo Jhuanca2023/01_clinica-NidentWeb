@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+import { verifyOperations } from "./verify-operations.mjs";
 import { verifyModules } from "./verify-modules.mjs";
 
 const require = createRequire(import.meta.url);
@@ -51,6 +52,70 @@ const collections = Object.fromEntries(
     },
   ]),
 );
+collections.products = {
+  key: "products",
+  version: 1,
+  draft: {
+    items: JSON.parse(
+      fs.readFileSync(
+        path.join(
+          root,
+          "Backend-nident/database/seeders/data/nident-products.json",
+        ),
+        "utf8",
+      ),
+    ),
+  },
+  published: {
+    items: JSON.parse(
+      fs.readFileSync(
+        path.join(
+          root,
+          "Backend-nident/database/seeders/data/nident-products.json",
+        ),
+        "utf8",
+      ),
+    ),
+  },
+};
+const business = {
+  commercial_name: "Nident",
+  legal_name: "Clínica sintética",
+  tax_id: "00000000000",
+  address: "Dirección de prueba",
+  email: "fixture@example.invalid",
+  version: 1,
+};
+const security = {
+  users: [],
+  profiles: [
+    {
+      id: 1,
+      name: "Recepción de prueba",
+      active: true,
+      version: 1,
+      role_ids: [1],
+    },
+  ],
+  roles: [
+    {
+      id: 1,
+      name: "Atención",
+      active: true,
+      version: 1,
+      require_2fa: false,
+      permissions: ["reservations", "attention"],
+    },
+  ],
+  areas: {
+    reservations: "Reservas",
+    attention: "Mensajes",
+    claims: "Reclamaciones",
+    catalog: "Productos",
+    site: "Contenido",
+    mail: "Correos",
+  },
+};
 const block = (type, text) => ({ type, text, url: "", alt: "" });
 let template = {
   id: 1,
@@ -115,10 +180,77 @@ const fixture = http.createServer(async (request, response) => {
     );
     return;
   }
-  if (pathname.endsWith("/admin/me"))
+  if (pathname.endsWith("/public/products")) {
+    response.end(
+      JSON.stringify(
+        collections.products.published.items
+          .filter((p) => p.visible)
+          .map((p) => ({ ...p, name: p.title })),
+      ),
+    );
+    return;
+  }
+  if (pathname.endsWith("/public/requests/lookup"))
     result = {
+      type: "contact",
+      reference: body.reference,
+      status: "received",
+      registered_at: new Date().toISOString(),
+      notification: { status: "sent", sandbox: true },
+    };
+  else if (pathname.endsWith("/public/claims")) {
+    response.statusCode = 201;
+    result = {
+      reference: "NID-1234567890ABCDEF",
+      sheet_number: "000001",
+      registered_at: new Date().toISOString(),
+      notification: { status: "sent", sandbox: true },
+    };
+  } else if (pathname.endsWith("/claims/settings")) result = business;
+  else if (pathname.endsWith("/admin/claims"))
+    result = { data: [], total: 0, current_page: 1, last_page: 1 };
+  else if (pathname.endsWith("/mail/health"))
+    result = {
+      enabled: true,
+      sandbox: true,
+      transport: "smtp",
+      queued: 0,
+      failed: 0,
+      flows: [
+        { key: "contact_received", name: "Acuse de contacto", published: true },
+      ],
+    };
+  else if (pathname.endsWith("/admin/security")) result = security;
+  else if (/security\/(users|profiles|roles)(?:\/\d+)?$/.test(pathname)) {
+    const type = pathname.match(/security\/(users|profiles|roles)/)[1];
+    const row = {
+      ...body,
+      id: security[type].length + 10,
+      version: 1,
+      principal: false,
+    };
+    security[type].push(row);
+    response.statusCode = 201;
+    result = { id: row.id };
+  } else if (/admin\/catalog(?:\/publish)?$/.test(pathname)) {
+    const row = collections.products;
+    if (request.method === "PUT") {
+      row.draft = structuredClone(body.document);
+      row.version++;
+    }
+    if (pathname.endsWith("/publish")) {
+      row.published = structuredClone(row.draft);
+      row.version++;
+    }
+    result = row;
+  } else if (pathname.endsWith("/admin/me"))
+    result = {
+      id: 900001,
       name: "Vista de prueba",
       permissions: {
+        claims: true,
+        catalog: true,
+        security: true,
         mail: true,
         site: true,
         reservations: true,
@@ -128,6 +260,7 @@ const fixture = http.createServer(async (request, response) => {
   else if (pathname.endsWith("/public/site"))
     result = {
       content: seed.content,
+      business,
       version: 1,
       pages: seed.pages,
       collections: Object.fromEntries(
@@ -284,6 +417,7 @@ try {
   await page.getByRole("button", { name: "Entrar al panel" }).click();
   await page.waitForURL("**/admin");
   await verifyModules(page, output);
+  await verifyOperations(page, output);
   const visibleReviews = structuredClone(collections.reviews.published);
   const visiblePlans = structuredClone(collections.plans.published);
   collections.reviews.published.items = [];
@@ -452,7 +586,7 @@ try {
     .getByText("Tu mensaje quedó registrado.", { exact: true })
     .waitFor();
   await page.setViewportSize({ width: 1512, height: 1050 });
-  const homeResponse = await page.goto("http://localhost:4321/", {
+  const homeResponse = await page.goto("http://127.0.0.1:14321/", {
     waitUntil: "networkidle",
   });
   await page.screenshot({
@@ -494,7 +628,7 @@ try {
     editorOverflow ||
     homeOverflow ||
     homeResponse.status() !== 200 ||
-    slideCount !== 7
+    slideCount !== seed.content.hero.length
   )
     process.exitCode = 1;
 } finally {

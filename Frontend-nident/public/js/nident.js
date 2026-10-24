@@ -73,7 +73,7 @@
     const status = document.getElementById('shop-status');
     let products;
     try {
-      const response = await fetch('/assets/products.json?v=2');
+      const response = await fetch('/api/productos');
       if (!response.ok) throw new Error('catalog');
       products = await response.json();
     } catch {
@@ -86,7 +86,7 @@
     const cart = {};
     products.forEach(product => {
       const quantity = Number(stored?.[product.id]);
-      if (Number.isInteger(quantity) && quantity > 0) cart[product.id] = Math.min(quantity, 9);
+      if (Number.isInteger(quantity) && quantity > 0) cart[product.id] = Math.min(quantity, product.stock===null||product.stock===undefined?9:Math.min(9,product.stock));
     });
     let toastTimer;
     function notify(message) {
@@ -111,13 +111,13 @@
         total += quantity * product.price;
         count += quantity;
         const row = el('article', 'cart-item');
-        const image = el('img'); image.src = '/assets/img/' + product.image; image.alt = '';
+        const image = el('img'); image.src = product.image.startsWith('/')?product.image:'/assets/img/'+product.image; image.alt = '';
         const body = el('div'); body.append(el('h3', '', product.name), el('p', '', money(product.price * quantity)));
         const controls = el('div', 'cart-quantity');
         for (const [label, change] of [['−', -1], ['+', 1]]) {
           const button = el('button', '', label); button.type = 'button';
           button.setAttribute('aria-label', `${change < 0 ? 'Quitar una unidad de' : 'Agregar una unidad de'} ${product.name}`);
-          button.disabled = change > 0 && quantity >= 9;
+          button.disabled = change > 0 && quantity >= (product.stock===null||product.stock===undefined?9:Math.min(9,product.stock));
           button.addEventListener('click', () => {
             const next = quantity + change;
             if (next <= 0) delete cart[product.id]; else cart[product.id] = next;
@@ -142,13 +142,13 @@
     document.querySelectorAll('[data-add-product]').forEach(button => button.addEventListener('click', () => {
       const product = products.find(item => item.id === button.dataset.addProduct);
       if (!product) return;
-      if ((cart[product.id] || 0) >= 9) { notify('Puedes agregar hasta 9 unidades por producto.'); return; }
+      const limit=product.stock===null||product.stock===undefined?9:Math.min(9,product.stock);if ((cart[product.id] || 0) >= limit) { notify(limit?'Alcanzaste la cantidad disponible para seleccionar.':'Este producto no tiene disponibilidad.'); return; }
       cart[product.id] = (cart[product.id] || 0) + 1;
       render(); notify(`${product.name} agregado a tu bolsa.`);
     }));
     document.getElementById('cart-review').addEventListener('click', () => {
       const result = document.getElementById('cart-result');
-      result.textContent = 'Tu selección está lista para revisar. Esta tienda es una demostración: no se ha realizado un pedido ni un cobro.';
+      const link=document.createElement('a');const url=new URL('/contacto',location.origin);url.searchParams.set('seleccion',JSON.stringify(cart));link.href=url.href;link.textContent='Consultar esta selección con Nident';result.replaceChildren(link);
       result.hidden = false;
     });
     let category = 'Todos';

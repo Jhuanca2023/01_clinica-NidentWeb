@@ -14,7 +14,7 @@ class SiteController extends Controller
         abort_unless($settings, 503, 'La configuración del sitio todavía no está instalada.');
 
         return response()->json(['success' => true, 'result' => [
-            'content' => json_decode($settings->content, true), 'version' => $settings->version,
+            'content' => json_decode($settings->content, true), 'version' => $settings->version, 'business' => DB::table('nident_business_settings')->find(1),
             'modules' => DB::table('cms_modules')->get(['key', 'published'])->mapWithKeys(fn ($module) => [$module->key => json_decode($module->published, true)]),
             'collections' => DB::table('cms_collections')->get(['key', 'published'])->mapWithKeys(fn ($collection) => [$collection->key => ['items' => array_values(array_filter(json_decode($collection->published, true)['items'], fn ($item) => $item['visible']))]]),
             'pages' => DB::table('cms_pages')->where('published', true)->get(['path', 'source', 'title', 'description']),

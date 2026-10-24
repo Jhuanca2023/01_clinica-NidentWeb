@@ -10,7 +10,12 @@ export const GET: APIRoute = async ({ url }) => {
     result.result.pages = result.result.pages.filter(
       (page: any) => !page.path.startsWith("/packs/"),
     );
-    result.result.pages.push(...plans);
+    result.result.pages.push(
+      ...plans,
+      ...(result.result.collections?.products?.items || [])
+        .filter((item: any) => item.visible)
+        .map((item: any) => ({ path: "/productos/" + item.slug })),
+    );
     const escape = (text: string) =>
       text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
     return new Response(

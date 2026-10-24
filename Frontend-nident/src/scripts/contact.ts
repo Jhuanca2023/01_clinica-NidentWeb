@@ -1,9 +1,45 @@
+import { notificationCopy } from "../lib/notification-copy";
 const contactForm = document.querySelector<HTMLFormElement>(
   "#inquiry-form[data-api-contact]",
 );
 if (contactForm) {
   const error = document.querySelector<HTMLElement>("#inquiry-error")!;
   const result = document.querySelector<HTMLElement>("#inquiry-result")!;
+  const parameters = new URLSearchParams(location.search);
+  if (parameters.has("producto") || parameters.has("seleccion")) {
+    fetch("/api/productos")
+      .then((r) => r.json())
+      .then((products) => {
+        const message =
+          contactForm.querySelector<HTMLTextAreaElement>('[name="mensaje"]')!;
+        const topic =
+          contactForm.querySelector<HTMLSelectElement>('[name="asunto"]')!;
+        if (topic.options.length)
+          topic.selectedIndex = topic.options.length - 1;
+        let cart: any = {};
+        try {
+          cart = JSON.parse(parameters.get("seleccion") || "{}");
+        } catch {}
+        const selected = products.filter(
+          (item: any) =>
+            item.slug === parameters.get("producto") ||
+            (Number.isInteger(cart[item.id]) && cart[item.id] > 0),
+        );
+        if (selected.length)
+          message.value =
+            "Quisiera información sobre:\n" +
+            selected
+              .map(
+                (item: any) =>
+                  item.name +
+                  " · " +
+                  Math.min(9, cart[item.id] || 1) +
+                  " unidad(es)",
+              )
+              .join("\n");
+      })
+      .catch(() => {});
+  }
   let requestId = crypto.randomUUID();
   let pending = false;
   contactForm.addEventListener("submit", async (event) => {
@@ -39,6 +75,14 @@ if (contactForm) {
       const note = document.createElement("p");
       note.textContent = `El equipo de Nident podrá revisarlo. Tu referencia es ${body.result.reference}.`;
       result.append(title, note);
+      const notification = document.createElement("p");
+      notification.textContent = notificationCopy(body.result.notification);
+      const link = document.createElement("a");
+      link.className = "reference-link";
+      link.href =
+        "/consultar-solicitud?ref=" + encodeURIComponent(body.result.reference);
+      link.textContent = "Consultar el estado de mi mensaje";
+      result.append(notification, link);
       result.hidden = false;
       result.tabIndex = -1;
       result.focus();

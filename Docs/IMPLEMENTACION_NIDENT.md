@@ -1,6 +1,6 @@
 # Implementación Nident
 
-19 de octubre de 2026. Fundación, CMS, colecciones editoriales, dashboard, reservas manuales, contacto y correos implementados localmente. La migración funcional completa del sitio continúa pendiente en los módulos descritos al final.
+24 de octubre de 2026. Fundación, CMS, colecciones, productos, dashboard, reservas manuales, contacto, reclamaciones, seguimiento y acceso del personal implementados localmente. Los límites operativos pendientes se describen al final.
 
 ## Disponible
 
@@ -71,7 +71,13 @@ php artisan nident:mail-dispatch
 php artisan queue:work database --stop-when-empty --tries=3 --timeout=45
 ```
 
-Para operación continua se necesitan scheduler y worker supervisados. `contact_received` confirma al remitente; `contact_notification` avisa al equipo sin incluir el cuerpo de la consulta. Las reservas conectan `appointment_confirmed` y `appointment_cancelled` al cambiar de estado. Pedidos y reclamaciones requieren sus módulos operativos.
+Para operación continua se necesitan scheduler y worker supervisados. `appointment_requested` acusa la solicitud pendiente; `appointment_confirmed` y `appointment_cancelled` notifican cambios de estado. `contact_received` acusa al remitente y `contact_notification` avisa al equipo sin incluir el cuerpo. `claim_received` conserva detalle y pedido del consumidor; `claim_updated` comunica la respuesta. `order_received` todavía requiere un módulo de pedidos.
+
+Para desarrollo, `php artisan nident:mailtrap --publish-defaults` lee credenciales SMTP existentes del entorno, guarda la contraseña cifrada y publica solo plantillas iniciales sin editar. Se rechaza en producción. Nunca subir `.env`. Mailtrap Sandbox captura mensajes y no los entrega a buzones reales. El panel muestra servicio, flujos publicados, cola, fallos y entregas. Se comprobaron cuatro envíos sintéticos aceptados por Mailtrap; esto no acredita entrega a clientes reales. Antes de iniciar un worker en una base reutilizada, revisar la cola existente y autorizar su procesamiento.
+
+El Libro de Reclamaciones ofrece constancia imprimible, referencia, identidad del consumidor y representante, detalle/pedido, hasta tres adjuntos privados de 5 MB, atención versionada y respuesta. Completar razón social, RUC y domicilio en `/admin/reclamaciones`; los datos legales iniciales están vacíos para evitar inventarlos. El seguimiento público exige referencia más correo y devuelve solo estado, fechas y estado de notificación.
+
+El administrador principal gestiona usuarios, perfiles y roles. Los roles otorgan permisos por módulo a través de perfiles; las cuentas nuevas no son administradores principales. Cambiar o desactivar una cuenta invalida sus tokens anteriores mediante `nident_auth_version`. Las contraseñas no se devuelven ni se guardan en borradores del navegador. La auditoría conserva actor, acción e identificador, sin contraseñas ni contenido de mensajes.
 
 Al entregar este bloque se iniciaron API, Astro, worker y scheduler locales. Antes se verificó que la cola y la outbox estaban vacías y que el envío seguía desactivado. Estos procesos de desarrollo no sustituyen la supervisión de servicios del despliegue.
 
@@ -105,9 +111,9 @@ El script es una protección local previa a cambios. Antes de producción faltan
 
 ## Verificación
 
-- 23 tests PHPUnit y 149 assertions: permisos, cuenta activa, versiones, XSS/URLs peligrosas, cifrado, outbox, simulación, contacto, canvas, imágenes, reservas idempotentes, colecciones y agregaciones del dashboard.
+- 26 tests PHPUnit y 198 assertions: permisos, personal y revocación, productos, seguimiento sin datos personales, reclamaciones y adjuntos privados, versiones, cifrado, outbox, contacto, imágenes y reservas idempotentes.
 - Pruebas funcionales en `nident_testing`, sin copiar usuarios ni pedidos.
-- Instalación en base vacía y repetición: 28 páginas, seis plantillas, dos colecciones, seis reseñas, seis planes y cero usuarios.
+- Instalación en base vacía y repetición: 28 páginas, ocho plantillas, tres colecciones, seis reseñas, seis planes, seis productos y cero usuarios.
 - `astro check` y compilación SSR; revisión visual de inicio/editor en escritorio y móvil sin overflow ni errores JS.
 - Las páginas públicas responden correctamente; los seis enlaces antiguos de packs redirigen a sus páginas de plan y los HTML antiguos conservan sus redirecciones. La API administrativa anónima devuelve 401 incluso sin solicitar JSON.
 - Guardar/publicar desde el navegador usa una API sintética en memoria. La persistencia real se comprueba con PHPUnit; no equivale a iniciar sesión con la cuenta del usuario.
@@ -116,7 +122,7 @@ El script es una protección local previa a cambios. Antes de producción faltan
 
 ## Pendientes del proyecto completo
 
-Disponibilidad automática por profesional/consultorio, bloqueos y concurrencia de cupos; catálogo clínico operativo (el contenido de tratamientos y sedes ya se edita en lienzos); biblioteca avanzada de medios y restauración de revisiones; reclamaciones reales y adjuntos privados; tienda dental y pagos sandbox con conciliación; sus notificaciones; textos legales definitivos; actualización de Laravel y despliegue/restauración ensayados. Los formularios operativos conservan campos estructurados propios.
+Disponibilidad automática por profesional/consultorio, bloqueos y concurrencia de cupos; catálogo clínico operativo (tratamientos y sedes ya se editan en lienzos); biblioteca avanzada de medios y restauración de revisiones; pedidos, pagos y conciliación (el catálogo de productos y su consulta ya funcionan); textos legales definitivos; actualización de Laravel y despliegue/restauración ensayados. Los formularios operativos conservan campos estructurados propios.
 
 No se borraron migraciones o imágenes heredadas: se aislaron sus rutas para retirar recursos solo después de demostrar sus dependencias.
 

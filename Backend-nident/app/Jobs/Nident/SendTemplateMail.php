@@ -52,6 +52,7 @@ class SendTemplateMail implements ShouldQueue
         }
         $delivery = MailDelivery::findOrFail($this->deliveryId);
         $settings = MailSetting::findOrFail(1);
+        $delivery->update(['is_sandbox' => $settings->host === 'sandbox.smtp.mailtrap.io', 'transport' => $settings->transport]);
         try {
             if (! $settings->enabled || ! $settings->from_address) {
                 throw new \RuntimeException('MAIL_DISABLED');
@@ -71,7 +72,9 @@ class SendTemplateMail implements ShouldQueue
             });
             $delivery->update(['status' => $settings->transport === 'array' ? 'simulated' : 'sent', 'sent_at' => now(), 'error_code' => null]);
         } catch (Throwable $exception) {
-            $delivery->update(['status' => 'queued', 'error_code' => class_basename($exception)]);
+            $message = strtolower($exception->getMessage());
+            $code = str_contains($message, 'limit') || str_contains($message, 'too many') ? 'SMTP_RATE_LIMITED' : (str_contains($message, '535') || str_contains($message, 'authenticate') ? 'SMTP_AUTH_FAILED' : (str_contains($message, 'timed out') ? 'SMTP_TIMEOUT' : (str_contains($message, 'connect') ? 'SMTP_CONNECT_FAILED' : 'MAIL_DELIVERY_FAILED')));
+            $delivery->update(['status' => 'queued', 'error_code' => $code]);
             // Never let queue logs serialize SMTP credentials or message bodies.
             throw new \RuntimeException('MAIL_DELIVERY_FAILED:'.$delivery->id);
         } finally {
@@ -82,6 +85,6 @@ class SendTemplateMail implements ShouldQueue
 
     public function failed(?Throwable $exception): void
     {
-        MailDelivery::where('id', $this->deliveryId)->whereNotIn('status', ['sent', 'simulated'])->update(['status' => 'failed', 'error_code' => 'MAIL_DELIVERY_FAILED']);
+        MailDelivery::where('id', $this->deliveryId)->whereNotIn('status', ['sent', 'simulated'])->update(['status' => 'failed']);
     }
 }

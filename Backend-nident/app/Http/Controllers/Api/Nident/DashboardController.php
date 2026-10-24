@@ -38,6 +38,6 @@ class DashboardController extends Controller
             $result['content'] = ['pages' => DB::table('cms_pages')->where('published', true)->count(), 'drafts' => DB::table('cms_modules')->whereColumn('draft', '<>', 'published')->count() + DB::table('cms_collections')->whereColumn('draft', '<>', 'published')->count(), 'collections' => DB::table('cms_collections')->get(['key', 'published'])->mapWithKeys(fn ($row) => [$row->key => count(array_filter(json_decode($row->published, true)['items'], fn ($item) => $item['visible']))])];
         }
 
-        return response()->json(['result' => $result])->header('Cache-Control','private, no-store');
+        return response()->json(['result' => $result])->header('Cache-Control', 'private, no-store');
     }
 }

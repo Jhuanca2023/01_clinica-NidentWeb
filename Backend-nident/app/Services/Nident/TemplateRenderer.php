@@ -59,7 +59,7 @@ class TemplateRenderer
             'fecha' => '23 de octubre de 2026', 'hora' => '10:30',
             'tratamiento' => 'Evaluación odontológica', 'sede' => 'Sede de ejemplo',
             'mensaje' => 'Este mensaje es una vista previa con datos ilustrativos.',
-            'total' => 'S/ 89.00',
+            'total' => 'S/ 89.00', 'tipo' => 'Reclamo', 'detalle' => 'Descripción de ejemplo de la atención recibida.', 'pedido' => 'Solicito revisar mi caso.', 'respuesta' => 'Hemos revisado tu solicitud. El equipo se comunicará contigo.',
         ];
     }
 }

@@ -18,7 +18,11 @@ No ejecutar migraciones históricas sin ruta ni copiar credenciales del proyecto
 - Imágenes: JPG, PNG y WebP de hasta 5 MB, validadas en Laravel, nombre aleatorio, almacenamiento privado y lectura pública por `/media/{nombre}`. SVG y HTML cargados no se aceptan.
 - SEO y publicación de páginas: `/admin/sitio`.
 - Reservas: `/reservar` registra solicitudes pendientes con consentimiento e idempotencia; `/admin/reservas` permite filtrar y gestionar estados, fecha, hora y nota interna. Requiere permiso propio. La clínica verifica disponibilidad y confirma cada cita manualmente.
-- Correos: `/admin/correos`. Confirmar o cancelar una reserva conecta las plantillas correspondientes si el servicio está activo y las plantillas publicadas.
+- Productos: `/admin/productos`. Crear, duplicar, ordenar, ocultar y eliminar; imágenes, precio, categoría, SKU, stock opcional y descripción independiente. Guardar borrador y publicar actualiza `/tienda`, `/api/productos` y `/productos/{slug}`. La selección conduce a una consulta; no registra pagos ni pedidos.
+- Personal: `/admin/usuarios`, `/admin/perfiles` y `/admin/roles`, exclusivos del administrador principal. Crear cuentas, asignar perfiles, definir permisos por módulo, exigir 2FA por rol y desactivar accesos. Cada usuario puede cambiar su contraseña en `/admin/mi-cuenta`.
+- Reclamaciones: `/libro-reclamaciones` registra solicitudes idempotentes y permite imprimir constancia; `/admin/reclamaciones` filtra, revisa adjuntos privados y registra respuestas. El administrador configura razón social, RUC y domicilio del proveedor en ese módulo.
+- Seguimiento: `/consultar-solicitud`, con referencia y correo registrado, muestra el estado de reservas, contacto y reclamaciones sin publicar datos personales ni requerir una cuenta pública.
+- Correos: `/admin/correos`. Ocho plantillas editables por bloques; solicitud, confirmación y cancelación de reserva, acuse y aviso de contacto, constancia y respuesta de reclamación conectados. `order_received` queda disponible para un futuro módulo de pedidos. El servicio debe estar activo y la plantilla publicada. Entregas y estado del transporte distinguen Mailtrap Sandbox, simulación y SMTP.
 
 `bun run import:template` genera los lienzos desde HTML confiable. Los editores guardan valores tipados, sin aceptar scripts ni HTML arbitrario. Los identificadores generados forman parte del contrato: si se reestructura la plantilla, revisar/migrar los campos antes de importar sobre contenido editado. No ejecutar una reimportación automática en producción.
 

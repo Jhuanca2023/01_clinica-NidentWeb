@@ -105,7 +105,17 @@ class MailController extends Controller
 
     public function deliveries()
     {
-        return response()->json(['success' => true, 'result' => MailDelivery::select('id', 'template_id', 'template_version', 'status', 'attempts', 'sent_at', 'error_code', 'created_at')->latest()->limit(30)->get()]);
+        return response()->json(['success' => true, 'result' => MailDelivery::select('id', 'template_id', 'template_version', 'status', 'attempts', 'sent_at', 'error_code', 'created_at', 'is_sandbox', 'transport')->latest()->limit(30)->get()]);
+    }
+
+    public function health()
+    {
+        $settings = MailSetting::findOrFail(1);
+        $sandbox = $settings->host === 'sandbox.smtp.mailtrap.io';
+        $flows = ['appointment_requested' => 'Solicitud de reserva', 'appointment_confirmed' => 'Confirmación de cita', 'appointment_cancelled' => 'Cancelación de cita', 'contact_received' => 'Acuse de contacto', 'contact_notification' => 'Aviso de contacto al equipo', 'claim_received' => 'Constancia de reclamación', 'claim_updated' => 'Respuesta de reclamación'];
+        $templates = MailTemplate::all()->keyBy('key');
+
+        return response()->json(['result' => ['enabled' => $settings->enabled, 'transport' => $settings->transport, 'sandbox' => $sandbox, 'ready' => $settings->enabled && filled($settings->from_address) && ($settings->transport === 'array' || filled($settings->host) && filled($settings->username) && filled($settings->password)), 'queued' => MailDelivery::whereIn('status', ['pending', 'queued', 'sending'])->count(), 'failed' => MailDelivery::where('status', 'failed')->count(), 'last_processed_at' => MailDelivery::whereIn('status', ['sent', 'simulated', 'failed'])->max('updated_at'), 'flows' => collect($flows)->map(fn ($name, $key) => ['key' => $key, 'name' => $name, 'published' => (bool) ($templates[$key]->published ?? false)])->values()]]);
     }
 
     private function revision(MailTemplate $template, string $action, int $actor): void

@@ -1,0 +1,7 @@
+---
+import {publicSite} from '../lib/server/public-site';import '../styles/public-operations.css';
+interface Props{title:string;description?:string}
+const {title,description='Atención de solicitudes de Nident.'}=Astro.props;const {page,parts}=await publicSite('/contacto');
+const header=parts[0].match(/<header\b[\s\S]*?<\/header>/)?.[0]||'';const footer=parts[0].match(/<footer\b[\s\S]*?<\/footer>/)?.[0]||'';
+---
+<!doctype html><html lang="es"><head><Fragment set:html={page?.head||'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{title} · Nident</title><meta name="description" content={description}/><meta name="robots" content="noindex,nofollow"/></head><body class="nident"><Fragment set:html={header}/><main id="contenido" class="wrap"><slot/></main><Fragment set:html={footer}/></body></html>

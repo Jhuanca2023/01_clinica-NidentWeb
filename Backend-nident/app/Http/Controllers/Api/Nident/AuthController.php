@@ -22,7 +22,7 @@ class AuthController extends Controller
         } catch (\RuntimeException $exception) {
             abort(403, 'El acceso con contraseña no está habilitado para esta cuenta.');
         }
-        abort_unless(NidentPermission::allows($user, 'mail') || NidentPermission::allows($user, 'site') || NidentPermission::allows($user, 'attention') || NidentPermission::allows($user, 'reservations'), 403, 'Tu cuenta no tiene acceso al panel Nident.');
+        abort_unless($user->es_administrador_principal || collect(array_keys(NidentPermission::AREAS))->contains(fn ($area) => NidentPermission::allows($user, $area)), 403, 'Tu cuenta no tiene acceso al panel Nident.');
 
         return response()->json(app(AuthTwoFactorService::class)->respuestaLoginOChallenge($user, false, $request->ip()));
     }
@@ -33,8 +33,8 @@ class AuthController extends Controller
         abort_unless($user && $user->Activo === 'S', 403);
 
         return response()->json(['success' => true, 'result' => [
-            'name' => $user->name, 'email' => $user->email,
-            'permissions' => ['mail' => NidentPermission::allows($user, 'mail'), 'site' => NidentPermission::allows($user, 'site'), 'attention' => NidentPermission::allows($user, 'attention'), 'reservations' => NidentPermission::allows($user, 'reservations')],
+            'id' => $user->id, 'name' => $user->name, 'email' => $user->email,
+            'permissions' => collect(array_merge(array_keys(NidentPermission::AREAS), ['security']))->mapWithKeys(fn ($area) => [$area => NidentPermission::allows($user, $area)]),
         ]]);
     }
 }

@@ -47,6 +47,7 @@ class RouteServiceProvider extends ServiceProvider
 
             return Limit::perMinute(60)->by($request->ip());
         });
+        RateLimiter::for('nident-public-request',fn(Request $request)=>[Limit::perMinute(10)->by('nident:request:'.hash('sha256',strtolower((string)$request->input('email')).strtoupper((string)$request->input('reference')))),Limit::perMinute(120)->by('nident:request:ip:'.$request->ip())]);
 
         $this->routes(function () {
             if (config('nident.enabled')) {

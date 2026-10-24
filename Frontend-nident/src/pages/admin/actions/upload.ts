@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       process.env.API_INTERNAL_URL ||
       import.meta.env.API_INTERNAL_URL ||
       "http://127.0.0.1:8000/api/v1";
-    const response = await fetch(`${base}/admin/site/media`, {
+    const response = await fetch(`${base}/admin/media`, {
       method: "POST",
       headers: {
         Accept: "application/json",

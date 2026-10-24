@@ -1,0 +1,12 @@
+---
+import {publicSite} from '../../lib/server/public-site';
+import type {Product} from '../../lib/content-collections';
+const {page,parts,collections,error}=await publicSite('/tienda');
+const product=collections?.products?.items.find((item:Product)=>item.visible&&item.slug===Astro.params.slug) as Product|undefined;
+if(error)Astro.response.status=503;else if(!product)Astro.response.status=404;
+const header=parts[0].match(/<header\b[\s\S]*?<\/header>/)?.[0]||'';
+const footer=parts[0].match(/<footer\b[\s\S]*?<\/footer>/)?.[0]||'';
+const base=process.env.PUBLIC_SITE_URL||import.meta.env.PUBLIC_SITE_URL||Astro.url.origin;
+---
+<!doctype html><html lang="es"><head><Fragment set:html={page?.head||'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{product?product.title+' · Nident':'Producto no disponible · Nident'}</title><meta name="description" content={product?.summary||''}/><link rel="canonical" href={new URL(Astro.url.pathname,base).href}/></head><body class="nident"><Fragment set:html={header}/><main class="wrap" id="contenido">{product&&!error?<><div class="breadcrumbs"><a href="/tienda">Tienda</a><span>/</span>{product.title}</div><section class="pack-hero"><div><small>{product.category}</small><h1>{product.title}</h1><p>{product.summary}</p><div class="pack-price">S/ {Number(product.price).toFixed(2)}<small>{product.stock===null?'Disponibilidad por confirmar':product.stock===0?'Sin disponibilidad':`${product.stock} disponibles`}</small></div><a class="btn pri" href={'/contacto?producto='+encodeURIComponent(product.slug)}>Consultar este producto</a></div>{product.image&&<img src={product.image} alt={product.alt}/>}</section>{product.details&&<section class="sec product-details"><h2>Información del producto</h2><p>{product.details}</p></section>}</>:<section class="sec"><h1>{error?'El servicio no está disponible.':'Este producto no está disponible.'}</h1><a href="/tienda">Ver productos publicados</a></section>}</main><Fragment set:html={footer}/></body></html>
+<style>.product-details{max-width:800px}.product-details h2{text-align:left!important}.product-details p{white-space:pre-line;line-height:1.8}.pack-hero:not(:has(>img)){grid-template-columns:1fr;max-width:800px}</style>

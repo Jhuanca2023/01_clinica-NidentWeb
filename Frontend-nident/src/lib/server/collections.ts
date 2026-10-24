@@ -4,6 +4,8 @@ import {
   planMarkup,
   type Review,
   type Plan,
+  productMarkup,
+  type Product,
 } from "../content-collections";
 export function applyCollections(body: string, collections: any): string {
   if (!collections) return body;
@@ -28,6 +30,26 @@ export function applyCollections(body: string, collections: any): string {
       return;
     }
     let markup: string | undefined;
+    if (cls.includes("product-grid") && collections.products)
+      markup = collections.products.items
+        .filter((item: Product) => item.visible)
+        .map(productMarkup)
+        .join("");
+    if (cls.includes("category-filters") && collections.products) {
+      const categories = [
+        ...new Set(
+          collections.products.items
+            .filter((item: Product) => item.visible)
+            .map((item: Product) => item.category),
+        ),
+      ] as string[];
+      markup = ["Todos", ...categories]
+        .map(
+          (category) =>
+            `<button type="button" data-filter="${category.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]!)}" aria-pressed="${category === "Todos"}">${category.replace(/[&<>]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[char]!)}</button>`,
+        )
+        .join("");
+    }
     if (cls.includes("reviews-track") && collections.reviews)
       markup = collections.reviews.items
         .filter((i: Review) => i.visible)

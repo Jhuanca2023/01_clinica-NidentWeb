@@ -153,7 +153,7 @@ class MailWorkflowTest extends TestCase
         $template->update(['draft' => $draft]);
         $this->seed(NidentSeeder::class);
         $this->seed(NidentSeeder::class);
-        $this->assertSame(6, MailTemplate::count());
+        $this->assertSame(8, MailTemplate::count());
         $this->assertSame('Configuración que debe conservarse', $template->fresh()->draft['subject']);
         $this->assertSame(28, DB::table('cms_pages')->count());
     }

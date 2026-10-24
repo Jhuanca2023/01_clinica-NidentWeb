@@ -28,7 +28,7 @@ class User extends Authenticatable implements JWTSubject,MustVerifyEmail, HasMed
 
     public function getJWTCustomClaims()
     {
-        return [];
+        return config('nident.enabled')?['nident_auth_version'=>(int)($this->nident_auth_version??1)]:[];
     }
     //=====================
    

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Nident\MailSetting;
 use App\Models\Nident\MailTemplate;
 use App\Services\Nident\MailOutbox;
+use App\Services\Nident\RequestMailer;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,7 @@ class ContactController extends Controller
                     'fecha_mensaje' => now()->toDateString(), 'telefono' => $data['telefono'] ?? '',
                     'mensaje' => $data['mensaje'], 'email_enviado' => 'N',
                     'nident_request_id' => $data['request_id'], 'nident_request_hash' => $hash,
+                    'nident_reference' => 'NID-'.strtoupper(substr(str_replace('-', '', $data['request_id']), 0, 10)),
                     'created_at' => now(), 'updated_at' => now(),
                 ]);
             });
@@ -50,11 +52,8 @@ class ContactController extends Controller
         $settings = MailSetting::find(1);
         if ($settings?->enabled) {
             try {
-                if (MailTemplate::where('key', 'contact_received')->whereNotNull('published')->exists()) {
-                    $outbox->enqueue('contact_received', $data['correo'], ['nombre' => $data['nombre']], 'contact:'.$data['request_id'].':receipt');
-                }
                 if ($settings->contact_to && MailTemplate::where('key', 'contact_notification')->whereNotNull('published')->exists()) {
-                    $outbox->enqueue('contact_notification', $settings->contact_to, ['nombre' => $data['nombre'], 'codigo' => $data['request_id']], 'contact:'.$data['request_id'].':staff');
+                    $outbox->enqueue('contact_notification', $settings->contact_to, ['nombre' => $data['nombre'], 'codigo' => 'NID-'.strtoupper(substr(str_replace('-', '', $data['request_id']), 0, 10))], 'contact:'.$data['request_id'].':staff');
                 }
             } catch (\Throwable $exception) {
                 Log::warning('Nident contact mail pending', ['request_id' => $data['request_id'], 'error_code' => class_basename($exception)]);
@@ -66,7 +65,11 @@ class ContactController extends Controller
 
     private function receipt(string $id)
     {
-        return response()->json(['success' => true, 'message' => 'Tu mensaje quedó registrado. El equipo de Nident podrá revisarlo desde el panel.', 'result' => ['reference' => 'NID-'.strtoupper(substr(str_replace('-', '', $id), 0, 10))]], 201);
+        $row = DB::table('web_contacto_mensaje')->where('nident_request_id', $id)->first();
+        $reference = $row->nident_reference;
+        $notification = app(RequestMailer::class)->notify('contact_received', $row->email, ['nombre' => $row->nombre, 'codigo' => $reference], 'contact:'.$id.':receipt', $reference);
+
+        return response()->json(['success' => true, 'message' => 'Tu mensaje quedó registrado. El equipo de Nident podrá revisarlo desde el panel.', 'result' => ['reference' => $reference, 'notification' => $notification, 'tracking_url' => '/consultar-solicitud?ref='.$reference]], 201);
     }
 
     public function index()

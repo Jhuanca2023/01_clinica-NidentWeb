@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class NidentPermission
 {
+    public const AREAS = ['reservations' => 'Reservas', 'attention' => 'Mensajes de contacto', 'claims' => 'Libro de Reclamaciones', 'site' => 'Contenido del sitio', 'catalog' => 'Productos de la tienda', 'mail' => 'Correos y plantillas'];
+
+    public const PATHS = ['reservations' => '/admin/reservas', 'attention' => '/admin/mensajes', 'claims' => '/admin/reclamaciones', 'site' => '/admin/sitio', 'catalog' => '/admin/productos', 'mail' => '/admin/correos'];
+
     public static function allows($user, string $area): bool
     {
         if (! $user || $user->Activo !== 'S') {
@@ -16,13 +20,7 @@ class NidentPermission
         if ($user->es_administrador_principal) {
             return true;
         }
-        $path = match ($area) {
-            'mail' => '/admin/correos',
-            'site' => '/admin/sitio',
-            'attention' => '/admin/mensajes',
-            'reservations' => '/admin/reservas',
-            default => null,
-        };
+        $path = self::PATHS[$area] ?? null;
         if (! $path) {
             return false;
         }

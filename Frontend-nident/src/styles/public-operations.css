@@ -1,0 +1,183 @@
+.public-operation {
+  max-width: 900px;
+  margin: 55px auto 80px;
+}
+.public-operation h1 {
+  font-size: clamp(29px, 4vw, 43px);
+  font-weight: 550;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.public-operation > p {
+  max-width: 70ch;
+  line-height: 1.85;
+  color: #796686;
+  font-size: 14px;
+}
+.public-operation form {
+  padding: 30px;
+  background: #f4eff8;
+  border-radius: 16px;
+  margin-top: 30px;
+  display: grid;
+  gap: 23px;
+}
+.public-operation label {
+  display: grid;
+  gap: 9px;
+  font-size: 13px;
+  color: #665171;
+}
+.public-operation input,
+.public-operation select,
+.public-operation textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d8cbe3;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font: inherit;
+  color: #4c365b;
+}
+.public-operation textarea {
+  resize: vertical;
+}
+.public-operation .public-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.public-operation fieldset {
+  border: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+.public-operation legend {
+  font-size: 18px;
+  color: #594369;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.public-operation .check-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.7;
+}
+.public-operation .check-label input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex: none;
+}
+.public-operation small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #806c8d;
+}
+.public-result {
+  background: #fff;
+  border: 1px solid #dcd1e6;
+  border-radius: 14px;
+  padding: 25px;
+  line-height: 1.8;
+  margin-top: 25px;
+  overflow-wrap: anywhere;
+}
+.public-result h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.public-result dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.public-result dt {
+  font-size: 11px;
+  color: #8a7598;
+}
+.public-result dd {
+  margin: 4px 0 0;
+  color: #52385f;
+  font-size: 13px;
+}
+.public-result .receipt-copy {
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+.public-feedback {
+  line-height: 1.8;
+  font-size: 13px;
+  color: #705781;
+}
+.public-feedback.error {
+  color: #a03955;
+}
+.public-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.public-links a {
+  color: #7258b6;
+}
+.public-operation [hidden] {
+  display: none !important;
+}
+.public-operation button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+@media (max-width: 600px) {
+  .public-operation {
+    margin: 30px auto 50px;
+  }
+  .public-operation form {
+    padding: 23px 19px;
+  }
+  .public-operation .public-grid {
+    grid-template-columns: 1fr;
+  }
+  .public-result {
+    padding: 20px;
+  }
+  .public-result dl {
+    grid-template-columns: 1fr;
+  }
+}
+@media print {
+  body > * {
+    display: none !important;
+  }
+  body > main,
+  body main:has(.claim-receipt) {
+    display: block !important;
+  }
+  .public-operation > * {
+    display: none !important;
+  }
+  .public-operation > .claim-receipt {
+    display: block !important;
+    border: 0;
+    padding: 0;
+  }
+  .claim-receipt .public-links {
+    display: none !important;
+  }
+  .public-operation {
+    margin: 0;
+    max-width: none;
+  }
+  .claim-receipt {
+    font-family: Arial, sans-serif;
+    color: #111;
+  }
+}

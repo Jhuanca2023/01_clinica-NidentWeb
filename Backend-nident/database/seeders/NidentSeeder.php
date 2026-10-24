@@ -37,6 +37,7 @@ class NidentSeeder extends Seeder
             MailTemplate::firstOrCreate(['key' => $key], ['name' => $name, 'variables' => $variables, 'draft' => $document]);
         }
         // Menus integrate with existing role tables; no new user or duplicate ACL system.
+        $this->call(NidentOperationsSeeder::class);
         foreach (['/admin/sitio' => 'Sitio web — Nident', '/admin/correos' => 'Correos — Nident', '/admin/mensajes' => 'Mensajes — Nident', '/admin/reservas' => 'Reservas — Nident'] as $url => $name) {
             if (! DB::table('sistema_menu')->where('url', $url)->exists()) {
                 DB::table('sistema_menu')->insert(['nombre' => $name, 'url' => $url, 'Activo' => 'S', 'orden' => 1, 'created_at' => now(), 'updated_at' => now()]);

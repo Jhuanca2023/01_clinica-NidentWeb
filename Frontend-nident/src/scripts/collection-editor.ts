@@ -10,12 +10,15 @@ import {
   type CollectionItem,
   type Review,
   type Plan,
+  type Product,
+  productMarkup,
 } from "../lib/content-collections";
 const data = document.getElementById("collection-data");
 if (data) {
   const payload = JSON.parse(data.textContent!);
   const kind = payload.kind;
   const reviews = kind === "reviews";
+  const products = kind === "products";
   let current = payload.document;
   let doc = structuredClone(current.draft) as { items: CollectionItem[] };
   let selected = doc.items[0]?.id || "";
@@ -135,7 +138,7 @@ if (data) {
     viewToggle.setAttribute("aria-pressed", String(showAll));
     const shown = showAll ? doc.items : active() ? [active()!] : [];
     target.innerHTML = doc.items.length
-      ? `<div class="${reviews ? "reviews-track" : "plans-grid"}" style="${showAll ? "" : "grid-template-columns:minmax(0,1fr)!important"}">${shown.map((item) => (reviews ? reviewMarkup(item as Review) : planMarkup(item as Plan))).join("")}</div>`
+      ? `<div class="${reviews ? "reviews-track" : products ? "product-grid" : "plans-grid"}" style="${showAll ? "" : "grid-template-columns:minmax(0,1fr)!important"}">${shown.map((item) => (reviews ? reviewMarkup(item as Review) : products ? productMarkup(item as Product) : planMarkup(item as Plan))).join("")}</div>`
       : '<p class="empty-preview">Todavía no hay elementos. Agrega uno para diseñar su contenido.</p>';
     for (const element of target.querySelectorAll<HTMLElement>(
       "[data-collection-id]",
@@ -148,7 +151,7 @@ if (data) {
       element.setAttribute("tabindex", "0");
     }
     const item = active();
-    if (item && !reviews && !showAll) {
+    if (item && !reviews && !products && !showAll) {
       const plan = item as Plan;
       const details = document.createElement("section");
       details.className = "plan-preview-details";
@@ -188,7 +191,9 @@ if (data) {
     get("collection-item-heading").textContent = item
       ? reviews
         ? "Editar reseña"
-        : "Editar plan"
+        : products
+          ? "Editar producto"
+          : "Editar plan"
       : "Agrega tu primer elemento";
     get("item-position").textContent = item
       ? `${doc.items.findIndex((i) => i.id === selected) + 1} de ${doc.items.length}`
@@ -226,8 +231,8 @@ if (data) {
           key === "features" ? value.join("\n") : String(value ?? "");
         control.maxLength = max;
         if (type === "number") {
-          (control as HTMLInputElement).min = "1";
-          (control as HTMLInputElement).max = "5";
+          (control as HTMLInputElement).min = key === "stock" ? "0" : "1";
+          (control as HTMLInputElement).max = key === "stock" ? "1000000" : "5";
         }
       }
       if (
@@ -243,7 +248,9 @@ if (data) {
           type === "checkbox"
             ? (control as HTMLInputElement).checked
             : type === "number"
-              ? Number(control.value)
+              ? key === "stock" && control.value === ""
+                ? null
+                : Number(control.value)
               : key === "features"
                 ? control.value
                     .split("\n")
@@ -270,7 +277,16 @@ if (data) {
       fields.append(label);
     }
     field("visible", "Mostrar al publicar", "checkbox");
-    if (reviews) {
+    if (products) {
+      field("title", "Nombre del producto", "text", 120);
+      field("slug", "Dirección del producto", "text", 100);
+      field("summary", "Descripción breve", "textarea", 1000);
+      field("price", "Precio en soles", "text", 30);
+      field("category", "Categoría", "text", 80);
+      field("sku", "Código o SKU", "text", 80);
+      field("stock", "Stock disponible · vacío para consultar", "number");
+      field("details", "Información del producto", "textarea", 6000);
+    } else if (reviews) {
       field("author", "Nombre de la persona", "text", 100);
       field("service", "Tratamiento o categoría", "text", 120);
       field("quote", "Reseña", "textarea", 2000);
@@ -339,7 +355,7 @@ if (data) {
         upload.disabled = false;
       }
     });
-    if (!reviews) {
+    if (!reviews && !products) {
       const plan = item as Plan;
       const title = document.createElement("h3");
       title.textContent = "Información propia de este plan";
@@ -435,34 +451,49 @@ if (data) {
   }
   get("collection-add").addEventListener("click", () => {
     if (busy || doc.items.length >= 50) return;
-    const item: CollectionItem = reviews
+    const item: CollectionItem = products
       ? {
           id: crypto.randomUUID(),
           visible: true,
-          author: "",
-          service: "",
-          quote: "",
-          rating: 5,
-          image: "",
-          alt: "",
-          note: "",
-        }
-      : {
-          id: crypto.randomUUID(),
-          visible: true,
-          featured: true,
           title: "",
           slug: "",
           summary: "",
           image: "",
           alt: "",
           price: "",
-          price_note: "",
-          features: [],
-          conditions: "",
-          cta: "Solicitar información",
-          sections: [],
-        };
+          category: "",
+          sku: "",
+          stock: null,
+          details: "",
+        }
+      : reviews
+        ? {
+            id: crypto.randomUUID(),
+            visible: true,
+            author: "",
+            service: "",
+            quote: "",
+            rating: 5,
+            image: "",
+            alt: "",
+            note: "",
+          }
+        : {
+            id: crypto.randomUUID(),
+            visible: true,
+            featured: true,
+            title: "",
+            slug: "",
+            summary: "",
+            image: "",
+            alt: "",
+            price: "",
+            price_note: "",
+            features: [],
+            conditions: "",
+            cta: "Solicitar información",
+            sections: [],
+          };
     doc.items.push(item);
     selected = item.id;
     if (!reviews) autoSlug.add(item.id);
@@ -491,6 +522,7 @@ if (data) {
         suffix++;
       plan.slug = root + "-copia-" + suffix;
     }
+    if (products) (copy as Product).sku = "";
     copy.visible = false;
     doc.items.splice(
       doc.items.findIndex((i) => i.id === selected) + 1,
@@ -507,7 +539,11 @@ if (data) {
     if (!item || busy) return;
     if (
       !(await confirmAction({
-        title: reviews ? "Eliminar reseña" : "Eliminar plan",
+        title: reviews
+          ? "Eliminar reseña"
+          : products
+            ? "Eliminar producto"
+            : "Eliminar plan",
         message:
           "Se quitará del borrador. Puedes deshacer la eliminación antes de salir. El sitio cambia cuando publiques.",
         accept: "Eliminar",
@@ -550,7 +586,9 @@ if (data) {
   get("collection-search").addEventListener("input", renderList);
   async function call(path: string, body: unknown, method = "PUT") {
     const response = await fetch(
-      "/admin/actions/site/collections/" + kind + path,
+      (products
+        ? "/admin/actions/catalog"
+        : "/admin/actions/site/collections/" + kind) + path,
       {
         method,
         headers: { "Content-Type": "application/json", "X-CSRF-Token": csrf },

@@ -21,4 +21,4 @@ $result['collections']=$db::table('cms_collections')->count();
 $result['reviews']=count(json_decode($db::table('cms_collections')->where('key','reviews')->value('published'),true)['items']);
 $result['plans']=count(json_decode($db::table('cms_collections')->where('key','plans')->value('published'),true)['items']);
 echo json_encode($result, JSON_PRETTY_PRINT).PHP_EOL;
-exit($result['pages'] === 28 && $result['templates'] === 6 && $result['users'] === 0 && $result['collections']===2 && $result['reviews']===6 && $result['plans']===6 ? 0 : 1);
+exit($result['pages'] === 28 && $result['templates'] === 8 && $result['users'] === 0 && $result['collections']===3 && $result['reviews']===6 && $result['plans']===6 ? 0 : 1);
