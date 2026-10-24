@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends libonig-dev lib
     && docker-php-ext-install -j$(nproc) pdo_mysql mbstring bcmath intl gd zip opcache pcntl \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+COPY infra/nident-upload.ini /usr/local/etc/php/conf.d/nident-upload.ini
 WORKDIR /var/www
 COPY Backend-nident/composer.json Backend-nident/composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-interaction --no-scripts --optimize-autoloader
