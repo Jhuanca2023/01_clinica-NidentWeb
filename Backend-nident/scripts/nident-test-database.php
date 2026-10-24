@@ -21,5 +21,9 @@ $app = require dirname(__DIR__).'/bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $status = $kernel->call('nident:install');
 echo $kernel->output();
+if ($status !== 0 || ! Illuminate\Support\Facades\Schema::hasTable('mail_templates') || Illuminate\Support\Facades\DB::table('mail_templates')->count() !== 8) {
+    fwrite(STDERR, "La instalación aislada no se completó. No ejecutar PHPUnit sobre esta base.\n");
+    exit(1);
+}
 echo "Base de pruebas aislada preparada, sin copiar usuarios ni datos operativos.\n";
 exit($status);

@@ -9,17 +9,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('nident_auth_version')->default(1);
-        });
+        if (! Schema::hasColumn('users', 'nident_auth_version')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->unsignedInteger('nident_auth_version')->default(1);
+            });
+        }
         Schema::table('mail_deliveries', function (Blueprint $table) {
             $table->boolean('is_sandbox')->default(false);
             $table->string('transport', 20)->nullable();
         });
         foreach (['seguridad_perfil', 'seguridad_roles'] as $name) {
-            Schema::table($name, function (Blueprint $table) {
-                $table->unsignedInteger('nident_version')->default(1);
-            });
+            if (! Schema::hasColumn($name, 'nident_version')) {
+                Schema::table($name, function (Blueprint $table) {
+                    $table->unsignedInteger('nident_version')->default(1);
+                });
+            }
         }
         Schema::table('web_contacto_mensaje', function (Blueprint $table) {
             $table->string('nident_reference', 30)->nullable()->unique();
