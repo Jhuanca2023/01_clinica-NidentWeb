@@ -28,7 +28,10 @@ class TrackingController extends Controller
         if (! $result) {
             $row = DB::table('nident_claims')->where('reference', $reference)->where('email', $email)->first();
             if ($row) {
-                $result = ['type' => 'claim', 'reference' => $reference, 'status' => $row->status, 'registered_at' => $row->created_at, 'answered_at' => $row->answered_at];
+                $result = ['type' => 'claim', 'reference' => $reference, 'status' => $row->status, 'registered_at' => $row->created_at, 'answered_at' => $row->answered_at, 'reviewing_at' => $row->reviewing_at, 'updated_at' => $row->updated_at, 'number' => 'REC-'.str_pad((string) $row->id, 4, '0', STR_PAD_LEFT), 'claim_type' => $row->type, 'outcome' => $row->outcome];
+                if ($row->status === 'answered') {
+                    $result['response'] = $row->response;
+                }
             }
         }
         abort_unless($result, 404, 'No encontramos una solicitud con esos datos. Revisa la referencia y el correo que registraste.');

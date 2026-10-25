@@ -1,8 +1,11 @@
+import { initClaimWizard } from "./claim-wizard";
 import { notificationCopy } from "../lib/notification-copy";
 const form = document.getElementById(
   "claim-public-form",
 ) as HTMLFormElement | null;
 if (form) {
+  initClaimWizard(form);
+  let submitting = false;
   let requestId = crypto.randomUUID(),
     lastBody = "";
   const toggle = document.getElementById("minor-toggle") as HTMLInputElement;
@@ -16,9 +19,9 @@ if (form) {
   });
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!form.reportValidity()) return;
+    if (submitting || !form.reportValidity()) return;
     const feedback = document.getElementById("claim-feedback")!;
-    const button = form.querySelector("button")!;
+    const button = document.getElementById("claim-submit") as HTMLButtonElement;
     feedback.hidden = true;
     const files = (document.getElementById("claim-files") as HTMLInputElement)
       .files;
@@ -46,6 +49,7 @@ if (form) {
     if (lastBody && lastBody !== signature) requestId = crypto.randomUUID();
     lastBody = signature;
     body.set("request_id", requestId);
+    submitting = true;
     button.disabled = true;
     try {
       const response = await fetch("/api/reclamaciones", {
@@ -64,7 +68,7 @@ if (form) {
       const title = document.createElement("h2");
       title.textContent = "Constancia de tu solicitud";
       const reference = document.createElement("p");
-      reference.textContent = `Hoja ${data.result.sheet_number} · ${data.result.reference}`;
+      reference.textContent = `Hoja ${data.result.number || data.result.sheet_number} · ${data.result.reference}`;
       const note = document.createElement("p");
       note.textContent = notificationCopy(data.result.notification);
       const copy = document.createElement("div");
@@ -85,6 +89,9 @@ if (form) {
         `Correo: ${body.get("email")}`,
         `Teléfono: ${body.get("phone")}`,
         `Domicilio: ${body.get("address")}`,
+        `Departamento: ${body.get("department")}`,
+        `Provincia: ${body.get("province")}`,
+        `Distrito: ${body.get("district")}`,
         `Tipo: ${body.get("type")}`,
         `Producto o servicio: ${body.get("service")}`,
         `Monto: ${body.get("amount") || "No indicado"}`,
@@ -116,6 +123,7 @@ if (form) {
       feedback.className = "public-feedback error";
       feedback.hidden = false;
     } finally {
+      submitting = false;
       button.disabled = false;
     }
   });

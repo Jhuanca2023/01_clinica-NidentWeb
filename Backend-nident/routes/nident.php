@@ -66,6 +66,8 @@ Route::middleware(['auth:api', NidentSessionVersion::class])->group(function () 
     Route::middleware(NidentPermission::class.':claims')->group(function () {
         Route::get('/admin/claims/settings', [BusinessController::class, 'show']);
         Route::get('/admin/claims', [ClaimController::class, 'index']);
+        Route::get('/admin/claims/{claim}', [ClaimController::class, 'show'])->whereNumber('claim');
+        Route::post('/admin/claims/{claim}/open', [ClaimController::class, 'open'])->whereNumber('claim');
         Route::put('/admin/claims/{claim}', [ClaimController::class, 'update'])->whereNumber('claim');
         Route::get('/admin/claims/{claim}/attachments/{attachment}', [ClaimController::class, 'attachment'])->whereNumber('claim')->whereNumber('attachment');
     });

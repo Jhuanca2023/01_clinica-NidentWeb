@@ -122,8 +122,39 @@ export async function verifyOperations(page, output) {
       "Descripción sintética de una reclamación para probar el formulario.",
     requested_solution: "Revisar la atención recibida.",
   };
-  for (const [name, value] of Object.entries(fields))
+  for (const name of ["name", "email", "document_number", "phone"])
+    await page
+      .locator('#claim-public-form [name="' + name + '"]')
+      .fill(fields[name]);
+  await page.screenshot({
+    path: path.join(output, "libro-paso-personal-desktop.png"),
+    fullPage: true,
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({
+    path: path.join(output, "libro-paso-personal-mobile.png"),
+    fullPage: true,
+  });
+  await page.setViewportSize({ width: 1512, height: 1050 });
+  await page.getByRole("button", { name: "Continuar", exact: true }).click();
+  for (const [name, value] of Object.entries({
+    department: "La Libertad",
+    province: "Trujillo",
+    district: "Trujillo",
+    address: fields.address,
+  }))
     await page.locator('#claim-public-form [name="' + name + '"]').fill(value);
+  await page.getByRole("button", { name: "Volver", exact: true }).click();
+  assert.equal(
+    await page.locator('#claim-public-form [name="name"]').inputValue(),
+    fields.name,
+  );
+  await page.getByRole("button", { name: "Continuar", exact: true }).click();
+  await page.getByRole("button", { name: "Continuar", exact: true }).click();
+  for (const name of ["service", "detail", "requested_solution"])
+    await page
+      .locator('#claim-public-form [name="' + name + '"]')
+      .fill(fields[name]);
   await page.locator('#claim-public-form [name="privacy"]').check();
   await page
     .getByRole("button", { name: "Registrar solicitud", exact: true })

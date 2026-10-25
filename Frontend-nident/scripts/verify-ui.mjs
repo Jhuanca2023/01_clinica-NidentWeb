@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawn, execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+import { verifyClaims } from "./verify-claims.mjs";
 import { verifyOperations } from "./verify-operations.mjs";
 import { verifyModules } from "./verify-modules.mjs";
 
@@ -114,6 +115,37 @@ const renderEmail = (document, branding) =>
       },
     ),
   );
+const claimFixture = {
+  id: 1,
+  number: "REC-0001",
+  reference: "NID-1234567890ABCDEF",
+  type: "queja",
+  name: "Consumidor de prueba",
+  email: "consumer@example.invalid",
+  phone: "999000001",
+  document_type: "DNI",
+  document_number: "00000000",
+  department: "La Libertad",
+  province: "Trujillo",
+  district: "Trujillo",
+  address: "Dirección de prueba",
+  minor: false,
+  service_kind: "servicio",
+  service: "Evaluación dental",
+  amount: "50.00",
+  detail: "Solicitud sintética sobre la atención recibida en la clínica.",
+  requested_solution: "Solicito revisar la atención y coordinar una solución.",
+  status: "received",
+  version: 1,
+  response: null,
+  responsible_name: null,
+  outcome: null,
+  created_at: new Date().toISOString(),
+  reviewing_at: null,
+  answered_at: null,
+  attachments: [],
+  history: [],
+};
 const business = {
   commercial_name: "Nident",
   legal_name: "Clínica sintética",
@@ -227,13 +259,31 @@ const fixture = http.createServer(async (request, response) => {
     return;
   }
   if (pathname.endsWith("/public/requests/lookup"))
-    result = {
-      type: "contact",
-      reference: body.reference,
-      status: "received",
-      registered_at: new Date().toISOString(),
-      notification: { status: "sent", sandbox: true },
-    };
+    result =
+      body.reference === claimFixture.reference
+        ? {
+            type: "claim",
+            reference: claimFixture.reference,
+            number: claimFixture.number,
+            claim_type: claimFixture.type,
+            status: claimFixture.status,
+            outcome: claimFixture.outcome,
+            registered_at: claimFixture.created_at,
+            reviewing_at: claimFixture.reviewing_at,
+            answered_at: claimFixture.answered_at,
+            response:
+              claimFixture.status === "answered"
+                ? claimFixture.response
+                : undefined,
+            notification: { status: "sent", sandbox: true },
+          }
+        : {
+            type: "contact",
+            reference: body.reference,
+            status: "received",
+            registered_at: new Date().toISOString(),
+            notification: { status: "sent", sandbox: true },
+          };
   else if (pathname.endsWith("/public/claims")) {
     response.statusCode = 201;
     result = {
@@ -244,8 +294,52 @@ const fixture = http.createServer(async (request, response) => {
     };
   } else if (pathname.endsWith("/claims/settings")) result = business;
   else if (pathname.endsWith("/admin/claims"))
-    result = { data: [], total: 0, current_page: 1, last_page: 1 };
-  else if (pathname.endsWith("/mail/health"))
+    result = {
+      data: [
+        claimFixture,
+        {
+          ...claimFixture,
+          id: 2,
+          number: "REC-0002",
+          reference: "NID-2345678901ABCDEF",
+          status: "reviewing",
+          type: "reclamo",
+          reviewing_at: new Date().toISOString(),
+        },
+        {
+          ...claimFixture,
+          id: 3,
+          number: "REC-0003",
+          reference: "NID-3456789012ABCDEF",
+          status: "answered",
+          type: "reclamo",
+          outcome: "resolved",
+          answered_at: new Date().toISOString(),
+        },
+      ],
+      total: 3,
+      current_page: 1,
+      last_page: 1,
+    };
+  else if (/admin\/claims\/1(?:\/open)?$/.test(pathname)) {
+    if (pathname.endsWith("/open") && claimFixture.status === "received") {
+      claimFixture.status = "reviewing";
+      claimFixture.version++;
+      claimFixture.reviewing_at = new Date().toISOString();
+      claimFixture.history.push({
+        status: "reviewing",
+        version: claimFixture.version,
+        created_at: new Date().toISOString(),
+      });
+    }
+    if (request.method === "PUT") {
+      Object.assign(claimFixture, body);
+      claimFixture.version++;
+      if (body.status === "answered")
+        claimFixture.answered_at = new Date().toISOString();
+    }
+    result = claimFixture;
+  } else if (pathname.endsWith("/mail/health"))
     result = {
       enabled: true,
       sandbox: true,
@@ -467,6 +561,7 @@ try {
   await page.waitForURL("**/admin");
   await verifyModules(page, output);
   await verifyOperations(page, output);
+  await verifyClaims(page, output);
   const visibleReviews = structuredClone(collections.reviews.published);
   const visiblePlans = structuredClone(collections.plans.published);
   collections.reviews.published.items = [];
@@ -743,6 +838,7 @@ try {
     customExitAndDeleteConfirmations: true,
     savedAndPublishedInFixture: true,
     contactSubmittedInFixture: true,
+    claimWorkflowAndAutomaticCustomerRefresh: true,
     screenshots: fs.readdirSync(output),
   };
   fs.writeFileSync(
