@@ -1,6 +1,13 @@
 import { canvasPages as pages, renderCanvas } from "../canvas";
 import { api } from "./api";
 import { applyCollections } from "./collections";
+import snapshot from "../../data/demo-site.json";
+import { demoMode } from "./deployment";
+export async function publicDocument() {
+  return demoMode()
+    ? structuredClone(snapshot)
+    : (await api("/public/site")).result;
+}
 
 function escape(value: string): string {
   return value.replace(
@@ -16,7 +23,7 @@ export async function publicSite(path: string) {
   let site: any;
   let error = false;
   try {
-    site = (await api("/public/site")).result;
+    site = await publicDocument();
   } catch {
     error = true;
   }

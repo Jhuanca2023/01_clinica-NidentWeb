@@ -1,7 +1,7 @@
 ---
-import {api} from '../../lib/server/api';
+import {publicDocument} from '../../lib/server/public-site';
 let unavailable=false;let found=false;
-try{const site=(await api('/public/site')).result;found=site.collections?.plans?.items.some((plan:any)=>plan.slug===Astro.params.slug);}catch{unavailable=true;}
+try{const site=await publicDocument();found=site.collections?.plans?.items.some((plan:any)=>plan.slug===Astro.params.slug);}catch{unavailable=true;}
 if(found)return Astro.redirect('/planes/'+encodeURIComponent(Astro.params.slug || '')+Astro.url.search,301);
 Astro.response.status=unavailable?503:404;
 ---

@@ -10,7 +10,7 @@ const { page, metadata, content, error, hero, parts } = await publicSite(path);
 if (error) Astro.response.status = 503;
 if (!error && (!metadata || !page)) Astro.response.status = 404;
 const title = error ? 'Servicio temporalmente no disponible · Nident' : metadata?.title || 'Página no encontrada · Nident';
-const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+const siteUrl = process.env.PUBLIC_SITE_URL || import.meta.env.PUBLIC_SITE_URL || Astro.url.origin;
 ---
 <!doctype html><html lang="es"><head><Fragment set:html={page?.head || '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'}/><title>{title}</title><meta name="description" content={metadata?.description || ''}/><link rel="canonical" href={new URL(path, siteUrl).href}/><link rel="icon" href="/assets/img/marca/logo1-trim.webp"/></head>
 <body class={page?.bodyClass || 'nident'}>

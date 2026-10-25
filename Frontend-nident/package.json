@@ -9,12 +9,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "import:template": "node scripts/import-template.mjs && node scripts/build-canvas.mjs && node scripts/build-collections.mjs && node scripts/build-products.mjs",
+    "import:template": "node scripts/import-template.mjs && node scripts/build-canvas.mjs && node scripts/build-collections.mjs && node scripts/build-products.mjs && node scripts/build-demo.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:netlify": "node scripts/build-netlify.mjs",
+    "demo:snapshot": "node scripts/build-demo.mjs",
+    "test:demo": "node scripts/verify-demo.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.11",
+    "@astrojs/netlify": "8.2.10",
     "@astrojs/node": "^11.1.9",
     "astro": "^7.3.8",
     "ioredis": "^6.0.0",

@@ -1,8 +1,8 @@
 import type { APIRoute } from "astro";
-import { api } from "../lib/server/api";
+import { publicDocument } from "../lib/server/public-site";
 export const GET: APIRoute = async ({ url }) => {
   try {
-    const result = await api("/public/site");
+    const result = { result: await publicDocument() } as any;
     const base = import.meta.env.PUBLIC_SITE_URL || url.origin;
     const plans = (result.result.collections?.plans?.items || []).map(
       (plan: any) => ({ path: "/planes/" + plan.slug }),

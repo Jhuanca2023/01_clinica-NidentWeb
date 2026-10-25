@@ -2,6 +2,8 @@
 
 Web y administración en Astro SSR; API y reglas en Laravel; persistencia MySQL.
 
+Para publicar solo el frontend en Netlify, importa este repositorio: `netlify.toml` configura el adaptador y la compilación. Sin `API_INTERNAL_URL`, se activa una demostración con contenido e imágenes incluidos, formularios desactivados y panel no disponible. Consulta [los pasos y variables de Netlify](Docs/NETLIFY.md) antes de conectar una API real.
+
 La referencia visual está en `site/`. `Frontend-nident` contiene la migración y el panel; `Backend-nident` conserva el motor reutilizable y las nuevas rutas versionadas.
 
 Consultar [implementación y operación](Docs/IMPLEMENTACION_NIDENT.md) para iniciar, instalar migraciones Nident, configurar correos, procesar colas y conocer los módulos pendientes. La [auditoría inicial](Docs/FASE0_NIDENT.md) conserva las decisiones y riesgos del motor heredado.

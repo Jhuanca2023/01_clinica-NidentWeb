@@ -21,6 +21,8 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run check
       - run: bun run build
+      - run: bun run test:demo
+      - run: bun run build:netlify
   backend:
     runs-on: ubuntu-latest
     services:
