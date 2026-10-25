@@ -111,7 +111,7 @@ El script es una protección local previa a cambios. Antes de producción faltan
 
 ## Verificación
 
-- 26 tests PHPUnit y 198 assertions: permisos, personal y revocación, productos, seguimiento sin datos personales, reclamaciones y adjuntos privados, versiones, cifrado, outbox, contacto, imágenes y reservas idempotentes.
+- 29 tests PHPUnit y 236 assertions: permisos, personal y revocación, productos, seguimiento, reclamaciones y adjuntos privados, versiones, cifrado, outbox, identidad del correo, MIME con imágenes inline sin red y filtros/paginación del backend.
 - Pruebas funcionales en `nident_testing`, sin copiar usuarios ni pedidos.
 - Instalación en base vacía y repetición: 28 páginas, ocho plantillas, tres colecciones, seis reseñas, seis planes, seis productos y cero usuarios.
 - `astro check` y compilación SSR; revisión visual de inicio/editor en escritorio y móvil sin overflow ni errores JS.

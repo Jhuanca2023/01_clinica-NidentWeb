@@ -12,5 +12,5 @@ class MailSetting extends Model
 
     protected $hidden = ['password'];
 
-    protected $casts = ['password' => 'encrypted', 'enabled' => 'boolean'];
+    protected $casts = ['password' => 'encrypted', 'enabled' => 'boolean', 'branding' => 'array'];
 }

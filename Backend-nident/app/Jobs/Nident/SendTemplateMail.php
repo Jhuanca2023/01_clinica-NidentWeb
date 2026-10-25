@@ -4,6 +4,7 @@ namespace App\Jobs\Nident;
 
 use App\Models\Nident\MailDelivery;
 use App\Models\Nident\MailSetting;
+use App\Services\Nident\MailImages;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -64,7 +65,11 @@ class SendTemplateMail implements ShouldQueue
             ];
             config(['mail.mailers.nident' => $config]);
             Mail::purge('nident');
-            Mail::mailer('nident')->html($delivery->html, function ($message) use ($settings, $delivery) {
+            $prepared = app(MailImages::class)->prepare($delivery->html);
+            Mail::mailer('nident')->html($prepared['html'], function ($message) use ($settings, $delivery, $prepared) {
+                foreach ($prepared['images'] as $image) {
+                    $message->embedData($image['data'], $image['name'], $image['mime']);
+                }
                 $message->from($settings->from_address, $settings->from_name)->to($delivery->recipient)->subject($delivery->subject);
                 if ($settings->reply_to) {
                     $message->replyTo($settings->reply_to);

@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
-import { spawn } from "node:child_process";
+import { spawn, execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { verifyOperations } from "./verify-operations.mjs";
@@ -78,6 +78,42 @@ collections.products = {
     ),
   },
 };
+let mailBranding = {
+  version: 1,
+  branding: {
+    name: "Nident",
+    logo: "/email-assets/nident-logo.png",
+    logo_alt: "Nident · Odontología",
+    banner: "/email-assets/nident-banner.jpg",
+    banner_alt: "Un espacio para cuidar tu sonrisa",
+    tagline: "Sonríe a tu manera. Te acompañamos.",
+    footer_title: "Estamos para ayudarte.",
+    footer_text:
+      "Si tienes alguna consulta sobre esta comunicación, contacta al equipo de Nident.",
+    address: "",
+    phone: "",
+    email: "",
+    website: "",
+    links: [],
+  },
+};
+const renderEmail = (document, branding) =>
+  JSON.parse(
+    execFileSync(
+      "php",
+      [
+        path.join(
+          root,
+          "Backend-nident/scripts/nident-render-email-fixture.php",
+        ),
+      ],
+      {
+        cwd: path.join(root, "Backend-nident"),
+        input: JSON.stringify({ document, branding }),
+        encoding: "utf8",
+      },
+    ),
+  );
 const business = {
   commercial_name: "Nident",
   legal_name: "Clínica sintética",
@@ -332,6 +368,19 @@ const fixture = http.createServer(async (request, response) => {
     result = { content: seed.content, version: siteVersion };
   } else if (pathname.endsWith("/admin/reservations"))
     result = { data: [], total: 0, current_page: 1, last_page: 1 };
+  else if (pathname.endsWith("/admin/messages"))
+    result = { data: [], total: 0, current_page: 1, last_page: 1 };
+  else if (pathname.endsWith("/mail/branding")) {
+    if (request.method === "PUT")
+      mailBranding = {
+        version: mailBranding.version + 1,
+        branding: body.branding,
+      };
+    result = mailBranding;
+  } else if (pathname.endsWith("/mail/branding/preview"))
+    result = renderEmail(template.draft, body.branding);
+  else if (pathname.endsWith("/templates/1/preview"))
+    result = renderEmail(body.document, mailBranding.branding);
   else if (pathname.endsWith("/mail/templates")) result = [template];
   else if (pathname.endsWith("/templates/1") && request.method === "PUT") {
     template = {
@@ -545,6 +594,85 @@ try {
   await page
     .getByText("Plantilla publicada. Los nuevos envíos usarán esta versión.")
     .waitFor();
+  await page
+    .getByRole("button", { name: "Logo, banner y footer", exact: true })
+    .click();
+  await page.locator('#mail-branding-form [name="phone"]').fill("999000000");
+  await page
+    .locator('#mail-branding-form [name="email"]')
+    .fill("atencion@example.invalid");
+  await page
+    .getByRole("button", { name: "Agregar enlace", exact: true })
+    .click();
+  await page.locator("[data-link-label]").fill("Privacidad");
+  await page
+    .locator("[data-link-url]")
+    .fill("https://example.invalid/privacidad");
+  await page
+    .getByRole("button", { name: "Guardar identidad", exact: true })
+    .click();
+  await page
+    .getByText(
+      "Identidad guardada. Los nuevos correos usarán este logo, banner y footer.",
+    )
+    .waitFor();
+  await page
+    .frameLocator("#branding-frame")
+    .getByText("999000000", { exact: false })
+    .waitFor();
+  const brandedFrame = await (
+    await page.locator("#branding-frame").elementHandle()
+  ).contentFrame();
+  await brandedFrame.waitForFunction(() =>
+    Array.from(document.images).every(
+      (img) => img.complete && img.naturalWidth > 0,
+    ),
+  );
+  await page.screenshot({
+    path: path.join(output, "identidad-correo-desktop.png"),
+    fullPage: true,
+  });
+  await page
+    .locator("#branding-frame")
+    .screenshot({ path: path.join(output, "correo-nident-final.png") });
+  await page.setViewportSize({ width: 390, height: 844 });
+  if (
+    await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)
+  )
+    throw Error("Desbordamiento en identidad de correo móvil");
+  await page.locator("#branding-frame").scrollIntoViewIfNeeded();
+  await page
+    .frameLocator("#branding-frame")
+    .getByText("Estamos para ayudarte.", { exact: true })
+    .waitFor();
+  if (
+    await brandedFrame.evaluate(
+      () => document.documentElement.scrollWidth > innerWidth,
+    )
+  )
+    throw Error("Desbordamiento dentro del correo móvil");
+  await page
+    .locator("#branding-frame")
+    .screenshot({ path: path.join(output, "correo-nident-mobile.png") });
+  await page.screenshot({
+    path: path.join(output, "identidad-correo-mobile.png"),
+    fullPage: true,
+  });
+  await page.goto(
+    "http://127.0.0.1:14321/admin/mensajes?status=unread&search=consulta&per_page=50",
+  );
+  await page
+    .getByRole("button", { name: "Filtrar mensajes", exact: true })
+    .waitFor();
+  if (
+    await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)
+  )
+    throw Error("Desbordamiento en filtros de mensajes");
+  await page.screenshot({
+    path: path.join(output, "mensajes-filtros-mobile.png"),
+    fullPage: true,
+  });
+  await page.goto("http://127.0.0.1:14321/admin/correos");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({
     path: path.join(output, "correos-mobile.png"),

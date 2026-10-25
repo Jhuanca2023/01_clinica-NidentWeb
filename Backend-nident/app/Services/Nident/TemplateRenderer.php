@@ -13,9 +13,12 @@ class TemplateRenderer
             $strings[] = $block['text'];
             $strings[] = $block['alt'];
             $strings[] = $block['url'];
+            if ($block['type'] === 'image' && str_starts_with($block['url'], '/') && MailImages::path($block['url'])) {
+                continue;
+            }
             if (in_array($block['type'], ['image', 'button'], true)) {
                 $url = $block['url'];
-                if (! preg_match('/^https:\/\//i', $url) || ! filter_var($url, FILTER_VALIDATE_URL) || parse_url($url, PHP_URL_USER)) {
+                if (! preg_match('/^https:\/\//i', $url) || ! filter_var($url, FILTER_VALIDATE_URL) || parse_url($url, PHP_URL_USER) || parse_url($url, PHP_URL_PASS)) {
                     throw ValidationException::withMessages(['document' => 'Las imágenes y botones requieren una URL HTTPS válida, sin credenciales.']);
                 }
             }
@@ -28,7 +31,7 @@ class TemplateRenderer
         }
     }
 
-    public function render(array $document, array $variables): array
+    public function render(array $document, array $variables, ?array $branding = null): array
     {
         $replace = static function (string $value) use ($variables): string {
             return preg_replace_callback('/\{\{\s*([a-z_]+)\s*\}\}/', fn ($m) => (string) ($variables[$m[1]] ?? ''), $value);
@@ -47,7 +50,7 @@ class TemplateRenderer
             'html' => view('email.nident.template', [
                 'subject' => $subject, 'preheader' => $replace($document['preheader']),
                 'accent' => $document['accent'], 'blocks' => $blocks,
-                'footer' => $replace($document['footer']),
+                'footer' => $replace($document['footer']), 'branding' => $branding ?? MailBranding::current(),
             ])->render(),
         ];
     }

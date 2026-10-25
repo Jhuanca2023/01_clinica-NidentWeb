@@ -72,9 +72,29 @@ class ContactController extends Controller
         return response()->json(['success' => true, 'message' => 'Tu mensaje quedó registrado. El equipo de Nident podrá revisarlo desde el panel.', 'result' => ['reference' => $reference, 'notification' => $notification, 'tracking_url' => '/consultar-solicitud?ref='.$reference]], 201);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(['success' => true, 'result' => DB::table('web_contacto_mensaje')->whereNotNull('nident_request_id')->latest('id')->paginate(20)]);
+        $data = $request->validate(['search' => 'nullable|string|max:120', 'status' => 'nullable|in:unread,read', 'date_from' => 'nullable|date_format:Y-m-d', 'date_to' => 'nullable|date_format:Y-m-d', 'page' => 'nullable|integer|min:1|max:1000000', 'per_page' => 'nullable|integer|in:20,50,100']);
+        abort_if(! empty($data['date_from']) && ! empty($data['date_to']) && $data['date_from'] > $data['date_to'], 422, 'La fecha final debe ser igual o posterior a la inicial.');
+        $query = DB::table('web_contacto_mensaje')->whereNotNull('nident_request_id');
+        if (($data['status'] ?? null) === 'unread') {
+            $query->whereNull('nident_read_at');
+        }
+        if (($data['status'] ?? null) === 'read') {
+            $query->whereNotNull('nident_read_at');
+        }
+        if (! empty($data['date_from'])) {
+            $query->where('created_at', '>=', $data['date_from'].' 00:00:00');
+        }
+        if (! empty($data['date_to'])) {
+            $query->where('created_at', '<=', $data['date_to'].' 23:59:59');
+        }
+        if (filled($data['search'] ?? null)) {
+            $search = '%'.addcslashes(trim($data['search']), '%_\\').'%';
+            $query->where(fn ($q) => $q->where('nombre', 'like', $search)->orWhere('email', 'like', $search)->orWhere('telefono', 'like', $search)->orWhere('asunto', 'like', $search)->orWhere('nident_reference', 'like', $search));
+        }
+
+        return response()->json(['success' => true, 'result' => $query->orderByDesc('created_at')->orderByDesc('id')->paginate($data['per_page'] ?? 20)])->header('Cache-Control', 'private, no-store');
     }
 
     public function read(int $message)

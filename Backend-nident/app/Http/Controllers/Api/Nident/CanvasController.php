@@ -61,7 +61,7 @@ class CanvasController extends Controller
 
     public function upload(Request $request)
     {
-        abort_unless(NidentPermission::allows($request->user('api'), 'site') || NidentPermission::allows($request->user('api'), 'catalog'), 403);
+        abort_unless(NidentPermission::allows($request->user('api'), 'site') || NidentPermission::allows($request->user('api'), 'catalog') || NidentPermission::allows($request->user('api'), 'mail'), 403);
         $request->validate(['image' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120|dimensions:max_width=8000,max_height=8000']);
         $file = $request->file('image');
         $extension = match ($file->getMimeType()) {

@@ -26,6 +26,10 @@ No ejecutar migraciones históricas sin ruta ni copiar credenciales del proyecto
 
 `bun run import:template` genera los lienzos desde HTML confiable. Los editores guardan valores tipados, sin aceptar scripts ni HTML arbitrario. Los identificadores generados forman parte del contrato: si se reestructura la plantilla, revisar/migrar los campos antes de importar sobre contenido editado. No ejecutar una reimportación automática en producción.
 
+En Correos → **Logo, banner y footer** se configura la identidad compartida, los datos de atención y hasta seis enlaces HTTPS. Las imágenes locales se incorporan al correo como adjuntos inline; no necesitan un dominio público. Los enlaces y las imágenes externas sí deben usar una dirección pública HTTPS. La identidad tiene su propio control de versión y no cambia las credenciales SMTP ni los mensajes que ya estaban en outbox.
+
+Reservas y mensajes consultan Laravel con filtros y paginación de 20, 50 o 100 registros. Reservas busca por nombre, referencia, correo o teléfono; mensajes añade estado leído/por revisar, asunto y rango de fechas. El navegador recibe solo la página solicitada y conserva los filtros al navegar o marcar como leído.
+
 El repositorio excluye credenciales, respaldos, archivos generados, imágenes originales de trabajo y recursos/scripts públicos del proyecto heredado. El código heredado reutilizable permanece aislado en modo Nident.
 
 Las confirmaciones de eliminación y abandono se muestran dentro del panel, con teclado, foco y cancelación. No se utiliza `alert`, `confirm` ni `beforeunload`. Los cambios editoriales no guardados se recuperan desde `sessionStorage` en la misma pestaña y sesión si su versión del servidor sigue vigente. No se almacenan credenciales SMTP ni JWT en esa copia. Cerrar una pestaña o escribir otra dirección no permite mostrar una confirmación personalizada; guardar y publicar explícitamente sigue siendo el flujo principal.

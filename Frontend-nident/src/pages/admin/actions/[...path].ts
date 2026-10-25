@@ -3,7 +3,7 @@ import { api, ApiError } from "../../../lib/server/api";
 
 const patterns: Record<string, RegExp[]> = {
   GET: [
-    /^mail\/(templates|settings|deliveries|health)$/,
+    /^mail\/(templates|settings|deliveries|health|branding)$/,
     /^(security|claims|catalog)$/,
     /^claims\/settings$/,
     /^site\/(settings|pages|modules)$/,
@@ -14,6 +14,7 @@ const patterns: Record<string, RegExp[]> = {
   PUT: [
     /^mail\/templates\/\d+$/,
     /^mail\/settings$/,
+    /^mail\/branding$/,
     /^site\/settings$/,
     /^site\/pages\/\d+$/,
     /^site\/modules\/[a-z0-9-]+$/,
@@ -26,6 +27,7 @@ const patterns: Record<string, RegExp[]> = {
     /^catalog$/,
   ],
   POST: [
+    /^mail\/branding\/preview$/,
     /^mail\/templates\/\d+\/(preview|publish|test)$/,
     /^site\/modules\/[a-z0-9-]+\/publish$/,
     /^site\/collections\/(reviews|plans)\/publish$/,

@@ -1,7 +1,7 @@
 FROM composer:2 AS composer
 FROM php:8.3-fpm-bookworm
-RUN apt-get update && apt-get install -y --no-install-recommends libonig-dev libicu-dev libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev unzip git \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+RUN apt-get update && apt-get install -y --no-install-recommends libonig-dev libicu-dev libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev libwebp-dev unzip git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) pdo_mysql mbstring bcmath intl gd zip opcache pcntl \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer

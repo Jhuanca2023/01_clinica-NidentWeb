@@ -79,6 +79,9 @@ Route::middleware(['auth:api', NidentSessionVersion::class])->group(function () 
     });
     Route::middleware(NidentPermission::class.':mail')->prefix('admin/mail')->group(function () {
         Route::get('/templates', [MailController::class, 'index']);
+        Route::get('/branding', [MailController::class, 'branding']);
+        Route::put('/branding', [MailController::class, 'saveBranding']);
+        Route::post('/branding/preview', [MailController::class, 'previewBranding']);
         Route::put('/templates/{template}', [MailController::class, 'save']);
         Route::post('/templates/{template}/publish', [MailController::class, 'publish']);
         Route::post('/templates/{template}/preview', [MailController::class, 'preview']);

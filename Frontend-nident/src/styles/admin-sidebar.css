@@ -1,0 +1,75 @@
+.admin-sidebar {
+  background: #302444 !important;
+  color: #f6f1ff !important;
+  border-right-color: #49365e !important;
+}
+.admin-brand img {
+  filter: brightness(0) invert(1);
+}
+.admin-sidebar .workspace-identity {
+  background: #3d2d53;
+}
+.admin-sidebar .workspace-identity strong {
+  color: #fff;
+}
+.admin-sidebar .workspace-identity > div > span {
+  color: #d8c8e9;
+}
+.admin-sidebar .workspace-avatar {
+  background: #7658a8;
+}
+.admin-sidebar .nav-search {
+  color: #cdbbe0;
+}
+.admin-sidebar .nav-search input {
+  color: #fff !important;
+}
+.admin-sidebar .nav-search input::placeholder {
+  color: #ccbddf;
+}
+.admin-sidebar nav a {
+  color: #e6dcef;
+}
+.admin-sidebar nav a svg {
+  color: #d1bfe4;
+}
+.admin-sidebar nav a:hover {
+  background: #49345f;
+  color: #fff;
+}
+.admin-sidebar nav a[aria-current] {
+  background: #7258b6;
+  color: #fff;
+}
+.admin-sidebar nav a[aria-current] svg {
+  color: #fff;
+}
+.admin-sidebar .nav-current-dot {
+  background: #fff;
+}
+.admin-sidebar details summary,
+.admin-sidebar details summary > span {
+  color: #cbb8e3;
+}
+.admin-sidebar .sidebar-bottom {
+  border-top-color: #59436e;
+}
+.admin-sidebar .sidebar-bottom > a,
+.admin-sidebar .sidebar-bottom button {
+  color: #e4d7f0 !important;
+}
+.admin-sidebar .sidebar-bottom a:hover,
+.admin-sidebar .sidebar-bottom button:hover {
+  color: #fff !important;
+}
+.admin-sidebar a:focus-visible,
+.admin-sidebar button:focus-visible,
+.admin-sidebar summary:focus-visible,
+.admin-sidebar input:focus-visible {
+  outline: 2px solid #c8b2ed;
+  outline-offset: 3px;
+}
+.admin-sidebar ::selection {
+  background: #b49bd6;
+  color: #231831;
+}

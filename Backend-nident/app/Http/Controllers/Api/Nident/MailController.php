@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\Nident;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Nident\MailBrandingRequest;
 use App\Http\Requests\Nident\TemplateDocumentRequest;
 use App\Models\Nident\MailDelivery;
 use App\Models\Nident\MailSetting;
 use App\Models\Nident\MailTemplate;
+use App\Services\Nident\MailBranding;
 use App\Services\Nident\MailOutbox;
 use App\Services\Nident\TemplateRenderer;
 use Illuminate\Http\Request;
@@ -15,6 +17,31 @@ use Illuminate\Validation\Rule;
 
 class MailController extends Controller
 {
+    public function branding()
+    {
+        return response()->json(['result' => ['version' => MailSetting::findOrFail(1)->branding_version, 'branding' => MailBranding::current()]]);
+    }
+
+    public function saveBranding(MailBrandingRequest $request)
+    {
+        $data = $request->validated();
+        DB::transaction(function () use ($data) {
+            $settings = MailSetting::lockForUpdate()->findOrFail(1);
+            abort_unless($settings->branding_version === $data['version'], 409, 'La identidad cambió en otra sesión. Recarga para revisarla.');
+            $settings->update(['branding' => $data['branding'], 'branding_version' => $settings->branding_version + 1]);
+        });
+
+        return $this->branding();
+    }
+
+    public function previewBranding(MailBrandingRequest $request, TemplateRenderer $renderer)
+    {
+        $data = $request->validated();
+        $template = isset($data['template_id']) ? MailTemplate::findOrFail($data['template_id']) : MailTemplate::where('key', 'appointment_requested')->firstOrFail();
+
+        return response()->json(['result' => $renderer->render($template->draft, $renderer->sample(), $data['branding'])]);
+    }
+
     public function index()
     {
         return response()->json(['success' => true, 'result' => MailTemplate::orderBy('id')->get()]);

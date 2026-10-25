@@ -29,7 +29,7 @@ class ReservationController extends Controller
 
     public function index(Request $request)
     {
-        $data = $request->validate(['status' => 'nullable|in:pending,confirmed,cancelled,completed', 'date' => 'nullable|date_format:Y-m-d', 'search' => 'nullable|string|max:120']);
+        $data = $request->validate(['status' => 'nullable|in:pending,confirmed,cancelled,completed', 'date' => 'nullable|date_format:Y-m-d', 'search' => 'nullable|string|max:120', 'page' => 'nullable|integer|min:1|max:1000000', 'per_page' => 'nullable|integer|in:20,50,100']);
         $query = DB::table('nident_reservations');
         if (! empty($data['status'])) {
             $query->where('status', $data['status']);
@@ -39,11 +39,12 @@ class ReservationController extends Controller
         }
         if (! empty($data['search'])) {
             $query->where(function ($q) use ($data) {
-                $q->where('code', 'like', '%'.$data['search'].'%')->orWhere('name', 'like', '%'.$data['search'].'%');
+                $search = '%'.addcslashes(trim($data['search']), '%_\\').'%';
+                $q->where('code', 'like', $search)->orWhere('name', 'like', $search)->orWhere('email', 'like', $search)->orWhere('phone', 'like', $search);
             });
         }
 
-        return response()->json(['result' => $query->orderByDesc('id')->paginate(20)]);
+        return response()->json(['result' => $query->orderByDesc('id')->paginate($data['per_page'] ?? 20)])->header('Cache-Control', 'private, no-store');
     }
 
     public function update(Request $request, int $reservation, RequestMailer $mailer)

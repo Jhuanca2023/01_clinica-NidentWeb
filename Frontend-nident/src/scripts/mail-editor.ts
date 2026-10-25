@@ -3,6 +3,11 @@ import {
   guardUnsavedChanges,
   draftStorage,
 } from "../lib/admin-interactions";
+import {
+  initMailBranding,
+  renderBrandingFrame,
+  mailImage,
+} from "./mail-branding";
 type BlockType = "heading" | "text" | "image" | "button" | "divider";
 interface Block {
   type: BlockType;
@@ -48,7 +53,18 @@ if (app) {
   let selected = 0;
   let dirty = false;
   let busy = false;
-  guardUnsavedChanges(() => dirty);
+  const brandingEditor = initMailBranding(
+    call,
+    () => {
+      if (doc) renderCanvas();
+    },
+    () => current?.id,
+  );
+  guardUnsavedChanges(() => dirty || brandingEditor.dirty());
+  for (const id of ["canvas-brand", "edit-brand-footer"])
+    get(id).addEventListener("click", () =>
+      document.querySelector<HTMLButtonElement>("[data-tab=branding]")?.click(),
+    );
   let settingsVersion = 1;
   let previewController: AbortController | undefined;
 
@@ -178,6 +194,7 @@ if (app) {
       doc.accent,
     );
     get("canvas-footer").textContent = doc.footer;
+    renderBrandingFrame(brandingEditor.get());
     doc.blocks.forEach((block, index) => {
       const button = document.createElement("button");
       button.type = "button";
@@ -189,7 +206,7 @@ if (app) {
       );
       button.setAttribute("aria-pressed", String(index === selected));
       if (block.type === "image") {
-        if (/^https:\/\//i.test(block.url)) {
+        if (mailImage(block.url)) {
           const image = document.createElement("img");
           image.src = block.url;
           image.alt = block.alt;
@@ -233,6 +250,7 @@ if (app) {
       block.type === "divider" || block.type === "image";
     get("block-url-label").hidden = !["button", "image"].includes(block.type);
     get("block-alt-label").hidden = block.type !== "image";
+    get("block-upload-label").hidden = block.type !== "image";
     get<HTMLButtonElement>("block-up").disabled = selected === 0;
     get<HTMLButtonElement>("block-down").disabled =
       selected === doc.blocks.length - 1;
@@ -282,6 +300,45 @@ if (app) {
       doc.blocks[selected][key] = input(`block-${key}`).value;
       changed();
     });
+  get<HTMLInputElement>("block-upload").addEventListener(
+    "change",
+    async (event) => {
+      const field = event.target as HTMLInputElement;
+      const file = field.files?.[0];
+      if (!file) return;
+      if (file.size > 5242880) {
+        feedback("La imagen supera 5 MB.", true);
+        field.value = "";
+        return;
+      }
+      const block = doc.blocks[selected];
+      const templateId = current.id;
+      const body = new FormData();
+      body.set("image", file);
+      field.disabled = true;
+      try {
+        const response = await fetch("/admin/actions/upload", {
+          method: "POST",
+          headers: { "X-CSRF-Token": csrf },
+          body,
+        });
+        const data = await response.json();
+        if (!response.ok) throw Error(data.message);
+        if (current.id !== templateId || !doc.blocks.includes(block)) return;
+        block.url = data.result.url;
+        changed();
+        renderInspector();
+        feedback(
+          "Imagen cargada. Guarda y publica la plantilla para aplicarla.",
+        );
+      } catch (error) {
+        feedback((error as Error).message, true);
+      } finally {
+        field.disabled = false;
+        field.value = "";
+      }
+    },
+  );
   get("insert-block").addEventListener("click", () => {
     if (!current) return;
     if (doc.blocks.length >= 40) {
